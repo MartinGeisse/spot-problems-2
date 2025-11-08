@@ -90,10 +90,9 @@ const exerciseInstances: ExerciseInstance[] = [
         <div>The first part is even by the induction hypothesis, so the sum is even too.</div>
       </>,
   ),
-    /*
   natInductionExercise(
       <>{mathSpan("n^3+2n")} is divisible by {mathSpan("3")}</>,
-      mathDiv("1^3+2#cdot 1 = 1 + 2 = 3"),
+      mathDiv("n^3+2n = 1^3+2#cdot 1 = 1 + 2 = 3"),
       <>{mathSpan("(n+1)^3+2#cdot (n+1)")} is divisible by {mathSpan("3")}</>,
       _detailLevel => <>
         {mathDiv("(n+1)^3 + 2#cdot (n+1)")}
@@ -103,8 +102,6 @@ const exerciseInstances: ExerciseInstance[] = [
         <div>The first part is divisible by 3 by the induction hypothesis, so the sum is divisible by 3 too.</div>
       </>,
   ),
-  
-     */
 ];
 
 export function createInductionExercise(): ExerciseInstance {
