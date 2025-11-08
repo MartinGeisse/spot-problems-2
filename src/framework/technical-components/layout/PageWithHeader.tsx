@@ -10,7 +10,7 @@ export function PageWithHeader(props: PageWithHeaderProps) {
         <div style={{flex: "0 0 auto", backgroundColor: "#ccc", borderBottom: "1px solid #aaa"}}>
             {props.header}
         </div>
-        <div style={{flex: "1 1 0"}}>
+        <div style={{flex: "1 1 0", overflowX: "hidden", overflowY: "scroll"}}>
             {props.children}
         </div>
     </div>;

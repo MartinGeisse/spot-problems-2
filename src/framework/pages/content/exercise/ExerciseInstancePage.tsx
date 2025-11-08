@@ -36,12 +36,12 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
                 </h1>
             }
         >
-          <div style={{ visibility: streamSelectionOpen ? "hidden" : "visible" }}>
+          <div style={{ display: streamSelectionOpen ? "none" : "block" }}>
             {selectedStreamIndex === 0 && <>Wenn du nicht weiterkommst, klicke hier: &nbsp;&nbsp;</>}
             {selectedStreamIndex !== 0 && <>Tipps auswählen: &nbsp;&nbsp;</>}
             <Button variant={"contained"} color={"warning"} onClick={() => setStreamSelectionOpen(true)}>Hilfe</Button>
           </div>
-          <div style={{ visibility: streamSelectionOpen ? "visible" : "hidden" }}>
+          <div style={{ display: streamSelectionOpen ? "block" : "none" }}>
             <StreamSelection
                 exerciseInstance={props.exerciseInstance}
                 selectedStreamIndex={selectedStreamIndex}
@@ -50,7 +50,7 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
             />
           </div>
           {props.exerciseInstance.streams.map((stream, index) =>
-            <div style={{ visibility: (selectedStreamIndex === index && !streamSelectionOpen) ? "visible" : "hidden" }}>
+            <div style={{ display: (selectedStreamIndex === index && !streamSelectionOpen) ? "block" : "none" }}>
               <StreamWrapper stream={stream} switchToNewInstance={props.switchToNewInstance} leaveExercise={props.leaveExercise} />
             </div>
           )}

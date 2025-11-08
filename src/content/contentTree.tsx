@@ -1,5 +1,4 @@
-import {ContentNode} from "./types";
-import {createDummyStream} from "../framework/exercise-components/dummy";
+import {ContentNode, createReadStep, createStream} from "./types";
 
 export const contentTree: ContentNode = {
     id: "root",
@@ -17,7 +16,10 @@ export const contentTree: ContentNode = {
             type: "exercise",
             instantiate() {
               return {
-                streams: [createDummyStream()],
+                streams: [
+                    createStream("Kleinbuchstaben", createReadStep("eins"), createReadStep("zwei"), createReadStep("drei")),
+                    createStream("Großbuchstaben", createReadStep("EINS"), createReadStep("ZWEI"), createReadStep("DREI")),
+                ],
               };
             }
           }

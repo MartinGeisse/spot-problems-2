@@ -13,7 +13,7 @@ export function StreamWrapper(props: StreamWrapperProps): ReactElement {
   const StreamComponent = props.stream.component;
 
   return <>
-    <StreamComponent onFinish={() => setFinished(true)} />
+    <StreamComponent disabled={finished} onFinish={() => setFinished(true)} />
     {finished && <>
       <p>Super, du hast es geschafft!</p>
       <div>

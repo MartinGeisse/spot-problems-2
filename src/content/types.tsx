@@ -1,5 +1,7 @@
-import {ReactElement} from "react";
+import {ReactElement, ReactNode} from "react";
 import {NonEmptyArray} from "../framework/util/NonEmptyArray";
+import {createSequence} from "../framework/exercise-components/Sequence";
+import {Button} from "@mui/material";
 
 // --------------------------------------------------------------------------------------------------------------------
 // content nodes
@@ -28,7 +30,8 @@ export type ContentNode = FolderNode | ExerciseNode;
 // --------------------------------------------------------------------------------------------------------------------
 
 export interface StreamComponentProps {
-    onFinish: () => void;
+  disabled: boolean;
+  onFinish: () => void;
 }
 
 export type StreamComponent = (props: StreamComponentProps) => ReactElement;
@@ -40,4 +43,22 @@ export interface Stream {
 
 export interface ExerciseInstance {
   streams: NonEmptyArray<Stream>;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// helper functions
+// --------------------------------------------------------------------------------------------------------------------
+
+export function createStream(name: string, ...steps: NonEmptyArray<StreamComponent>): Stream {
+  return {
+    name,
+    component: steps.length === 1 ? steps[0] : createSequence(steps),
+  };
+}
+
+export function createReadStep(content: ReactNode): StreamComponent {
+  return props => <>
+    <div>{content}</div>
+    <div><Button disabled={props.disabled} onClick={props.onFinish}>Weiter</Button></div>
+  </>;
 }
