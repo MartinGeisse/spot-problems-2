@@ -1,8 +1,8 @@
-import {StepInstanceProps} from "../../../unit/step/createSteppedUnit";
-import {mathDiv} from "../../../components/Math/Math";
+import {StepInstanceProps} from "../../../framework/exercise/step/createSteppedUnit";
+import {mathDiv} from "../../../framework/components/Math/Math";
 import styles from "./EquationTransformationArrowExercise.module.css";
-import {sounds} from "../../../sounds/sounds";
-import {useFlashExerciseBackgroundCorrectOrWrong} from "../../../components/effects/useFlashExerciseBackground";
+import {sounds} from "../../../framework/sounds";
+import {useFlashExerciseBackgroundCorrectOrWrong} from "../../../framework/components/effects/useFlashExerciseBackground";
 import {useState} from "react";
 
 export interface EquationTransformationArrowExerciseProps extends StepInstanceProps {

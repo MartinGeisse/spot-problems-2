@@ -1,9 +1,9 @@
-import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
-import {createReadStep} from "../../../unit/read/createReadStep";
-import {mathDiv, mathSpan} from "../../../components/Math/Math";
-import {createNumberKeyboardExercise} from "../../../unit/numbers/createNumberKeyboardExercise";
-import {createNumberKeyboardLayoutReadStep} from "../../../unit/numbers/createNumberKeyboardLayoutReadStep";
-import {noFadeStep} from "../../../unit/step/noFadeStep";
+import {createSteppedUnit} from "../../../framework/exercise/step/createSteppedUnit";
+import {createReadStep} from "../../../framework/exercise/read/createReadStep";
+import {mathDiv, mathSpan} from "../../../framework/components/Math/Math";
+import {createNumberKeyboardExercise} from "../../../framework/exercise/numbers/createNumberKeyboardExercise";
+import {createNumberKeyboardLayoutReadStep} from "../../../framework/exercise/numbers/createNumberKeyboardLayoutReadStep";
+import {noFadeStep} from "../../../framework/exercise/step/noFadeStep";
 
 export const induktionUnit3 = createSteppedUnit("rekursion", "Bezug auf das vorherige Teilergebnis", () => [
     createReadStep({

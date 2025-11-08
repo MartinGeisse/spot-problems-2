@@ -26,5 +26,21 @@ Beispiel:
 ist das so gut, oder lieber je Schritt die Hilfe? Nein, ich denke nicht je schritt, weil man dann unweigerlich
 die Schritte schon vorgibt, was an sich schon eine Hilfe ist.
 
+Behält ein Stream seinen Zustand, wenn man auf einen anderen Stream wechselt?
+- eigentlich egal
+- einfacher zu programmieren ist "ja", weil man dann nicht das generieren der ganzen Aufgabe vom generieren eines
+    Streams trennen muss
+- das ist wahrscheinlich auch für den benutzer besser. Man kann dann eher mal hin und her wechseln, wenn man nur an
+    einer Stelle Probleme hat. Andersrum ist der Use-Case für "neu" kaum da; wenn man nach Lesen der Anleitung
+    zurückwechselt, ist die Aufgabe beim ersten mal ja noch da, nur Wiederholungen gehen nicht. Das geht aber
+    insgesamt nicht. Außerdem kann man ja immer noch die Aufgabe wiederholen und dann mit neuen Zahlen probieren.
+-->
+Zustand bleibt erhalten.
 
+Zustand ist der einfachheit halber react-state. Grund: Wenn man es trennen würde, dürfte es gar keinen React-State
+geben, sonst bliebe der Zustand nur teilweise erhalten. Fehlerquelle! React-State bleibt aber nur erhalten, wenn
+die Component im DOM bleibt -- das JSX-Element trägt keinen State. Also müssen alle Streams auf einmal im DOM erzeugt
+werden und dann nur unsichtbar geschaltet.
+
+TODO: später mal nur leere Schalen erzeugen und den Inhalt der Streams lazy, damit bessere Performance.
 

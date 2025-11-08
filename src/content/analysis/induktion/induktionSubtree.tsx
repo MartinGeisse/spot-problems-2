@@ -13,7 +13,7 @@ import {induktionUnit11x} from "./induktionUnit11x-uebungen";
 import {induktionUnit12x} from "./induktionUnit12x-fakultaet";
 import {induktionUnit13x} from "./induktionUnit13x-mengen-reihenfolgen";
 import {induktionUnit14} from "./induktionUnit14-beweis";
-import {createDummyUnit} from "../../../unit/createDummyUnit";
+import {createDummyUnit} from "../../../framework/exercise/createDummyUnit";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",

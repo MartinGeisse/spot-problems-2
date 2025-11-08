@@ -1,10 +1,10 @@
-import {createSteppedUnit, StepInstanceProps} from "../../../unit/step/createSteppedUnit";
-import {createReadStep} from "../../../unit/read/createReadStep";
-import {mathDiv, mathSpan} from "../../../components/Math/Math";
-import {createChoiceStep} from "../../../unit/choice/createChoiceStep";
-import {withTextSize} from "../../../unit/step/withTextSize";
-import {CenteredContent} from "../../../components/layout/CenteredContent";
-import {TextSize} from "../../../components/layout/TextSize";
+import {createSteppedUnit, StepInstanceProps} from "../../../framework/exercise/step/createSteppedUnit";
+import {createReadStep} from "../../../framework/exercise/read/createReadStep";
+import {mathDiv, mathSpan} from "../../../framework/components/Math/Math";
+import {createChoiceStep} from "../../../framework/exercise/choice/createChoiceStep";
+import {withTextSize} from "../../../framework/exercise/step/withTextSize";
+import {CenteredContent} from "../../../framework/components/layout/CenteredContent";
+import {TextSize} from "../../../framework/components/layout/TextSize";
 import {SortEquationTransformationExercise} from "./SortEquationTransformationExercise";
 import {EquationTransformationArrowExercise} from "./EquationTransformationArrowExercise";
 

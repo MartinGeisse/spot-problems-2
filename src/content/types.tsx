@@ -1,4 +1,5 @@
 import {ReactElement} from "react";
+import {NonEmptyArray} from "../framework/util/NonEmptyArray";
 
 // --------------------------------------------------------------------------------------------------------------------
 // content nodes
@@ -26,10 +27,17 @@ export type ContentNode = FolderNode | ExerciseNode;
 // exercise instances
 // --------------------------------------------------------------------------------------------------------------------
 
-export interface ExerciseInstanceProps {
-    onProgress: () => void;
-    onMistake: () => void;
+export interface StreamComponentProps {
     onFinish: () => void;
 }
 
-export type ExerciseInstance = (props: ExerciseInstanceProps) => ReactElement;
+export type StreamComponent = (props: StreamComponentProps) => ReactElement;
+
+export interface Stream {
+  name: string;
+  component: StreamComponent;
+}
+
+export interface ExerciseInstance {
+  streams: NonEmptyArray<Stream>;
+}

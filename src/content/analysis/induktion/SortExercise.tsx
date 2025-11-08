@@ -1,4 +1,4 @@
-import {StepInstanceProps} from "../../../unit/step/createSteppedUnit";
+import {StepInstanceProps} from "../../../framework/exercise/step/createSteppedUnit";
 import React, {ReactNode, useState} from "react";
 import {closestCenter, DndContext, KeyboardSensor, PointerSensor, useSensor, useSensors,} from '@dnd-kit/core';
 import {
@@ -9,11 +9,11 @@ import {
     verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
-import {useFlashExerciseBackgroundCorrectOrWrong} from "../../../components/effects/useFlashExerciseBackground";
-import {sounds} from "../../../sounds/sounds";
+import {useFlashExerciseBackgroundCorrectOrWrong} from "../../../framework/components/effects/useFlashExerciseBackground";
+import {sounds} from "../../../framework/sounds";
 import {Button} from "@mui/material";
-import {createIndexArray} from "../../../util/createIndexArray";
-import {getShuffled} from "../../../util/random/getShuffled";
+import {createIndexArray} from "../../../framework/util/createIndexArray";
+import {getShuffled} from "../../../framework/util/random/getShuffled";
 
 export interface SortExerciseProps extends StepInstanceProps {
     description: ReactNode;

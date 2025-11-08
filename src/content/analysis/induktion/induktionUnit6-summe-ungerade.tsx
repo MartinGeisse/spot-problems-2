@@ -1,10 +1,10 @@
-import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
-import {createReadStep} from "../../../unit/read/createReadStep";
+import {createSteppedUnit} from "../../../framework/exercise/step/createSteppedUnit";
+import {createReadStep} from "../../../framework/exercise/read/createReadStep";
 import {MathTable} from "./MathTable";
-import {createNumberKeyboardExercise} from "../../../unit/numbers/createNumberKeyboardExercise";
-import {mathDiv, mathSpan} from "../../../components/Math/Math";
-import {createChoiceStep} from "../../../unit/choice/createChoiceStep";
-import {withTextSize} from "../../../unit/step/withTextSize";
+import {createNumberKeyboardExercise} from "../../../framework/exercise/numbers/createNumberKeyboardExercise";
+import {mathDiv, mathSpan} from "../../../framework/components/Math/Math";
+import {createChoiceStep} from "../../../framework/exercise/choice/createChoiceStep";
+import {withTextSize} from "../../../framework/exercise/step/withTextSize";
 
 const indexValueReminder = <p>Zur Erinnerung aus dem Grundkurs: Die
     Indizes {mathSpan("i")} und {mathSpan("n")} sind <i>nicht</i> die

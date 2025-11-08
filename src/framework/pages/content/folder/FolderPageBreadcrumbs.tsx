@@ -1,7 +1,7 @@
-import {ContentNode} from "../../../content/types";
+import {ContentNode} from "../../../../content/types";
 import {Breadcrumbs, BreadcrumbsElement} from "../../../components/navigation/Breadcrumbs/Breadcrumbs";
-import {buildUrlPathForContentPath, getContentNodeChildById} from "../../../content/paths";
-import {contentTree} from "../../../content/contentTree";
+import {buildUrlPathForContentPath, getContentNodeChildById} from "../../../../content/paths";
+import {contentTree} from "../../../../content/contentTree";
 
 export interface FolderPageBreadcrumbsProps {
     path: string[];

@@ -1,7 +1,7 @@
-import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
-import {createReadStep} from "../../../unit/read/createReadStep";
-import {mathDiv, mathSpan} from "../../../components/Math/Math";
-import {TextSize} from "../../../components/layout/TextSize";
+import {createSteppedUnit} from "../../../framework/exercise/step/createSteppedUnit";
+import {createReadStep} from "../../../framework/exercise/read/createReadStep";
+import {mathDiv, mathSpan} from "../../../framework/components/Math/Math";
+import {TextSize} from "../../../framework/components/layout/TextSize";
 
 export const induktionUnit4 = createSteppedUnit("induktion", "Beweis durch Vollständige Induktion", () => [
     createReadStep({

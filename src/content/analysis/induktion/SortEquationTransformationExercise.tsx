@@ -1,5 +1,5 @@
-import {StepInstanceProps} from "../../../unit/step/createSteppedUnit";
-import {mathDiv} from "../../../components/Math/Math";
+import {StepInstanceProps} from "../../../framework/exercise/step/createSteppedUnit";
+import {mathDiv} from "../../../framework/components/Math/Math";
 import {SortExercise} from "./SortExercise";
 import {ReactNode} from "react";
 import styles from "./SortEquationTransformationExercise.module.css";

@@ -1,5 +1,5 @@
-import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
-import {createReadStep} from "../../../unit/read/createReadStep";
+import {createSteppedUnit} from "../../../framework/exercise/step/createSteppedUnit";
+import {createReadStep} from "../../../framework/exercise/read/createReadStep";
 
 export const induktionUnit11x = [
     createSteppedUnit("anderer-induktionsanfang-uebungen-1", "Übungen (1)", () => [

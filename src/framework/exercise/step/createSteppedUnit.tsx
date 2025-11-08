@@ -1,4 +1,4 @@
-import {ExerciseNode, ExerciseInstanceProps} from "../../content/types";
+import {ExerciseNode, ExerciseInstanceProps} from "../../../content/types";
 import {ReactElement, useState} from "react";
 import {FadeIn} from "../../components/effects/FadeIn";
 

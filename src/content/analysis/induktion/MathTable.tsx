@@ -1,5 +1,5 @@
-import {mathSpan} from "../../../components/Math/Math";
-import {CenterBlock} from "../../../components/layout/CenterBlock";
+import {mathSpan} from "../../../framework/components/Math/Math";
+import {CenterBlock} from "../../../framework/components/layout/CenterBlock";
 
 export interface MathTableProps {
     widthPercent: number;

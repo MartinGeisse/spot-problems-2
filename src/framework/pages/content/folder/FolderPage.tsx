@@ -1,4 +1,4 @@
-import {FolderNode} from "../../../content/types";
+import {FolderNode} from "../../../../content/types";
 import {FolderPageBreadcrumbs} from "./FolderPageBreadcrumbs";
 import {NavigationList} from "../../../components/navigation/NavigationList/NavigationList";
 import {useNavigateToContentNode} from "../../../components/navigation/ContentNodeLink/useNavigateToContentNode";

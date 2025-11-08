@@ -1,13 +1,13 @@
-import {createSteppedUnit, StepInstanceProps} from "../../../unit/step/createSteppedUnit";
+import {createSteppedUnit, StepInstanceProps} from "../../../framework/exercise/step/createSteppedUnit";
 import {ReactNode} from "react";
-import {mathSpan} from "../../../components/Math/Math";
-import {HorizontalSplit} from "../../../components/layout/HorizontalSplit";
+import {mathSpan} from "../../../framework/components/Math/Math";
+import {HorizontalSplit} from "../../../framework/components/layout/HorizontalSplit";
 import {createBoxMatrix} from "./createBoxMatrix";
-import {getShuffled} from "../../../util/random/getShuffled";
-import {ImmediateFeedbackChoiceExercise} from "../../../unit/choice/ImmediateFeedbackChoiceExercise";
-import {createReadStep} from "../../../unit/read/createReadStep";
-import {inlineLet} from "../../../util/inlineLet";
-import {CenteredContent} from "../../../components/layout/CenteredContent";
+import {getShuffled} from "../../../framework/util/random/getShuffled";
+import {ImmediateFeedbackChoiceExercise} from "../../../framework/exercise/choice/ImmediateFeedbackChoiceExercise";
+import {createReadStep} from "../../../framework/exercise/read/createReadStep";
+import {inlineLet} from "../../../framework/util/inlineLet";
+import {CenteredContent} from "../../../framework/components/layout/CenteredContent";
 
 export const induktionUnit2 = createSteppedUnit("summeNBeweis", "Beweis", () => {
     const makeContent = (matrixSpec: string[], right: ReactNode, bottom: ReactNode) => <>

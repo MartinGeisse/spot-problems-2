@@ -1,10 +1,10 @@
-import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
-import {createReadStep} from "../../../unit/read/createReadStep";
-import {mathDiv, mathSpan} from "../../../components/Math/Math";
-import {CenterBlock} from "../../../components/layout/CenterBlock";
-import {createNumberKeyboardExercise} from "../../../unit/numbers/createNumberKeyboardExercise";
-import {noFadeStep} from "../../../unit/step/noFadeStep";
-import {createNumberKeyboardLayoutReadStep} from "../../../unit/numbers/createNumberKeyboardLayoutReadStep";
+import {createSteppedUnit} from "../../../framework/exercise/step/createSteppedUnit";
+import {createReadStep} from "../../../framework/exercise/read/createReadStep";
+import {mathDiv, mathSpan} from "../../../framework/components/Math/Math";
+import {CenterBlock} from "../../../framework/components/layout/CenterBlock";
+import {createNumberKeyboardExercise} from "../../../framework/exercise/numbers/createNumberKeyboardExercise";
+import {noFadeStep} from "../../../framework/exercise/step/noFadeStep";
+import {createNumberKeyboardLayoutReadStep} from "../../../framework/exercise/numbers/createNumberKeyboardLayoutReadStep";
 
 export const induktionUnit1 = createSteppedUnit("summeN", "Summe der ersten n Zahlen", () => [
     createReadStep({

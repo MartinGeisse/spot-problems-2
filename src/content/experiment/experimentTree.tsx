@@ -1,9 +1,9 @@
 import {ContentNode} from "../types";
-import {createSteppedUnit, UnitStep} from "../../unit/step/createSteppedUnit";
-import {createLoopedSteps} from "../../unit/step/createLoopedSteps";
+import {createSteppedUnit, UnitStep} from "../../framework/exercise/step/createSteppedUnit";
+import {createLoopedSteps} from "../../framework/exercise/step/createLoopedSteps";
 import {ReactNode} from "react";
 import {NumberChoice20Exercise} from "./NumberChoice20Exercise";
-import {randomInt} from "../../util/random/randomInt";
+import {randomInt} from "../../framework/util/random/randomInt";
 
 export function createNumbers20Exercise(title: ReactNode, answer: number): UnitStep {
     return props => <NumberChoice20Exercise
