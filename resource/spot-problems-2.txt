@@ -1,0 +1,30 @@
+
+Ordner + Aufgabengeneratoren; Ordner erst mal für Fächer+Themen, aber auch Schwierigkeitsstufen. Später könnte man
+die Schwierigkeitsstufen anders darstellen, um es verständlicher zu machen, aber das nach v1.
+
+Aufgabengenerator: ($RANDOM) -> Aufgabe
+
+Aufgabe: "Varianten" oder "Streams" oder was auch immer
+- eines ist die Default-Variante
+- alle anderen sind hinter einem Button wo "hilfe" drauf steht, nicht immer gleich alle zur Navigation anzeigen aus UI
+    Gründen. Über jeder Aufgabe die Infobox: Wenn du nicht weiterkommst, drück diesen Button --> [Hilfe]
+- dann erst mal die anderen Streams zur Auswahl (ggf. shortcut, wenn es nur einen anderen gibt, aber das könnte UI
+    mäßig blöd sein weil mal so mal so. Außerdem könnte in demselben Menü auch der Default-Stream angeboten werden
+    und dann in den anderen Streams genauso der Button nur mit anderem Text drauf und daneben.
+
+Wichtig: Derselbe Random-Seed erzeugt alle Streams auf einmal! Die müssen zusammenpassen!
+
+Beispiel:
+
+- Default-Stream / Stream 0: normale Aufgabe
+- Stream 1: Hilfestellung, welche Schritte grob auszuführen sind. i.a. NICHT nur ein Tipp, weil die Aufgabe i.a.
+    länger ist (das ist das besondere an dieser Plattform) und man an mehreren Stellen Tipps braucht.
+- Stream 2: Bei jedem Einzelschritt erklärt, was man machen muss -- und dann aber auch jeweils mit dem UI, um es
+    zu tun
+- Stream 3: je Einzelschritt auch das Ergebnis, also eigentlich komplett vorgerechnet
+
+ist das so gut, oder lieber je Schritt die Hilfe? Nein, ich denke nicht je schritt, weil man dann unweigerlich
+die Schritte schon vorgibt, was an sich schon eine Hilfe ist.
+
+
+

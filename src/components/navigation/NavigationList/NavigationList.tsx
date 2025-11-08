@@ -1,7 +1,6 @@
 import styles from "./NavigationList.module.scss";
 import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import {ReactNode} from "react";
-import {FolderScoreView} from "../../../state/state";
 
 export interface NavigationListElement {
     label: string;
@@ -11,7 +10,6 @@ export interface NavigationListElement {
 
 export interface NavigationListProps {
     elements: NavigationListElement[];
-    scores: FolderScoreView;
 }
 
 export function NavigationList(props: NavigationListProps) {
