@@ -6,8 +6,6 @@ import {useState} from "react";
 import {FinishUnitPage} from "./FinishUnitPage";
 import {getNextUnitPath} from "../../../content/paths";
 import {PageWithHeader} from "../../../components/layout/PageWithHeader";
-import {setUnitScore} from "../../../state/state";
-import {calculateIntScore} from "./calculateScore";
 import {FlashExerciseBackgroundProvider} from "../../../components/effects/useFlashExerciseBackground";
 
 export interface UnitInstancePageProps {
@@ -41,7 +39,6 @@ export function UnitInstancePage(props: UnitInstancePageProps) {
     }
 
     function onFinish() {
-        setUnitScore(props.path, calculateIntScore(progressCounter, mistakeCounter));
         setFinished(true);
     }
 
