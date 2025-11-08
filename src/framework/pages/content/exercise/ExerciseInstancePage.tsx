@@ -24,6 +24,8 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
           props.leaveExercise();
         }
     }
+    
+    var helpBoxDisplay = (streamSelectionOpen || props.exerciseInstance.streams.length === 1) ? "none" : "block";
 
     return <>
         <PageWithHeader
@@ -36,10 +38,11 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
                 </h1>
             }
         >
-          <div style={{ display: streamSelectionOpen ? "none" : "block" }}>
-            {selectedStreamIndex === 0 && <>Wenn du nicht weiterkommst, klicke hier: &nbsp;&nbsp;</>}
-            {selectedStreamIndex !== 0 && <>Tipps auswählen: &nbsp;&nbsp;</>}
+          <div style={{ marginTop: "0.2em", display: helpBoxDisplay }}>
+            {selectedStreamIndex === 0 && <>If you get stuck, click here: &nbsp;&nbsp;</>}
+            {selectedStreamIndex !== 0 && <>Select hints: &nbsp;&nbsp;</>}
             <Button variant={"contained"} color={"warning"} onClick={() => setStreamSelectionOpen(true)}>Hilfe</Button>
+            <hr />
           </div>
           <div style={{ display: streamSelectionOpen ? "block" : "none" }}>
             <StreamSelection
@@ -50,7 +53,7 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
             />
           </div>
           {props.exerciseInstance.streams.map((stream, index) =>
-            <div style={{ display: (selectedStreamIndex === index && !streamSelectionOpen) ? "block" : "none" }}>
+            <div style={{ marginTop: "0.2em", display: (selectedStreamIndex === index && !streamSelectionOpen) ? "block" : "none" }}>
               <StreamWrapper stream={stream} switchToNewInstance={props.switchToNewInstance} leaveExercise={props.leaveExercise} />
             </div>
           )}

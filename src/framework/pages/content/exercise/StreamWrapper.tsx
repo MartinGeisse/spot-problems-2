@@ -15,7 +15,7 @@ export function StreamWrapper(props: StreamWrapperProps): ReactElement {
   return <>
     <StreamComponent disabled={finished} onFinish={() => setFinished(true)} />
     {finished && <>
-      <p>Super, du hast es geschafft!</p>
+      <br /><br />
       <div>
         &nbsp;
         <Button variant={"contained"} onClick={props.switchToNewInstance}>Neue Aufgabe</Button>
