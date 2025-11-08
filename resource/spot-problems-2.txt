@@ -44,3 +44,8 @@ werden und dann nur unsichtbar geschaltet.
 
 TODO: später mal nur leere Schalen erzeugen und den Inhalt der Streams lazy, damit bessere Performance.
 
+
+
+
+Beispiele:
+https://en.wikipedia.org/wiki/All_horses_are_the_same_color

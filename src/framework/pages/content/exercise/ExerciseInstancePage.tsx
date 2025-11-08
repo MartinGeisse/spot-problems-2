@@ -41,7 +41,7 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
           <div style={{ marginTop: "0.2em", display: helpBoxDisplay }}>
             {selectedStreamIndex === 0 && <>If you get stuck, click here: &nbsp;&nbsp;</>}
             {selectedStreamIndex !== 0 && <>Select hints: &nbsp;&nbsp;</>}
-            <Button variant={"contained"} color={"warning"} onClick={() => setStreamSelectionOpen(true)}>Hilfe</Button>
+            <Button variant={"contained"} color={"warning"} onClick={() => setStreamSelectionOpen(true)}>Help</Button>
             <hr />
           </div>
           <div style={{ display: streamSelectionOpen ? "block" : "none" }}>

@@ -15,7 +15,12 @@ export interface StreamSelectionProps {
 export function StreamSelection(props: StreamSelectionProps): ReactElement {
   return <>
     {props.exerciseInstance.streams.map((stream, index) => <div key={index}>
-      <Button onClick={() => props.selectStream(index)}>{stream.name}</Button>
+      <Button onClick={() => props.selectStream(index)}>
+        <div style={{ display: "inlineBlock", width: "2em" }}>
+          {props.selectedStreamIndex === index && "👉"}
+        </div>
+        {stream.name}
+      </Button>
     </div>)}
   </>;
 }
