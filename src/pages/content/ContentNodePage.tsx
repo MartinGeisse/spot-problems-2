@@ -1,4 +1,4 @@
-import {ContentNode, Folder, Unit} from "../../content/types";
+import {ContentNode, FolderNode, ExerciseNode} from "../../content/types";
 import {FolderPage} from "./folder/FolderPage";
 import {ExercisePage} from "./exercise/ExercisePage";
 
@@ -10,8 +10,8 @@ export interface ContentNodePageProps {
 export function ContentNodePage(props: ContentNodePageProps) {
     switch (props.node.type) {
         case "folder":
-            return <FolderPage folder={props.node as Folder} path={props.path} />;
+            return <FolderPage folder={props.node as FolderNode} path={props.path} />;
         case "exercise":
-            return <ExercisePage unit={props.node as Unit} path={props.path} />;
+            return <ExercisePage unit={props.node as ExerciseNode} path={props.path} />;
     }
 }

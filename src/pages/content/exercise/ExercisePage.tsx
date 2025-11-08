@@ -1,9 +1,9 @@
-import {Unit} from "../../../content/types";
+import {ExerciseNode} from "../../../content/types";
 import {useState} from "react";
-import {UnitInstancePage} from "./UnitInstancePage";
+import {ExerciseInstancePage} from "./ExerciseInstancePage";
 
 export interface UnitPageProps {
-    unit: Unit;
+    unit: ExerciseNode;
     path: string[];
 }
 
@@ -11,16 +11,16 @@ export function ExercisePage(props: UnitPageProps) {
     const [instanceCounter, setInstanceCounter] = useState(0);
     const [unitInstance, setUnitInstance] = useState(() => props.unit.instantiate());
     
-    function onNewInstance() {
+    function switchToNewInstance() {
         setInstanceCounter(instanceCounter + 1);
         setUnitInstance(() => props.unit.instantiate());
     }
     
-    return <UnitInstancePage
+    return <ExerciseInstancePage
         key={instanceCounter}
-        unit={props.unit}
         path={props.path}
-        unitInstance={unitInstance}
-        onNewInstance={onNewInstance}
+        exerciseNode={props.unit}
+        exerciseInstance={unitInstance}
+        switchToNewInstance={switchToNewInstance}
     />;
 }

@@ -1,4 +1,4 @@
-import {Folder} from "../../../content/types";
+import {FolderNode} from "../../../content/types";
 import {FolderPageBreadcrumbs} from "./FolderPageBreadcrumbs";
 import {NavigationList} from "../../../components/navigation/NavigationList/NavigationList";
 import {useNavigateToContentNode} from "../../../components/navigation/ContentNodeLink/useNavigateToContentNode";
@@ -6,7 +6,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {WithHeader} from "../../../components/layout/WithHeader";
 
 export interface FolderPageProps {
-    folder: Folder;
+    folder: FolderNode;
     path: string[];
 }
 

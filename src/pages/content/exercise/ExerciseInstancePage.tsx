@@ -1,20 +1,19 @@
-import {Unit, UnitInstance} from "../../../content/types";
+import {ExerciseNode, ExerciseInstance} from "../../../content/types";
 import CancelIcon from '@mui/icons-material/Cancel';
 import {IconButton} from "@mui/material";
 import {useNavigateToContentNode} from "../../../components/navigation/ContentNodeLink/useNavigateToContentNode";
 import {useState} from "react";
-import {FinishUnitPage} from "./FinishUnitPage";
 import {PageWithHeader} from "../../../components/layout/PageWithHeader";
 import {FlashExerciseBackgroundProvider} from "../../../components/effects/useFlashExerciseBackground";
 
 export interface UnitInstancePageProps {
-    unit: Unit;
     path: string[];
-    unitInstance: UnitInstance;
-    onNewInstance: () => void;
+    exerciseNode: ExerciseNode;
+    exerciseInstance: ExerciseInstance;
+    switchToNewInstance: () => void;
 }
 
-export function UnitInstancePage(props: UnitInstancePageProps) {
+export function ExerciseInstancePage(props: UnitInstancePageProps) {
     const navigateToContentNode = useNavigateToContentNode();
     const [progressCounter, setProgressCounter] = useState(0);
     const [mistakeCounter, setMistakeCounter] = useState(0);
@@ -42,7 +41,7 @@ export function UnitInstancePage(props: UnitInstancePageProps) {
     }
 
     function onRepeat() {
-        props.onNewInstance();
+        props.switchToNewInstance();
     }
 
     function onContinue() {
@@ -58,15 +57,15 @@ export function UnitInstancePage(props: UnitInstancePageProps) {
         }
     }
 
-    const MyUnitInstance = props.unitInstance;
+    const MyUnitInstance = props.exerciseInstance;
     return <>
-        {!finished && <PageWithHeader
+        <PageWithHeader
             header={
                 <h1 style={{margin: 0}}>
                     <IconButton onClick={onClickCancel} sx={{marginRight: "1em"}}>
                         <CancelIcon fontSize={"large"} />
                     </IconButton>
-                    {props.unit.name}
+                    {props.exerciseNode.name}
                 </h1>
             }
         >
@@ -77,12 +76,6 @@ export function UnitInstancePage(props: UnitInstancePageProps) {
                     onFinish={onFinish}
                 />
             </FlashExerciseBackgroundProvider>
-        </PageWithHeader>}
-        {finished && <FinishUnitPage
-            progressCounter={progressCounter}
-            mistakeCounter={mistakeCounter}
-            onRepeat={onRepeat}
-            onContinue={onContinue}
-        />}
+        </PageWithHeader>
     </>;
 }

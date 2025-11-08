@@ -1,9 +1,9 @@
-import {ContentNode, Folder} from "./types";
+import {ContentNode, FolderNode} from "./types";
 import {contentTree} from "./contentTree";
 
 export function getContentNodeChildById(node: ContentNode, id: string): ContentNode | null {
     if (node.type === "folder") {
-        let child = (node as Folder).children.find(child => child.id === id);
+        let child = (node as FolderNode).children.find(child => child.id === id);
         if (child) {
             return child;
         }

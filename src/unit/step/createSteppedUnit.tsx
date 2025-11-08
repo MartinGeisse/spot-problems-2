@@ -1,4 +1,4 @@
-import {Unit, UnitInstanceProps} from "../../content/types";
+import {ExerciseNode, ExerciseInstanceProps} from "../../content/types";
 import {ReactElement, useState} from "react";
 import {FadeIn} from "../../components/effects/FadeIn";
 
@@ -15,7 +15,7 @@ export interface StepMetadata {
 export type UnitStep = ((props: StepInstanceProps) => ReactElement) & StepMetadata;
 
 export function createSteppedUnitInstance(steps: UnitStep[]) {
-    return (props: UnitInstanceProps) => {
+    return (props: ExerciseInstanceProps) => {
         const [currentStepIndex, setCurrentStepIndex] = useState(0);
         const CurrentStep = steps[currentStepIndex];
 
@@ -47,7 +47,7 @@ export function createSteppedUnitInstance(steps: UnitStep[]) {
     };
 }
 
-export function createSteppedUnit(id: string, name: string, stepsFactory: () => UnitStep[]): Unit {
+export function createSteppedUnit(id: string, name: string, stepsFactory: () => UnitStep[]): ExerciseNode {
     return {
         id,
         name,

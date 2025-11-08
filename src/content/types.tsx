@@ -12,24 +12,24 @@ export interface ContentNodeBase {
     type: ContentNodeType;
 }
 
-export interface Folder extends ContentNodeBase {
+export interface FolderNode extends ContentNodeBase {
     children: ContentNode[];
 }
 
-export interface Unit extends ContentNodeBase {
-    instantiate(): UnitInstance;
+export interface ExerciseNode extends ContentNodeBase {
+    instantiate(): ExerciseInstance;
 }
 
-export type ContentNode = Folder | Unit;
+export type ContentNode = FolderNode | ExerciseNode;
 
 // --------------------------------------------------------------------------------------------------------------------
 // exercise instances
 // --------------------------------------------------------------------------------------------------------------------
 
-export interface UnitInstanceProps {
+export interface ExerciseInstanceProps {
     onProgress: () => void;
     onMistake: () => void;
     onFinish: () => void;
 }
 
-export type UnitInstance = (props: UnitInstanceProps) => ReactElement;
+export type ExerciseInstance = (props: ExerciseInstanceProps) => ReactElement;
