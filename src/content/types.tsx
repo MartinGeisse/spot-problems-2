@@ -4,7 +4,7 @@ import {ReactElement} from "react";
 // content nodes
 // --------------------------------------------------------------------------------------------------------------------
 
-export type ContentNodeType = "folder" | "unit";
+export type ContentNodeType = "folder" | "exercise";
 
 export interface ContentNodeBase {
     id: string;
@@ -14,7 +14,6 @@ export interface ContentNodeBase {
 
 export interface Folder extends ContentNodeBase {
     children: ContentNode[];
-    isolatedChildren?: boolean; // typically only false for the root folder, so the default is true
 }
 
 export interface Unit extends ContentNodeBase {
@@ -24,7 +23,7 @@ export interface Unit extends ContentNodeBase {
 export type ContentNode = Folder | Unit;
 
 // --------------------------------------------------------------------------------------------------------------------
-// unit instances
+// exercise instances
 // --------------------------------------------------------------------------------------------------------------------
 
 export interface UnitInstanceProps {

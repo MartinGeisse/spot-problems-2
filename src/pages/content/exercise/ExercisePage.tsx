@@ -7,7 +7,7 @@ export interface UnitPageProps {
     path: string[];
 }
 
-export function UnitPage(props: UnitPageProps) {
+export function ExercisePage(props: UnitPageProps) {
     const [instanceCounter, setInstanceCounter] = useState(0);
     const [unitInstance, setUnitInstance] = useState(() => props.unit.instantiate());
     

@@ -11,7 +11,7 @@ export interface CenteredContentProps {
 }
 
 /**
- * A horizontally and vertically centered DIV, to be used as the root element for unit content.
+ * A horizontally and vertically centered DIV, to be used as the root element for exercise content.
  */
 export function CenteredContent(props: CenteredContentProps) {
     // TODO handle content that is too large

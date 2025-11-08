@@ -51,7 +51,7 @@ export function createSteppedUnit(id: string, name: string, stepsFactory: () => 
     return {
         id,
         name,
-        type: "unit",
+        type: "exercise",
         instantiate: () => createSteppedUnitInstance(stepsFactory()),
     };
 }
