@@ -37,7 +37,8 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
             }
         >
           <div style={{ visibility: streamSelectionOpen ? "hidden" : "visible" }}>
-            Wenn du nicht weiterkommst, klicke hier: &nbsp;&nbsp;
+            {selectedStreamIndex === 0 && <>Wenn du nicht weiterkommst, klicke hier: &nbsp;&nbsp;</>}
+            {selectedStreamIndex !== 0 && <>Tipps auswählen: &nbsp;&nbsp;</>}
             <Button variant={"contained"} color={"warning"} onClick={() => setStreamSelectionOpen(true)}>Hilfe</Button>
           </div>
           <div style={{ visibility: streamSelectionOpen ? "visible" : "hidden" }}>
