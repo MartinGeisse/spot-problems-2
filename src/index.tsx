@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {Metric} from "web-vitals";
-import {App} from "./framework/components/App/App";
+import {App} from "./framework/technical-components/App/App";
 import "katex/dist/katex.min.css";
-import {initializeDeveloperControls} from "./framework/components/App/developer";
-import "./framework/components/App/global.css"
+import {initializeDeveloperControls} from "./framework/technical-components/App/developer";
+import "./framework/technical-components/App/global.css"
 
 initializeDeveloperControls();
 
@@ -12,15 +11,3 @@ const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
 );
 root.render(<App/>);
-
-// performance measuring
-import('web-vitals').then(({getCLS, getFID, getFCP, getLCP, getTTFB}) => {
-    function onPerfEntry(_metric: Metric) {
-        // console.log(metric);
-    }
-    getCLS(onPerfEntry);
-    getFID(onPerfEntry);
-    getFCP(onPerfEntry);
-    getLCP(onPerfEntry);
-    getTTFB(onPerfEntry);
-});

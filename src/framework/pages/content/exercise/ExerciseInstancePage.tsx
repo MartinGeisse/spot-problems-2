@@ -2,7 +2,7 @@ import {ExerciseInstance} from "../../../../content/types";
 import CancelIcon from '@mui/icons-material/Cancel';
 import {Button, IconButton} from "@mui/material";
 import {useState} from "react";
-import {PageWithHeader} from "../../../components/layout/PageWithHeader";
+import {PageWithHeader} from "../../../technical-components/layout/PageWithHeader";
 import {StreamSelection} from "./StreamSelection";
 import {StreamWrapper} from "./StreamWrapper";
 
@@ -36,9 +36,9 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
                 </h1>
             }
         >
-          <div>
-            Wenn du nicht weiterkommst, klicke hier:
-            <Button onClick={() => setStreamSelectionOpen(true)}>Hilfe</Button>
+          <div style={{ visibility: streamSelectionOpen ? "hidden" : "visible" }}>
+            Wenn du nicht weiterkommst, klicke hier: &nbsp;&nbsp;
+            <Button variant={"contained"} color={"warning"} onClick={() => setStreamSelectionOpen(true)}>Hilfe</Button>
           </div>
           <div style={{ visibility: streamSelectionOpen ? "visible" : "hidden" }}>
             <StreamSelection
