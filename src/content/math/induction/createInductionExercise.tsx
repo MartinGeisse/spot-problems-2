@@ -1,8 +1,8 @@
 import {createStream, ExerciseInstance} from "../../types";
 import {createShowProblemRevealSolution} from "../../../framework/exercise-components/ShowProblemRevealSolution";
 import {mathDiv, mathSpan} from "../../../framework/technical-components/Math/Math";
-import {ReactElement, ReactNode} from "react";
-import {isNatPlus} from "../../../framework/exercise-components/math/math-atoms";
+import {ReactNode} from "react";
+import {isNatPlus, isNatPlusWithoutDefinition} from "../../../framework/exercise-components/math/math-atoms";
 import {randomElement} from "../../../framework/util/random/randomElement";
 
 type DetailLevel = 0 | 1 | 2;
@@ -23,19 +23,26 @@ function threeDetailLevels(problem: DetailLevelApplicable, solution: DetailLevel
   };
 }
 
-function prove(what: ReactNode): ReactElement {
-  return <>Prove that {what} for all {isNatPlus("n")}.</>;
+interface ExtraExerciseOptions {
+  baseCaseValue: number;
+  problemPrelude: ReactNode;
 }
+const defaultExtraExerciseOptions: ExtraExerciseOptions = {
+  baseCaseValue: 1,
+  problemPrelude: <></>,
+};
 
 function natInductionExercise(
     proveWhat: ReactNode,
     baseCaseProof: DetailLevelApplicable,
     inductionConclusion: DetailLevelApplicable,
     inductionStepProof: DetailLevelApplicable,
-    baseCaseValue: number = 1,
+    extraOptions?: Partial<ExtraExerciseOptions>,
 ): ExerciseInstance {
+  const materializedExtraOptions: ExtraExerciseOptions = {...defaultExtraExerciseOptions, ...extraOptions};
+  const baseCaseValue = materializedExtraOptions.baseCaseValue;
   return threeDetailLevels(
-      prove(proveWhat),
+      <>{materializedExtraOptions.problemPrelude} Prove that {proveWhat} for all {isNatPlus("n")}.</>,
       detailLevel => {
         const baseCaseProofApplied = applyDetailLevel(detailLevel, baseCaseProof);
         const inductionConclusionApplied = applyDetailLevel(detailLevel, inductionConclusion);
@@ -230,7 +237,35 @@ const exerciseInstances: ExerciseInstance[] = [
   //     </>,
   // ),
 
+  // natInductionExercise(
+  //     <>{mathSpan("2^{3n} + 13")} is divisible by {mathSpan("7")}</>,
+  //     mathDiv("2^{3n} + 13 = 2^{3#cdot 1} + 13 = 2^3 + 13 = 8 + 13 = 21"),
+  //     <>{mathSpan("2^{3(n + 1)} + 13")} is divisible by {mathSpan("7")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("2^{3(n + 1)} + 13")}
+  //       {mathDiv("= 2^{3n + 3} + 13")}
+  //       {mathDiv("= 8#cdot 2^{3n} + 13")}
+  //       {mathDiv("= 1#cdot 2^{3n} + 13 + 7#cdot 2^{3n}")}
+  //       {mathDiv("= (2^{3n} + 13) + 7#cdot 2^{3n}")}
+  //       <div>The first part is divisible by 7 by the induction hypothesis, so the sum is divisible by 7 too.</div>
+  //     </>,
+  // ),
 
+  natInductionExercise(
+      <>{mathSpan("a^n-1")} is divisible by {mathSpan("a-1")}</>,
+      mathDiv("a^n-1 = a^1-1 = a-1"),
+      <>{mathSpan("a^{n+1}-1")} is divisible by {mathSpan("a-1")}</>,
+      _detailLevel => <>
+        {mathDiv("a^{n+1}-1")}
+        {mathDiv("= a#cdot a^n - 1")}
+        {mathDiv("= a#cdot a^n - a + a - 1")}
+        {mathDiv("= a#cdot (a^n - 1) + (a - 1)")}
+        <div>The first part is divisible by {mathSpan("(a-1)")} by the induction hypothesis, so the sum is divisible by {mathSpan("(a-1)")} too.</div>
+      </>,
+      {
+        problemPrelude: <>Let {isNatPlusWithoutDefinition("a")}, and {mathSpan("a>1")}.</>,
+      }
+  ),
 
     
     
