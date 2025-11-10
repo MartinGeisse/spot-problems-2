@@ -351,20 +351,32 @@ const exerciseInstances: ExerciseInstance[] = [
   //     </>,
   // ),
 
+  // natInductionExercise(
+  //     <>{mathSpan("3n^5 + 5n^3 + 7n")} is divisible by {mathSpan("15")}</>,
+  //     mathDiv("3n^5 + 5n^3 + 7n = 3#cdot 1^5 + 5#cdot 1^3 + 7#cdot 1 = 3 + 5 + 7 = 15"),
+  //     <>{mathSpan("3(n + 1)^5 + 5(n + 1)^3 + 7(n + 1)")} is divisible by {mathSpan("15")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("3(n + 1)^5 + 5(n + 1)^3 + 7(n + 1)")}
+  //       {mathDiv("= 3(n^5 + 5n^4 + 10n^3 + 10n^2 + 5n + 1) + 5(n^3 + 3n^2 + 3n + 1) + 7(n + 1)")}
+  //       {mathDiv("= (3n^5 + 15n^4 + 30n^3 + 30n^2 + 15n + 3) + (5n^3 + 15n^2 + 15n + 5) + (7n + 7)")}
+  //       {mathDiv("= (3n^5 + 5n^3 + 7n) + (15n^4 + 30n^3 + 45n^2 + 30n + 15)")}
+  //       {mathDiv("= (3n^5 + 5n^3 + 7n) + 15(n^4 + 2n^3 + 3n^2 + 2n + 1)")}
+  //       <div>The first part is divisible by 15 by the induction hypothesis, so the sum is divisible by 15 too.</div>
+  //     </>,
+  // ),
+
   natInductionExercise(
-      <>{mathSpan("3n^5 + 5n^3 + 7n")} is divisible by {mathSpan("15")}</>,
-      mathDiv("3n^5 + 5n^3 + 7n = 3#cdot 1^5 + 5#cdot 1^3 + 7#cdot 1 = 3 + 5 + 7 = 15"),
-      <>{mathSpan("3(n + 1)^5 + 5(n + 1)^3 + 7(n + 1)")} is divisible by {mathSpan("15")}</>,
+      <>{mathSpan("3^{2n} + 7")} is divisible by {mathSpan("8")}</>,
+      mathDiv("3^{2n} + 7 = 3^2 + 7 = 9 + 7 = 16"),
+      <>{mathSpan("3^{2(n+1)} + 7")} is divisible by {mathSpan("8")}</>,
       _detailLevel => <>
-        {mathDiv("3(n + 1)^5 + 5(n + 1)^3 + 7(n + 1)")}
-        {mathDiv("= 3(n^5 + 5n^4 + 10n^3 + 10n^2 + 5n + 1) + 5(n^3 + 3n^2 + 3n + 1) + 7(n + 1)")}
-        {mathDiv("= (3n^5 + 15n^4 + 30n^3 + 30n^2 + 15n + 3) + (5n^3 + 15n^2 + 15n + 5) + (7n + 7)")}
-        {mathDiv("= (3n^5 + 5n^3 + 7n) + (15n^4 + 30n^3 + 45n^2 + 30n + 15)")}
-        {mathDiv("= (3n^5 + 5n^3 + 7n) + 15(n^4 + 2n^3 + 3n^2 + 2n + 1)")}
-        <div>The first part is divisible by 15 by the induction hypothesis, so the sum is divisible by 15 too.</div>
+        {mathDiv("3^{2(n+1)} + 7")}
+        {mathDiv("= 3^{2n+2} + 7")}
+        {mathDiv("= 9#cdot 3^{2n} + 7")}
+        {mathDiv("= (3^{2n} + 7) + 8#cdot 3^{2n}")}
+        <div>The first part is divisible by 8 by the induction hypothesis, so the sum is divisible by 8 too.</div>
       </>,
   ),
-
     
 
 
