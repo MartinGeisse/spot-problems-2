@@ -365,19 +365,33 @@ const exerciseInstances: ExerciseInstance[] = [
   //     </>,
   // ),
 
+  // natInductionExercise(
+  //     <>{mathSpan("3^{2n} + 7")} is divisible by {mathSpan("8")}</>,
+  //     mathDiv("3^{2n} + 7 = 3^2 + 7 = 9 + 7 = 16"),
+  //     <>{mathSpan("3^{2(n+1)} + 7")} is divisible by {mathSpan("8")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("3^{2(n+1)} + 7")}
+  //       {mathDiv("= 3^{2n+2} + 7")}
+  //       {mathDiv("= 9#cdot 3^{2n} + 7")}
+  //       {mathDiv("= (3^{2n} + 7) + 8#cdot 3^{2n}")}
+  //       <div>The first part is divisible by 8 by the induction hypothesis, so the sum is divisible by 8 too.</div>
+  //     </>,
+  // ),
+
   natInductionExercise(
-      <>{mathSpan("3^{2n} + 7")} is divisible by {mathSpan("8")}</>,
-      mathDiv("3^{2n} + 7 = 3^2 + 7 = 9 + 7 = 16"),
-      <>{mathSpan("3^{2(n+1)} + 7")} is divisible by {mathSpan("8")}</>,
+      <>{mathSpan("n^3 + 5n")} is divisible by {mathSpan("6")}</>,
+      mathDiv("n^3 + 5n = 1^3 + 5#cdot 1 = 1 + 5 = 6"),
+      <>{mathSpan("(n + 1)^3 + 5(n + 1)")} is divisible by {mathSpan("6")}</>,
       _detailLevel => <>
-        {mathDiv("3^{2(n+1)} + 7")}
-        {mathDiv("= 3^{2n+2} + 7")}
-        {mathDiv("= 9#cdot 3^{2n} + 7")}
-        {mathDiv("= (3^{2n} + 7) + 8#cdot 3^{2n}")}
-        <div>The first part is divisible by 8 by the induction hypothesis, so the sum is divisible by 8 too.</div>
+        {mathDiv("(n + 1)^3 + 5(n + 1)")}
+        {mathDiv("= (n^3 + 3n^2 + 3n + 1) + (5n + 5)")}
+        {mathDiv("= (n^3 + 5n) + (3n^2 + 3n + 1 + 5)")}
+        {mathDiv("= (n^3 + 5n) + 3(n^2 + n + 2)")}
+        {mathDiv("= (n^3 + 5n) + 3(n^2 + n + 2)")}
+        <div>The first part is divisible by 6 by the induction hypothesis. The second part is obviously divisible by
+          3, and it is also even because {mathSpan("n^2")} and {mathSpan("n")} are either both odd or both even.</div>
       </>,
   ),
-    
 
 
 
