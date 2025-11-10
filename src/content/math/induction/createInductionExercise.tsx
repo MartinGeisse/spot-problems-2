@@ -6,6 +6,10 @@ import {isNatPlus, isNatPlusWithoutDefinition} from "../../../framework/exercise
 import {randomElement} from "../../../framework/util/random/randomElement";
 import {Alert} from "@mui/material";
 
+// --------------------------------------------------------------------------------------------------------------------
+// detail levels
+// --------------------------------------------------------------------------------------------------------------------
+
 type DetailLevel = 0 | 1 | 2;
 
 type DetailLevelApplicable = ReactNode | ((detailLevel: DetailLevel) => ReactNode);
@@ -23,6 +27,10 @@ function threeDetailLevels(problem: DetailLevelApplicable, solution: DetailLevel
     ],
   };
 }
+
+// --------------------------------------------------------------------------------------------------------------------
+// induction exercise frame
+// --------------------------------------------------------------------------------------------------------------------
 
 interface ExtraExerciseOptions {
   baseCaseValue: number;
@@ -85,6 +93,50 @@ function natInductionExercise(
       },
   );
 }
+
+// --------------------------------------------------------------------------------------------------------------------
+// re-usable blocks
+// --------------------------------------------------------------------------------------------------------------------
+
+const universalOrFixedHint = <Alert severity="info" sx={{ marginTop: "1em" }}>
+  <p>
+    Hidden here are actually to different ways to solve this problem. The more straightforward, but actually
+    weaker approach is to treat {mathSpan("a")} as arbitrary, but chosen at the beginning of the problem, and
+    have it stay fixed throughout the whole problem. We then solve the problem for a single value
+    of {mathSpan("a")}. This means that the induction hypothesis "{mathSpan("a^n-1")} is divisible
+    by {mathSpan("a-1")}" is applicable for that value of a (and the current value of {mathSpan("n")}), and we have
+    to prove the same for the next value of {mathSpan("n")} <i>for the same value of {mathSpan("a")}</i>.
+  </p>
+  <p>
+    There is a more powerful approach, but it comes it a cost. It is also harder to grasp for a beginner.
+    First we note that the above approach actually solves the problem for every value of {mathSpan("a")} since
+    we chose it arbitrarily.  We can utilize this and put the induction over {mathSpan("n")} at the beginning,
+    and then, for each  value of {mathSpan("n")}, solve the problem for <i>all</i> values
+    of {mathSpan("a")} at the same time.  The base case looks the same in this approach
+    since {mathSpan("a")} is arbitrary.
+  </p>
+  <p>
+    In the induction step, we now have a stronger induction hypothesis: For <i>all</i> values
+    of {mathSpan("a")}, not just for a single value, {mathSpan("a^n-1")} is divisible by {mathSpan("a-1")}.
+    This allows us to invoke the induction hypothesis for any value of {mathSpan("a")}, even a different one
+    than the  one we are trying to prove the induction step for. However, it comes at a cost: Now we have to
+    prove the induction step for all values of {mathSpan("a")} at the same time, not just a single value that
+    we can choose conveniently.
+  </p>
+  <p>
+    Why would you do that? Because some problems require it. This problem was simple enough that we could
+    get away with a weaker induction hypothesis that applies only to the same value of {mathSpan("a")} that
+    we wanted to prove the induction step for. A more complex problem might be unsolvable this way and
+    require the more powerful approach.
+  </p>
+</Alert>;
+
+// --------------------------------------------------------------------------------------------------------------------
+// actual exercises
+// --------------------------------------------------------------------------------------------------------------------
+
+// TODO https://www.emath.de/Referate/induktion-aufgaben-loesungen.pdf
+// TODO https://home.cc.umanitoba.ca/~thomas/Courses/InductionExamples-Solutions.pdf
 
 // nothing is randomized in the instances, only the choice of instance is
 const exerciseInstances: ExerciseInstance[] = [
@@ -255,54 +307,35 @@ const exerciseInstances: ExerciseInstance[] = [
   //     </>,
   // ),
 
-  natInductionExercise(
-      <>{mathSpan("a^n-1")} is divisible by {mathSpan("a-1")}</>,
-      mathDiv("a^n-1 = a^1-1 = a-1"),
-      <>{mathSpan("a^{n+1}-1")} is divisible by {mathSpan("a-1")}</>,
-      _detailLevel => <>
-        {mathDiv("a^{n+1}-1")}
-        {mathDiv("= a#cdot a^n - 1")}
-        {mathDiv("= a#cdot a^n - a + a - 1")}
-        {mathDiv("= a#cdot (a^n - 1) + (a - 1)")}
-        <div>The first part is divisible by {mathSpan("(a-1)")} by the induction hypothesis, so the sum is divisible by {mathSpan("(a-1)")} too.</div>
-      </>,
-      {
-        problemPrelude: <>Let {isNatPlusWithoutDefinition("a")}, and {mathSpan("a>1")}.</>,
-        solutionFooter: <Alert severity="info" sx={{ marginTop: "1em" }}>
-          <p>
-            Hidden here are actually to different ways to solve this problem. The more straightforward, but actually
-            weaker approach is to treat {mathSpan("a")} as arbitrary, but chosen at the beginning of the problem, and
-            have it stay fixed throughout the whole problem. We then solve the problem for a single value
-            of {mathSpan("a")}. This means that the induction hypothesis "{mathSpan("a^n-1")} is divisible
-            by {mathSpan("a-1")}" is applicable for that value of a (and the current value of {mathSpan("n")}), and we have
-            to prove the same for the next value of {mathSpan("n")} <i>for the same value of {mathSpan("a")}</i>.
-          </p>
-          <p>
-            There is a more powerful approach, but it comes it a cost. It is also harder to grasp for a beginner.
-            First we note that the above approach actually solves the problem for every value of {mathSpan("a")} since
-            we chose it arbitrarily.  We can utilize this and put the induction over {mathSpan("n")} at the beginning,
-            and then, for each  value of {mathSpan("n")}, solve the problem for <i>all</i> values
-            of {mathSpan("a")} at the same time.  The base case looks the same in this approach
-            since {mathSpan("a")} is arbitrary.
-          </p>
-          <p>
-            In the induction step, we now have a stronger induction hypothesis: For <i>all</i> values
-            of {mathSpan("a")}, not just for a single value, {mathSpan("a^n-1")} is divisible by {mathSpan("a-1")}.
-            This allows us to invoke the induction hypothesis for any value of {mathSpan("a")}, even a different one
-            than the  one we are trying to prove the induction step for. However, it comes at a cost: Now we have to
-            prove the induction step for all values of {mathSpan("a")} at the same time, not just a single value that
-            we can choose conveniently.
-          </p>
-          <p>
-            Why would you do that? Because some problems require it. This problem was simple enough that we could
-            get away with a weaker induction hypothesis that applies only to the same value of {mathSpan("a")} that
-            we wanted to prove the induction step for. A more complex problem might be unsolvable this way and
-            require the more powerful approach.
-          </p>
-        </Alert>
-      }
-  ),
+  // natInductionExercise(
+  //     <>{mathSpan("a^n-1")} is divisible by {mathSpan("a-1")}</>,
+  //     mathDiv("a^n-1 = a^1-1 = a-1"),
+  //     <>{mathSpan("a^{n+1}-1")} is divisible by {mathSpan("a-1")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("a^{n+1}-1")}
+  //       {mathDiv("= a#cdot a^n - 1")}
+  //       {mathDiv("= a#cdot a^n - a + a - 1")}
+  //       {mathDiv("= a#cdot (a^n - 1) + (a - 1)")}
+  //       <div>The first part is divisible by {mathSpan("(a-1)")} by the induction hypothesis, so the sum is divisible by {mathSpan("(a-1)")} too.</div>
+  //     </>,
+  //     {
+  //       problemPrelude: <>Let {isNatPlusWithoutDefinition("a")}, and {mathSpan("a>1")}.</>,
+  //       solutionFooter: universalOrFixedHint,
+  //     }
+  // ),
 
+  natInductionExercise(
+      <>{mathSpan("n^7 - n")} is divisible by {mathSpan("7")}</>,
+      mathDiv("n^7 - n = 1^7 - 1 = 1 - 1 = 0"),
+      <>{mathSpan("(n+1)^7 - (n+1)")} is divisible by {mathSpan("7")}</>,
+      _detailLevel => <>
+        {mathDiv("(n+1)^7 - (n+1)")}
+        {mathDiv("= (n^7 + 7n^6 + 21n^5 + 35n^4 + 35n^3 + 21n^2 + 7n + 1) - (n + 1)")}
+        {mathDiv("= (n^7 - n) + (7n^6 + 21n^5 + 35n^4 + 35n^3 + 21n^2 + 7n + 1 - 1)")}
+        {mathDiv("= (n^7 - n) + 7(n^6 + 3n^5 + 5n^4 + 5n^3 + 3n^2 + n)")}
+        <div>The first part is divisible by 7 by the induction hypothesis, so the sum is divisible by 7 too.</div>
+      </>,
+  ),
     
     
     
