@@ -336,11 +336,24 @@ const exerciseInstances: ExerciseInstance[] = [
         <div>The first part is divisible by 7 by the induction hypothesis, so the sum is divisible by 7 too.</div>
       </>,
   ),
-    
-    
-    
-    
-    
+
+  natInductionExercise(
+      <>{mathSpan("3^{n+1} + 2^{3n+1}")} is divisible by {mathSpan("5")}</>,
+      mathDiv("3^{n+1} + 2^{3n+1} = 3^{1+1} + 2^{3+1} = 3^2 + 2^4 = 9 + 16 = 25"),
+      <>{mathSpan("3^{(n+1)+1} + 2^{3(n+1)+1}")} is divisible by {mathSpan("5")}</>,
+      _detailLevel => <>
+        {mathDiv("3^{(n+1)+1} + 2^{3(n+1)+1}")}
+        {mathDiv("= 3^{n+2} + 2^{3n+4}")}
+        {mathDiv("= 3#cdot 3^{n+1} + 8#cdot 2^{3n+1}")}
+        {mathDiv("= 3#cdot 3^{n+1} + 3#cdot 2^{3n+1} + 5#cdot 2^{3n+1}")}
+        {mathDiv("= 3#cdot (3^{n+1} + 2^{3n+1}) + 5#cdot 2^{3n+1}")}
+        <div>The first part is divisible by 5 by the induction hypothesis, so the sum is divisible by 5 too.</div>
+      </>,
+  ),
+
+
+
+
 
 
   // natInductionExercise(
