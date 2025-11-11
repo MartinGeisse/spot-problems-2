@@ -378,24 +378,72 @@ const exerciseInstances: ExerciseInstance[] = [
   //     </>,
   // ),
 
-  natInductionExercise(
-      <>{mathSpan("n^3 + 5n")} is divisible by {mathSpan("6")}</>,
-      mathDiv("n^3 + 5n = 1^3 + 5#cdot 1 = 1 + 5 = 6"),
-      <>{mathSpan("(n + 1)^3 + 5(n + 1)")} is divisible by {mathSpan("6")}</>,
-      _detailLevel => <>
-        {mathDiv("(n + 1)^3 + 5(n + 1)")}
-        {mathDiv("= (n^3 + 3n^2 + 3n + 1) + (5n + 5)")}
-        {mathDiv("= (n^3 + 5n) + (3n^2 + 3n + 1 + 5)")}
-        {mathDiv("= (n^3 + 5n) + 3(n^2 + n + 2)")}
-        {mathDiv("= (n^3 + 5n) + 3(n^2 + n + 2)")}
-        <div>The first part is divisible by 6 by the induction hypothesis. The second part is obviously divisible by
-          3, and it is also even because {mathSpan("n^2")} and {mathSpan("n")} are either both odd or both even.</div>
-      </>,
-  ),
+  // natInductionExercise(
+  //     <>{mathSpan("n^3 + 5n")} is divisible by {mathSpan("6")}</>,
+  //     mathDiv("n^3 + 5n = 1^3 + 5#cdot 1 = 1 + 5 = 6"),
+  //     <>{mathSpan("(n + 1)^3 + 5(n + 1)")} is divisible by {mathSpan("6")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("(n + 1)^3 + 5(n + 1)")}
+  //       {mathDiv("= (n^3 + 3n^2 + 3n + 1) + (5n + 5)")}
+  //       {mathDiv("= (n^3 + 5n) + (3n^2 + 3n + 1 + 5)")}
+  //       {mathDiv("= (n^3 + 5n) + 3(n^2 + n + 2)")}
+  //       {mathDiv("= (n^3 + 5n) + 3(n^2 + n + 2)")}
+  //       <div>The first part is divisible by 6 by the induction hypothesis. The second part is obviously divisible by
+  //         3, and it is also even because {mathSpan("n^2")} and {mathSpan("n")} are either both odd or both even.</div>
+  //     </>,
+  // ),
+
+  // natInductionExercise(
+  //     <>{mathSpan("n^4-4n^2")} is divisible by {mathSpan("3")}</>,
+  //     mathDiv("n^4-4n^2 = 1^4-4#cdot 1^2 = 1 - 4 = -3"),
+  //     <>{mathSpan("(n+1)^4 - 4(n+1)^2")} is divisible by {mathSpan("3")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("(n+1)^4 - 4(n+1)^2")}
+  //       {mathDiv("= (n^4 + 4n^3 + 6n^2 + 4n + 1) - 4(n^2 + 2n + 1)")}
+  //       {mathDiv("= (n^4 + 4n^3 + 6n^2 + 4n + 1) - (4n^2 + 8n + 4)")}
+  //       {mathDiv("= (n^4 - 4n^2) + (4n^3 + 6n^2 + 4n + 1 - 8n - 4)")}
+  //       {mathDiv("= (n^4 - 4n^2) + (4n^3 + 6n^2 - 4n - 3)")}
+  //       {mathDiv("= (n^4 - 4n^2) + 3(2n^2 - 1) + 4n(n+1)(n-1)")}
+  //       <div>The first part is divisible by 3 by the induction hypothesis. The second part has an obvious factor of 3.
+  //         In the third part, either {mathSpan("n")}, {mathSpan("(n+1)")} or {mathSpan("(n-1)")} is divisible by 3.</div>
+  //     </>,
+  //     {
+  //       solutionFooter: <Alert severity="info" sx={{ marginTop: "1em" }}>
+  //         <div>The proof by induction does not really make things easier for this problem:</div>
+  //         {mathDiv("n^4 - 4n^2 = n^2(n^2 - 4) = n^2(n + 2)(n - 2)")}
+  //         <div>Either {mathSpan("n")}, {mathSpan("(n+2)")} or {mathSpan("(n-2)")} is divisible by 3.</div>
+  //       </Alert>,
+  //     }
+  // ),
+
+  // natInductionExercise(
+  //     <>{mathSpan("10^n + 3#cdot 4^{n + 2} + 5")} is divisible by {mathSpan("9")}</>,
+  //     <>
+  //       {mathDiv("10^n + 3#cdot 4^{n + 2} + 5")}
+  //       {mathDiv("= 10^1 + 3#cdot 4^{1 + 2} + 5")}
+  //       {mathDiv("= 10 + 3#cdot 4^3 + 5")}
+  //       {mathDiv("= 15 + 3#cdot 64")}
+  //       {mathDiv("= 15 + 192")}
+  //       {mathDiv("= 207")}
+  //     </>,
+  //     <>{mathSpan("10^{n + 1} + 3#cdot 4^{(n + 1) + 2} + 5")} is divisible by {mathSpan("9")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("10^{n + 1} + 3#cdot 4^{(n + 1) + 2} + 5")}
+  //       {mathDiv("10#cdot 10^n + 4#cdot 3#cdot 4^{n + 2} + 5")}
+  //       {mathDiv("9#cdot 10^n + 1#cdot 10^n + 3#cdot 3#cdot 4^{n + 2} + 1#cdot 3#cdot 4^{n + 2} + 5")}
+  //       {mathDiv("9#cdot 10^n + 9#cdot 4^{n + 2} + 10^n + 3#cdot 4^{n + 2} + 5")}
+  //       {mathDiv("9(10^n + 4^{n + 2}) + (10^n + 3#cdot 4^{n + 2} + 5)")}
+  //       <div>The second part is divisible by 9 by the induction hypothesis, so the sum is divisible by 9 too.</div>
+  //     </>,
+  // ),
 
 
-
-
+    
+    
+    
+    
+    
+    
 
   // natInductionExercise(
   //     <>{mathSpan("n^3+2n")} is divisible by {mathSpan("3")}</>,
