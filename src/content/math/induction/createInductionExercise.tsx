@@ -493,28 +493,40 @@ const exerciseInstances: ExerciseInstance[] = [
   //     </>,
   //     {
   //       problemPrelude: <>Let {isNatPlusWithoutDefinition("a")}.</>,
+  //       solutionFooter: <>
+  //         <Alert severity="info" sx={{ marginTop: "1em" }}>
+  //           <div>This problem can also be solved without induction:</div>
+  //           <div>{mathSpan("2a")} is even.</div>
+  //           <div>{mathSpan("2a-1")} is odd.</div>
+  //           <div>{mathSpan("(2a-1)^n")} is odd (note that {mathSpan("(2a-1)^0 = 1")} which is odd too).</div>
+  //           <div>{mathSpan("(2a-1)^n-1")} is even.</div>
+  //         </Alert>
+  //         {universalOrFixedHint}
+  //       </>,
+  //     }
+  // ),
+
+  // natInductionExercise(
+  //     <>{mathSpan("a^{n+1} + (a+1)^{2n-1}")} is divisible by {mathSpan("(a^2+a+1)")}</>,
+  //     mathDiv("a^{n+1} + (a+1)^{2n-1} = a^{1+1} + (a+1)^{2-1} = a^2 + (a+1)^1 = a^2+a+1"),
+  //     <>{mathSpan("a^{(n+1)+1} + (a+1)^{2(n+1)-1}")} is divisible by {mathSpan("(a^2+a+1)")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("a^{(n+1)+1} + (a+1)^{2(n+1)-1}")}
+  //       {mathDiv("= a^{n+2} + (a+1)^{2n+1}")}
+  //       {mathDiv("= a#cdot a^{n+1} + (a+1)^2(a+1)^{2n-1}")}
+  //       {mathDiv("= a#cdot a^{n+1} + (a^2+2a+1)(a+1)^{2n-1}")}
+  //       {mathDiv("= a#cdot a^{n+1} + (a^2+a+1)(a+1)^{2n-1} + a(a+1)^{2n-1}")}
+  //       {mathDiv("= a#cdot (a^{n+1} + (a+1)^{2n-1}) + (a^2+a+1)(a+1)^{2n-1}")}
+  //       <div>The first part is divisible by {mathSpan("(a^2+a+1)")} by the induction hypothesis, so the sum is divisible by {mathSpan("(a^2+a+1)")} too.</div>
+  //     </>,
+  //     {
+  //       problemPrelude: <>Let {isNatPlusWithoutDefinition("a")}.</>,
   //       solutionFooter: universalOrFixedHint,
   //     }
   // ),
 
-  natInductionExercise(
-      <>{mathSpan("a^{n+1} + (a+1)^{2n-1}")} is divisible by {mathSpan("(a^2+a+1)")}</>,
-      mathDiv("a^{n+1} + (a+1)^{2n-1} = a^{1+1} + (a+1)^{2-1} = a^2 + (a+1)^1 = a^2+a+1"),
-      <>{mathSpan("a^{(n+1)+1} + (a+1)^{2(n+1)-1}")} is divisible by {mathSpan("(a^2+a+1)")}</>,
-      _detailLevel => <>
-        {mathDiv("a^{(n+1)+1} + (a+1)^{2(n+1)-1}")}
-        {mathDiv("= a^{n+2} + (a+1)^{2n+1}")}
-        {mathDiv("= a#cdot a^{n+1} + (a+1)^2(a+1)^{2n-1}")}
-        {mathDiv("= a#cdot a^{n+1} + (a^2+2a+1)(a+1)^{2n-1}")}
-        {mathDiv("= a#cdot a^{n+1} + (a^2+a+1)(a+1)^{2n-1} + a(a+1)^{2n-1}")}
-        {mathDiv("= a#cdot (a^{n+1} + (a+1)^{2n-1}) + (a^2+a+1)(a+1)^{2n-1}")}
-        <div>The first part is divisible by {mathSpan("(a^2+a+1)")} by the induction hypothesis, so the sum is divisible by {mathSpan("(a^2+a+1)")} too.</div>
-      </>,
-      {
-        problemPrelude: <>Let {isNatPlusWithoutDefinition("a")}.</>,
-        solutionFooter: universalOrFixedHint,
-      }
-  ),
+    
+    
     
     
     
