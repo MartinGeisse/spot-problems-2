@@ -437,7 +437,47 @@ const exerciseInstances: ExerciseInstance[] = [
   //     </>,
   // ),
 
+  // natInductionExercise(
+  //     <>{mathSpan("4^n + 15n - 1")} is divisible by {mathSpan("9")}</>,
+  //     mathDiv("4^n + 15n - 1 = 4^1 + 15 - 1 = 18"),
+  //     <>{mathSpan("4^{n+1} + 15(n+1) - 1")} is divisible by {mathSpan("9")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("4^{n+1} + 15(n+1) - 1")}
+  //       {mathDiv("= 4#cdot 4^n + 15n + 14")}
+  //       {mathDiv("= 4#cdot 4^n + 60n - 4 - 45n + 18")}
+  //       {mathDiv("= 4#cdot (4^n + 15n - 1) - 9#cdot (5n + 2)")}
+  //       <div>The first part is divisible by 9 by the induction hypothesis, so the sum is divisible by 9 too.</div>
+  //     </>,
+  // ),
 
+  // natInductionExercise(
+  //     <>{mathSpan("5^{2n} + 24n - 1")} is divisible by {mathSpan("48")}</>,
+  //     mathDiv("5^{2n} + 24n - 1 = 5^2 + 24 - 1 = 25 + 24 - 1 = 48"),
+  //     <>{mathSpan("5^{2(n + 1)} + 24(n + 1) - 1")} is divisible by {mathSpan("48")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("5^{2(n + 1)} + 24(n + 1) - 1")}
+  //       {mathDiv("= 5^{2n + 2} + 24n + 23")}
+  //       {mathDiv("= 25#cdot 5^{2n} + 24n - 1 + 24")}
+  //       {mathDiv("= 5^{2n} + 24n - 1 + 24 + 24#cdot 5^{2n}")}
+  //       {mathDiv("= (5^{2n} + 24n - 1) + 24#cdot(1 + 5^{2n})")}
+  //       <div>The first part is divisible by 48 by the induction hypothesis. The second part has an obvious factor of
+  //         24, and {mathSpan("(1 + 5^{2n})")} is even, so the second part (and thus the sum) is divisible by 48 too.</div>
+  //     </>,
+  // ),
+
+  natInductionExercise(
+      <>{mathSpan("11^{n+1} + 12{2n-1}")} is divisible by {mathSpan("133")}</>,
+      mathDiv("11^{n+1} + 12{2n-1} = 11^{1+1} + 12{2-1} = 11^2 + 12^1 = 121 + 12 = 133"),
+      <>{mathSpan("11^{(n+1)+1} + 12{2(n+1)-1}")} is divisible by {mathSpan("133")}</>,
+      _detailLevel => <>
+        {mathDiv("11^{(n+1)+1} + 12{2(n+1)-1}")}
+        {mathDiv("11^{n+2} + 12{2n+1}")}
+        {mathDiv("11#cdot 11^{n+1} + 144#cdot 12{2n-1}")}
+        {mathDiv("144#cdot 11^{n+1} + 144#cdot 12{2n-1} - 133#cdot 11^{n+1}")}
+        {mathDiv("144#cdot (11^{n+1} + 12{2n-1}) - 133#cdot 11^{n+1}")}
+        <div>The first part is divisible by 133 by the induction hypothesis, so the sum is divisible by 133 too.</div>
+      </>,
+  ),
     
     
     
