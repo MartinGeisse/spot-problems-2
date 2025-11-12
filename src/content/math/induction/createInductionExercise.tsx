@@ -465,20 +465,56 @@ const exerciseInstances: ExerciseInstance[] = [
   //     </>,
   // ),
 
+  // natInductionExercise(
+  //     <>{mathSpan("11^{n+1} + 12{2n-1}")} is divisible by {mathSpan("133")}</>,
+  //     mathDiv("11^{n+1} + 12{2n-1} = 11^{1+1} + 12{2-1} = 11^2 + 12^1 = 121 + 12 = 133"),
+  //     <>{mathSpan("11^{(n+1)+1} + 12{2(n+1)-1}")} is divisible by {mathSpan("133")}</>,
+  //     _detailLevel => <>
+  //       {mathDiv("11^{(n+1)+1} + 12{2(n+1)-1}")}
+  //       {mathDiv("11^{n+2} + 12{2n+1}")}
+  //       {mathDiv("11#cdot 11^{n+1} + 144#cdot 12{2n-1}")}
+  //       {mathDiv("144#cdot 11^{n+1} + 144#cdot 12{2n-1} - 133#cdot 11^{n+1}")}
+  //       {mathDiv("144#cdot (11^{n+1} + 12{2n-1}) - 133#cdot 11^{n+1}")}
+  //       <div>The first part is divisible by 133 by the induction hypothesis, so the sum is divisible by 133 too.</div>
+  //     </>,
+  // ),
+
+  // natInductionExercise(
+  //     <>{mathSpan("(2a-1)^n-1")} is even</>,
+  //     mathDiv("(2a-1)^n - 1 = (2a-1)^1 - 1 = 2a - 1 - 1 = 2(a - 1)"),
+  //     <>{mathSpan("(2a-1)^{n+1} - 1")} is even</>,
+  //     _detailLevel => <>
+  //       {mathDiv("(2a-1)^{n+1} - 1")}
+  //       {mathDiv("= (2a-1)#cdot (2a-1)^n - 1")}
+  //       {mathDiv("= (2a-1)#cdot (2a-1)^n - 1 + (2a-1) - (2a-1)")}
+  //       {mathDiv("= (2a-1)#cdot ((2a-1)^n-1) - 1 + (2a-1)")}
+  //       {mathDiv("= (2a-1)#cdot ((2a-1)^n-1) 2(a-1)")}
+  //       <div>The first part is even by the induction hypothesis, so the sum is even too.</div>
+  //     </>,
+  //     {
+  //       problemPrelude: <>Let {isNatPlusWithoutDefinition("a")}.</>,
+  //       solutionFooter: universalOrFixedHint,
+  //     }
+  // ),
+
   natInductionExercise(
-      <>{mathSpan("11^{n+1} + 12{2n-1}")} is divisible by {mathSpan("133")}</>,
-      mathDiv("11^{n+1} + 12{2n-1} = 11^{1+1} + 12{2-1} = 11^2 + 12^1 = 121 + 12 = 133"),
-      <>{mathSpan("11^{(n+1)+1} + 12{2(n+1)-1}")} is divisible by {mathSpan("133")}</>,
+      <>{mathSpan("a^{n+1} + (a+1)^{2n-1}")} is divisible by {mathSpan("(a^2+a+1)")}</>,
+      mathDiv("a^{n+1} + (a+1)^{2n-1} = a^{1+1} + (a+1)^{2-1} = a^2 + (a+1)^1 = a^2+a+1"),
+      <>{mathSpan("a^{(n+1)+1} + (a+1)^{2(n+1)-1}")} is divisible by {mathSpan("(a^2+a+1)")}</>,
       _detailLevel => <>
-        {mathDiv("11^{(n+1)+1} + 12{2(n+1)-1}")}
-        {mathDiv("11^{n+2} + 12{2n+1}")}
-        {mathDiv("11#cdot 11^{n+1} + 144#cdot 12{2n-1}")}
-        {mathDiv("144#cdot 11^{n+1} + 144#cdot 12{2n-1} - 133#cdot 11^{n+1}")}
-        {mathDiv("144#cdot (11^{n+1} + 12{2n-1}) - 133#cdot 11^{n+1}")}
-        <div>The first part is divisible by 133 by the induction hypothesis, so the sum is divisible by 133 too.</div>
+        {mathDiv("a^{(n+1)+1} + (a+1)^{2(n+1)-1}")}
+        {mathDiv("= a^{n+2} + (a+1)^{2n+1}")}
+        {mathDiv("= a#cdot a^{n+1} + (a+1)^2(a+1)^{2n-1}")}
+        {mathDiv("= a#cdot a^{n+1} + (a^2+2a+1)(a+1)^{2n-1}")}
+        {mathDiv("= a#cdot a^{n+1} + (a^2+a+1)(a+1)^{2n-1} + a(a+1)^{2n-1}")}
+        {mathDiv("= a#cdot (a^{n+1} + (a+1)^{2n-1}) + (a^2+a+1)(a+1)^{2n-1}")}
+        <div>The first part is divisible by {mathSpan("(a^2+a+1)")} by the induction hypothesis, so the sum is divisible by {mathSpan("(a^2+a+1)")} too.</div>
       </>,
+      {
+        problemPrelude: <>Let {isNatPlusWithoutDefinition("a")}.</>,
+        solutionFooter: universalOrFixedHint,
+      }
   ),
-    
     
     
     
