@@ -525,6 +525,21 @@ const exerciseInstances: ExerciseInstance[] = [
   //     }
   // ),
 
+  natInductionExercise(
+      <>{mathSpan("1+2+3+...+n = #sum_{i=1}^ni = #frac{n(n+1)}2")}</>,
+      mathDiv("#sum_{i=1}^ni = #sum_{i=1}^1i = 1 = #frac{1(1+1)}2"),
+      <>{mathSpan("#sum_{i=1}^{n+1}i = #frac{(n+1)((n+1)+1)}2")}</>,
+      _detailLevel => <>
+        {mathDiv("#sum_{i=1}^{n+1}i")}
+        {mathDiv("= (n+1) + #sum_{i=1}^ni")}
+        <div>using the induction hypothesis:</div>
+        {mathDiv("= (n+1) + #frac{n(n+1)}2")}
+        {mathDiv("= #frac{2(n+1)}2 + #frac{n(n+1)}2")}
+        {mathDiv("= #frac{2(n+1) + n(n+1)}2")}
+        {mathDiv("= #frac{(n+1)(n+2)}2")}
+      </>
+  ),
+
     
     
     
