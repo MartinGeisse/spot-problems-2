@@ -1,0 +1,2 @@
+// TODO https://www.emath.de/Referate/induktion-aufgaben-loesungen.pdf
+// TODO https://home.cc.umanitoba.ca/~thomas/Courses/InductionExamples-Solutions.pdf
