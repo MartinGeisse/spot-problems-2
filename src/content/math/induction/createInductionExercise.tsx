@@ -5,7 +5,7 @@ import {sumExerciseInstances} from "./divisibility/sum";
 
 // nothing is randomized in the instances, only the choice of instance is
 const exerciseInstances: ExerciseInstance[] = [
-    ...divisibilityExerciseInstances,
+    // TODO uncomment ...divisibilityExerciseInstances,
     ...sumExerciseInstances,
 ];
 

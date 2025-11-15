@@ -70,7 +70,14 @@ export const sumExerciseInstances: ExerciseInstance[] = [
         {mathDiv("= (n+1)^4 + #sum_{i=1}^ni^4")}
         <div>using the induction hypothesis:</div>
         {mathDiv("= (n+1)^4 + #frac{n(n+1)(2n+1)(3n^2+3n-1)}{30}")}
-        TODO
+        {mathDiv("= #frac{30(n+1)^4}{30} + #frac{n(n+1)(2n+1)(3n^2+3n-1)}{30}")}
+        {mathDiv("= #frac{30(n+1)^4 + n(n+1)(2n+1)(3n^2+3n-1)}{30}")}
+        {mathDiv("= #frac{n+1}{30}(30(n+1)^3 + n(2n+1)(3n^2+3n-1))")}
+        <div style={{fontSize: "0.87em"}}>{mathDiv("= #frac{n+1}{30}(30n^3 + 90n^2 + 90n + 30 + 6n^4 + 6n^3 - 2n^2 + 3n^3 + 3n^2 - n)")}</div>
+        {mathDiv("= #frac{n+1}{30}(6n^4 + 39n^3 + 91n^2 + 89n + 30)")}
+        {mathDiv("= #frac{(n+1)(n+2)}{30}(6n^3 + 27n^2 + 37n + 15)")}
+        {mathDiv("= #frac{(n+1)(n+2)}{30}(2n + 3)(3n^2 + 9n + 5)")}
+        <div style={{fontSize: "0.9em"}}>{mathDiv("= #frac{(n+1)((n+1)+1)(2(n+1)+1)(3(n+1)^2+3(n+1)-1)}{30}")}</div>
       </>
   ),
 
