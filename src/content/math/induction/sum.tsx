@@ -191,24 +191,47 @@ export const sumExerciseInstances: ExerciseInstance[] = [
   //     }
   // ),
 
+  // natInductionExercise(
+  //     <>{mathSpan("1 + #frac{2^0}{3^1} + #frac{2^2}{3^2} + ... + #frac{2^{2(n-1)}}{3^n} = 1 + #sum_{i=1}^n#frac{2^{2(i-1)}}{3^i} = (#frac{4}{3})^n")}</>,
+  //     <>
+  //       {mathDiv("1 + #sum_{i=1}^n#frac{2^{2(i-1)}}{3^i} = 1 + #sum_{i=1}^1#frac{2^{2(i-1)}}{3^i} = 1 + #frac{2^{2(1-1)}}{3^1}")}
+  //       {mathDiv("= 1 + #frac{2^0}{3} = 1 + #frac{1}{3} = (#frac{4}{3})^1 = (#frac{4}{3})^n")}
+  //     </>,
+  //     mathSpan("1 + #sum_{i=1}^{n+1}#frac{2^{2(i-1)}}{3^i} = (#frac{4}{3})^{n+1}"),
+  //     _detailLevel => <>
+  //       {mathDiv("1 + #sum_{i=1}^{n+1}#frac{2^{2(i-1)}}{3^i}")}
+  //       {mathDiv("= 1 + #sum_{i=1}^n#frac{2^{2(i-1)}}{3^i} + #frac{2^{2((n+1)-1)}}{3^{n+1}}")}
+  //       <div>using the induction hypothesis:</div>
+  //       {mathDiv("= (#frac{4}{3})^n + #frac{2^{2((n+1)-1)}}{3^{n+1}}")}
+  //       {mathDiv("= (#frac{4}{3})^n + #frac{2^{2n}}{3^{n+1}}")}
+  //       {mathDiv("= (#frac{4}{3})^n + #frac{1}{3}#cdot #frac{4^n}{3^n}")}
+  //       {mathDiv("= 1#cdot (#frac{4}{3})^n + #frac{1}{3}#cdot (#frac{4}{3})^n")}
+  //       {mathDiv("= (1 + #frac{1}{3})#cdot (#frac{4}{3})^n")}
+  //       {mathDiv("= #frac{4}{3}#cdot (#frac{4}{3})^n")}
+  //       {mathDiv("= (#frac{4}{3})^{n+1}")}
+  //     </>
+  // ),
+
   natInductionExercise(
-      <>{mathSpan("1 + #frac{2^0}{3^1} + #frac{2^2}{3^2} + ... + #frac{2^{2(n-1)}}{3^n} = 1 + #sum_{i=1}^n#frac{2^{2(i-1)}}{3^i} = (#frac{4}{3})^n")}</>,
+      <>{mathSpan("1^2 - 2^2 + 3^2 - 4^2 + ... + -1^{n-1}n^2 = #sum_{i=1}^n-1^{i-1}i^2 = -1^{n-1}#frac{n(n+1)}{2}")}</>,
       <>
-        {mathDiv("1 + #sum_{i=1}^n#frac{2^{2(i-1)}}{3^i} = 1 + #sum_{i=1}^1#frac{2^{2(i-1)}}{3^i} = 1 + #frac{2^{2(1-1)}}{3^1}")}
-        {mathDiv("= 1 + #frac{2^0}{3} = 1 + #frac{1}{3} = (#frac{4}{3})^1 = (#frac{4}{3})^n")}
+        {mathDiv("#sum_{i=1}^n-1^{i-1}i^2 = #sum_{i=1}^1-1^{i-1}i^2 = -1^{1-1}1^2 = -1^0#cdot 1 = 1")}
+        <div>and</div>
+        {mathDiv("-1^{n-1}#frac{n(n+1)}{2} = -1^{1-1}#frac{1(1+1)}{2} = #frac{1#cdot 2}{2} = 1")}
       </>,
-      mathSpan("1 + #sum_{i=1}^{n+1}#frac{2^{2(i-1)}}{3^i} = (#frac{4}{3})^{n+1}"),
+      mathSpan("#sum_{i=1}^{n+1}-1^{i-1}i^2 = -1^{(n+1)-1}#frac{(n+1)((n+1)+1)}{2}"),
       _detailLevel => <>
-        {mathDiv("1 + #sum_{i=1}^{n+1}#frac{2^{2(i-1)}}{3^i}")}
-        {mathDiv("= 1 + #sum_{i=1}^n#frac{2^{2(i-1)}}{3^i} + #frac{2^{2((n+1)-1)}}{3^{n+1}}")}
+        {mathDiv("#sum_{i=1}^{n+1}-1^{i-1}i^2")}
+        {mathDiv("= #sum_{i=1}^n-1^{i-1}i^2 + (-1^{(n+1)-1}(n+1)^2)")}
         <div>using the induction hypothesis:</div>
-        {mathDiv("= (#frac{4}{3})^n + #frac{2^{2((n+1)-1)}}{3^{n+1}}")}
-        {mathDiv("= (#frac{4}{3})^n + #frac{2^{2n}}{3^{n+1}}")}
-        {mathDiv("= (#frac{4}{3})^n + #frac{1}{3}#cdot #frac{4^n}{3^n}")}
-        {mathDiv("= 1#cdot (#frac{4}{3})^n + #frac{1}{3}#cdot (#frac{4}{3})^n")}
-        {mathDiv("= (1 + #frac{1}{3})#cdot (#frac{4}{3})^n")}
-        {mathDiv("= #frac{4}{3}#cdot (#frac{4}{3})^n")}
-        {mathDiv("= (#frac{4}{3})^{n+1}")}
+        {mathDiv("= (-1^{n-1}#frac{n(n+1)}{2}) + (-1^{(n+1)-1}(n+1)^2)")}
+        {mathDiv("= (-1^{n-1}#frac{n(n+1)}{2}) - (-1^{n-1}(n+1)^2)")}
+        {mathDiv("= (-1^{n-1})(n+1)(#frac{n}{2} - (n+1))")}
+        {mathDiv("= (-1^{n-1})(n+1)(-#frac{n}{2} - 1))")}
+        {mathDiv("= -1^{n-1}#frac{(n+1)(-n - 2))}{2}")}
+        {mathDiv("= -(-1^{n-1}#frac{(n+1)(n+2)}{2})")}
+        {mathDiv("= -(-1^{n-1}#frac{(n+1)((n+1)+1)}{2})")}
+        {mathDiv("= -1^{(n+1)-1}#frac{(n+1)((n+1)+1)}{2}")}
       </>
   ),
 
