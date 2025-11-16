@@ -1,6 +1,6 @@
 import {type ExerciseInstance} from "../../types";
 import {randomElement} from "../../../framework/util/random/randomElement";
-import {sumExerciseInstances} from "./divisibility/sum";
+import {sumExerciseInstances} from "./sum.tsx";
 
 // nothing is randomized in the instances, only the choice of instance is
 const exerciseInstances: ExerciseInstance[] = [

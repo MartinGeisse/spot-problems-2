@@ -1,10 +1,10 @@
 // nothing is randomized in the instances, only the choice of instance is
-import {natInductionExercise} from "../util/framework";
-import {mathDiv, mathSpan} from "../../../../framework/technical-components/Math/Math";
-import {universalOrFixedHint} from "../util/blocks";
-import {isNatPlusWithoutDefinition} from "../../../../framework/exercise-components/math/math-atoms";
+import {natInductionExercise} from "./util/framework.tsx";
+import {mathDiv, mathSpan} from "../../../framework/technical-components/Math/Math.tsx";
+import {universalOrFixedHint} from "./util/blocks.tsx";
+import {isNatPlusWithoutDefinition} from "../../../framework/exercise-components/math/math-atoms.tsx";
 import {Alert} from "@mui/material";
-import {type ExerciseInstance} from "../../../types";
+import {type ExerciseInstance} from "../../types.tsx";
 
 export const divisibilityExerciseInstances: ExerciseInstance[] = [
     

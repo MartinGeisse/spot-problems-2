@@ -16,3 +16,7 @@ export function isNatPlus(variable: string): ReactNode {
 export function isNatPlusWithoutDefinition(variable: string): ReactNode {
   return mathSpan(`${variable} #in #mathbb{N}^+`);
 }
+
+export function isRealWithoutDefinition(variable: string): ReactNode {
+  return mathSpan(`${variable} #in #mathbb{R}`);
+}
