@@ -1,4 +1,3 @@
-
 // nothing is randomized in the instances, only the choice of instance is
 import {natInductionExercise} from "../util/framework";
 import {mathDiv, mathSpan} from "../../../../framework/technical-components/Math/Math";

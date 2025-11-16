@@ -1,7 +1,9 @@
 import {ExerciseNode} from "../../../../content/types";
 import {useState} from "react";
 import {ExerciseInstancePage} from "./ExerciseInstancePage";
-import {useNavigateToContentNode} from "../../../technical-components/navigation/ContentNodeLink/useNavigateToContentNode";
+import {
+  useNavigateToContentNode
+} from "../../../technical-components/navigation/ContentNodeLink/useNavigateToContentNode";
 
 export interface ExercisePageProps {
     exerciseNode: ExerciseNode;

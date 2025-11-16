@@ -1,7 +1,9 @@
 import {FolderNode} from "../../../../content/types";
 import {FolderPageBreadcrumbs} from "./FolderPageBreadcrumbs";
 import {NavigationList} from "../../../technical-components/navigation/NavigationList/NavigationList";
-import {useNavigateToContentNode} from "../../../technical-components/navigation/ContentNodeLink/useNavigateToContentNode";
+import {
+  useNavigateToContentNode
+} from "../../../technical-components/navigation/ContentNodeLink/useNavigateToContentNode";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {WithHeader} from "../../../technical-components/layout/WithHeader";
 

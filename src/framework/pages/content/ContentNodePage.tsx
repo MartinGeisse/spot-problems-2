@@ -1,4 +1,4 @@
-import {ContentNode, FolderNode, ExerciseNode} from "../../../content/types";
+import {ContentNode, ExerciseNode, FolderNode} from "../../../content/types";
 import {FolderPage} from "./folder/FolderPage";
 import {ExercisePage} from "./exercise/ExercisePage";
 

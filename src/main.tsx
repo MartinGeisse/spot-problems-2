@@ -1,4 +1,4 @@
-import { createRoot } from "react-dom/client"
+import {createRoot} from "react-dom/client"
 import {App} from "./framework/technical-components/App/App";
 import "katex/dist/katex.min.css";
 import {initializeDeveloperControls} from "./framework/technical-components/App/developer";

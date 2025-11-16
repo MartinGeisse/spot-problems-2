@@ -1,4 +1,4 @@
-import {ReactNode} from "react";
+import {type ReactNode} from "react";
 
 export interface HorizontalSplitProps {
     positionPercentage?: number; // default is 50

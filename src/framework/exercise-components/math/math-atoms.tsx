@@ -1,4 +1,4 @@
-import {ReactNode} from "react";
+import {type ReactNode} from "react";
 import {mathSpan} from "../../technical-components/Math/Math";
 
 export function isNat0(variable: string): ReactNode {

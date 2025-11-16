@@ -1,8 +1,8 @@
-import {ReactNode} from "react";
-import {ExerciseInstance} from "../../../types";
+import {type ReactNode} from "react";
+import {type ExerciseInstance} from "../../../types";
 import {isNatPlus} from "../../../../framework/exercise-components/math/math-atoms";
 import {mathSpan} from "../../../../framework/technical-components/Math/Math";
-import {applyDetailLevel, DetailLevelApplicable, threeDetailLevels} from "./detail";
+import {applyDetailLevel, type DetailLevelApplicable, threeDetailLevels} from "./detail";
 
 export interface ExtraExerciseOptions {
   baseCaseValue: number;
