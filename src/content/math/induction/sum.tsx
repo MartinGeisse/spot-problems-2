@@ -212,33 +212,71 @@ export const sumExerciseInstances: ExerciseInstance[] = [
   //     </>
   // ),
 
+  // natInductionExercise(
+  //     <>{mathSpan("1^2 - 2^2 + 3^2 - 4^2 + ... + -1^{n-1}n^2 = #sum_{i=1}^n-1^{i-1}i^2 = -1^{n-1}#frac{n(n+1)}{2}")}</>,
+  //     <>
+  //       {mathDiv("#sum_{i=1}^n-1^{i-1}i^2 = #sum_{i=1}^1-1^{i-1}i^2 = -1^{1-1}1^2 = -1^0#cdot 1 = 1")}
+  //       <div>and</div>
+  //       {mathDiv("-1^{n-1}#frac{n(n+1)}{2} = -1^{1-1}#frac{1(1+1)}{2} = #frac{1#cdot 2}{2} = 1")}
+  //     </>,
+  //     mathSpan("#sum_{i=1}^{n+1}-1^{i-1}i^2 = -1^{(n+1)-1}#frac{(n+1)((n+1)+1)}{2}"),
+  //     _detailLevel => <>
+  //       {mathDiv("#sum_{i=1}^{n+1}-1^{i-1}i^2")}
+  //       {mathDiv("= #sum_{i=1}^n-1^{i-1}i^2 + (-1^{(n+1)-1}(n+1)^2)")}
+  //       <div>using the induction hypothesis:</div>
+  //       {mathDiv("= (-1^{n-1}#frac{n(n+1)}{2}) + (-1^{(n+1)-1}(n+1)^2)")}
+  //       {mathDiv("= (-1^{n-1}#frac{n(n+1)}{2}) - (-1^{n-1}(n+1)^2)")}
+  //       {mathDiv("= (-1^{n-1})(n+1)(#frac{n}{2} - (n+1))")}
+  //       {mathDiv("= (-1^{n-1})(n+1)(-#frac{n}{2} - 1))")}
+  //       {mathDiv("= -1^{n-1}#frac{(n+1)(-n - 2))}{2}")}
+  //       {mathDiv("= -(-1^{n-1}#frac{(n+1)(n+2)}{2})")}
+  //       {mathDiv("= -(-1^{n-1}#frac{(n+1)((n+1)+1)}{2})")}
+  //       {mathDiv("= -1^{(n+1)-1}#frac{(n+1)((n+1)+1)}{2}")}
+  //     </>
+  // ),
+
+  // natInductionExercise(
+  //     <>{mathSpan("1#cdot 2 + 2#cdot 3 + 3#cdot 4 + ... + n(n+1) = #sum_{i=1}^ni(i+1) = #frac{n(n+1)(n+2)}{3}")}</>,
+  //     <>{mathDiv("#sum_{i=1}^ni(i+1) = #sum_{i=1}^1i(i+1) = 1(1+1) = 2 = #frac{6}{3} = #frac{1#cdot 2#cdot 3}{3}")}</>,
+  //     mathSpan("#sum_{i=1}^{n+1}i(i+1) = #frac{(n+1)(n+2)(n+3)}{3}"),
+  //     _detailLevel => <>
+  //       {mathDiv("#sum_{i=1}^{n+1}i(i+1)")}
+  //       {mathDiv("= #sum_{i=1}^ni(i+1) + (n+1)((n+1)+1)")}
+  //       <div>using the induction hypothesis:</div>
+  //       {mathDiv("= #frac{n(n+1)(n+2)}{3} + (n+1)(n+2)")}
+  //       {mathDiv("= (n+1)(n+2)(#frac{n}{3} + 1)")}
+  //       {mathDiv("= (n+1)(n+2)(#frac{n}{3} + #frac{3}{3})")}
+  //       {mathDiv("= #frac{(n+1)(n+2)(n+3)}{3}")}
+  //     </>
+  // ),
+
   natInductionExercise(
-      <>{mathSpan("1^2 - 2^2 + 3^2 - 4^2 + ... + -1^{n-1}n^2 = #sum_{i=1}^n-1^{i-1}i^2 = -1^{n-1}#frac{n(n+1)}{2}")}</>,
-      <>
-        {mathDiv("#sum_{i=1}^n-1^{i-1}i^2 = #sum_{i=1}^1-1^{i-1}i^2 = -1^{1-1}1^2 = -1^0#cdot 1 = 1")}
-        <div>and</div>
-        {mathDiv("-1^{n-1}#frac{n(n+1)}{2} = -1^{1-1}#frac{1(1+1)}{2} = #frac{1#cdot 2}{2} = 1")}
-      </>,
-      mathSpan("#sum_{i=1}^{n+1}-1^{i-1}i^2 = -1^{(n+1)-1}#frac{(n+1)((n+1)+1)}{2}"),
+      <>{mathSpan("1#cdot 1! + 2#cdot 2! + ... + n#cdot n! = #sum_{i=1}^ni#cdot i! = (n+1)!-1")}</>,
+      <>{mathDiv("#sum_{i=1}^ni#cdot i! = #sum_{i=1}^1i#cdot i! = 1#cdot 1! = 1 = 2 - 1 = 2! - 1 = (n+1)! - 1")}</>,
+      mathSpan("#sum_{i=1}^{n+1}i#cdot i! = ((n+1)+1)!-1"),
       _detailLevel => <>
-        {mathDiv("#sum_{i=1}^{n+1}-1^{i-1}i^2")}
-        {mathDiv("= #sum_{i=1}^n-1^{i-1}i^2 + (-1^{(n+1)-1}(n+1)^2)")}
+        {mathDiv("#sum_{i=1}^{n+1}i#cdot i!")}
+        {mathDiv("= #sum_{i=1}^ni#cdot i! + (n+1)#cdot (n+1)!")}
         <div>using the induction hypothesis:</div>
-        {mathDiv("= (-1^{n-1}#frac{n(n+1)}{2}) + (-1^{(n+1)-1}(n+1)^2)")}
-        {mathDiv("= (-1^{n-1}#frac{n(n+1)}{2}) - (-1^{n-1}(n+1)^2)")}
-        {mathDiv("= (-1^{n-1})(n+1)(#frac{n}{2} - (n+1))")}
-        {mathDiv("= (-1^{n-1})(n+1)(-#frac{n}{2} - 1))")}
-        {mathDiv("= -1^{n-1}#frac{(n+1)(-n - 2))}{2}")}
-        {mathDiv("= -(-1^{n-1}#frac{(n+1)(n+2)}{2})")}
-        {mathDiv("= -(-1^{n-1}#frac{(n+1)((n+1)+1)}{2})")}
-        {mathDiv("= -1^{(n+1)-1}#frac{(n+1)((n+1)+1)}{2}")}
+        {mathDiv("= (n+1)!-1 + (n+1)#cdot (n+1)!")}
+        {mathDiv("= (n+1)!(1 + (n+1)) - 1")}
+        {mathDiv("= (n+1)!(n+2) - 1")}
+        {mathDiv("= (n+2)! - 1")}
       </>
   ),
 
 
 
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   // natInductionExercise(
   //     <>{mathSpan("1+4+7+...+(3n-2) = #sum_{i=1}^n() = #frac{n(3n-1)}{2}")}</>,
   //     <>{mathDiv("#sum_{i=1}^n(3i-2) = #sum_{i=1}^1(3i-2) = (3#cdot 1-2) = 1 = #frac{2}{2} = #frac{1#cdot (3#cdot 1 - 1)}{2}")}</>,
