@@ -81,17 +81,37 @@ export const sumExerciseInstances: ExerciseInstance[] = [
   //     </>
   // ),
 
+  // natInductionExercise(
+  //     <>{mathSpan("1+3+5+...+(2n-1) = #sum_{i=1}^n(2i-1) = n^2")}</>,
+  //     <>{mathDiv("#sum_{i=1}^n(2i-1) = #sum_{i=1}^1(2i-1) = 2#cdot 1 - 1 = 1 = 1^2")}</>,
+  //     mathSpan("#sum_{i=1}^{n+1}(2i-1) = (n+1)^2"),
+  //     _detailLevel => <>
+  //       {mathDiv("#sum_{i=1}^{n+1}(2i-1)")}
+  //       {mathDiv("= (2(n+1)-1) + #sum_{i=1}^n(2i-1)")}
+  //       {mathDiv("= (2n+1) + #sum_{i=1}^n(2i-1)")}
+  //       <div>using the induction hypothesis:</div>
+  //       {mathDiv("= 2n + 1 + n^2")}
+  //       {mathDiv("= (n+1)^2")}
+  //     </>
+  // ),
+
   natInductionExercise(
-      <>{mathSpan("1+3+5+...+(2n-1) = #sum_{i=1}^n(2i-1) = n^2")}</>,
-      <>{mathDiv("#sum_{i=1}^n(2i-1) = #sum_{i=1}^1(2i-1) = 2#cdot 1 - 1 = 1 = 1^2")}</>,
-      mathSpan("#sum_{i=1}^{n+1}(2i-1) = (n+1)^2"),
+      <>{mathSpan("1^2+3^2+5^2+...+(2n-1)^2 = #sum_{i=1}^n(2i-1)^2 = #frac{(2n-1)2n(2n+1)}{6}")}</>,
+      <>{mathDiv("#sum_{i=1}^n(2i-1)^2 = #sum_{i=1}^1(2i-1)^2 = (2#cdot 1 - 1)^2 = 1 = #frac{1#cdot 2#cdot 3}{6}")}</>,
+      mathSpan("#sum_{i=1}^{n + 1}(2i-1)^2 = #frac{(2(n+1)-1)2(n+1)(2(n+1)+1)}{6}"),
       _detailLevel => <>
-        {mathDiv("#sum_{i=1}^{n+1}(2i-1)")}
-        {mathDiv("= (2(n+1)-1) + #sum_{i=1}^n(2i-1)")}
-        {mathDiv("= (2n+1) + #sum_{i=1}^n(2i-1)")}
+        {mathDiv("#sum_{i=1}^{n + 1}(2i-1)^2")}
+        {mathDiv("= (2(n+1)-1)^2 + #sum_{i=1}^n(2i-1)^2")}
+        {mathDiv("= (2n+1)^2 + #sum_{i=1}^n(2i-1)^2")}
         <div>using the induction hypothesis:</div>
-        {mathDiv("= 2n + 1 + n^2")}
-        {mathDiv("= (n+1)^2")}
+        {mathDiv("= (2n+1)^2 + #frac{(2n-1)2n(2n+1)}{6}")}
+        {mathDiv("= #frac{6(2n+1)^2}{6} + #frac{(2n-1)2n(2n+1)}{6}")}
+        {mathDiv("= #frac{6(2n+1)^2 + (2n-1)2n(2n+1)}{6}")}
+        {mathDiv("= #frac{(2n+1)(6(2n+1) + (2n-1)2n)}{6}")}
+        {mathDiv("= #frac{(2n+1)(12n + 6 + 4n^4 - 2n)}{6}")}
+        {mathDiv("= #frac{(2n+1)(4n^4 + 10n + 6)}{6}")}
+        {mathDiv(" = #frac{(2n+1)(2n+2)(2n+3)}{6}")}
+        {mathDiv(" = #frac{(2(n+1)-1)2(n+1)(2(n+1)+1)}{6}")}
       </>
   ),
 
