@@ -1,4 +1,4 @@
-import {ExerciseNode} from "../../../../content/types";
+import {type ExerciseNode} from "../../../../content/types";
 import {useState} from "react";
 import {ExerciseInstancePage} from "./ExerciseInstancePage";
 import {

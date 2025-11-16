@@ -1,7 +1,7 @@
 // nothing is randomized in the instances, only the choice of instance is
 import {mathDiv, mathSpan} from "../../../../framework/technical-components/Math/Math";
 import {natInductionExercise} from "../util/framework";
-import {ExerciseInstance} from "../../../types";
+import {type ExerciseInstance} from "../../../types";
 
 export const sumExerciseInstances: ExerciseInstance[] = [
 

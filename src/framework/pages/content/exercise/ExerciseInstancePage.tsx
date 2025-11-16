@@ -1,4 +1,4 @@
-import {ExerciseInstance} from "../../../../content/types";
+import {type ExerciseInstance} from "../../../../content/types";
 import CancelIcon from '@mui/icons-material/Cancel';
 import {Button, IconButton} from "@mui/material";
 import {useState} from "react";

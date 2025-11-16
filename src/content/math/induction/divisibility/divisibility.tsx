@@ -4,7 +4,7 @@ import {mathDiv, mathSpan} from "../../../../framework/technical-components/Math
 import {universalOrFixedHint} from "../util/blocks";
 import {isNatPlusWithoutDefinition} from "../../../../framework/exercise-components/math/math-atoms";
 import {Alert} from "@mui/material";
-import {ExerciseInstance} from "../../../types";
+import {type ExerciseInstance} from "../../../types";
 
 export const divisibilityExerciseInstances: ExerciseInstance[] = [
     

@@ -1,4 +1,4 @@
-import {ContentNode, FolderNode} from "./types";
+import {type ContentNode, type FolderNode} from "./types";
 import {contentTree} from "./contentTree";
 
 export function getContentNodeChildById(node: ContentNode, id: string): ContentNode | null {

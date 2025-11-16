@@ -1,5 +1,5 @@
-import {StreamComponent, StreamComponentProps} from "../../content/types";
-import {ReactElement, ReactNode, useState} from "react";
+import {type StreamComponent, type StreamComponentProps} from "../../content/types";
+import {type ReactElement, type ReactNode, useState} from "react";
 import {Button} from "@mui/material";
 
 // Implements a very simple kind of exercise that shows a problem to the user, then reveals the solution after clicking

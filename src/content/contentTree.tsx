@@ -1,4 +1,4 @@
-import {ContentNode} from "./types";
+import {type ContentNode} from "./types";
 import {createInductionExercise} from "./math/induction/createInductionExercise";
 
 export const contentTree: ContentNode = {

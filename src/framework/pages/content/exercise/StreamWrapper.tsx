@@ -1,5 +1,5 @@
-import {ReactElement, useState} from "react";
-import {Stream} from "../../../../content/types";
+import {type ReactElement, useState} from "react";
+import {type Stream} from "../../../../content/types";
 import {Button} from "@mui/material";
 
 export interface StreamWrapperProps {

@@ -1,5 +1,5 @@
-import {ExerciseNode, Stream, StreamComponentProps} from "../../content/types";
-import {ReactElement} from "react";
+import {type ExerciseNode, type Stream, type StreamComponentProps} from "../../content/types";
+import {type ReactElement} from "react";
 import {Button} from "@mui/material";
 
 export function DummyStreamComponent(props: StreamComponentProps): ReactElement {

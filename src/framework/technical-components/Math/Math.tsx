@@ -1,5 +1,5 @@
-import React, {ReactElement, useMemo} from 'react';
-import KaTeX, {KatexOptions} from "katex";
+import {type ReactElement, useMemo} from 'react';
+import KaTeX, {type KatexOptions} from "katex";
 
 // --------------------------------------------------------------------------------------------------------------------
 // helpers

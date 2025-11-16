@@ -1,5 +1,5 @@
 import styles from "./AppFrame.module.css";
-import {ReactElement, ReactNode} from "react";
+import {type ReactElement, type ReactNode} from "react";
 
 export interface AppFrameProps {
     children: ReactNode;

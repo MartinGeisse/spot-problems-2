@@ -1,4 +1,4 @@
-import {Dispatch, SetStateAction, useEffect, useRef, useState} from "react";
+import {type Dispatch, type SetStateAction, useEffect, useRef, useState} from "react";
 import {getErrorMessage} from "../../util/getErrorMessage";
 
 export type LoaderStatus = "loading" | "success" | "error";

@@ -1,4 +1,4 @@
-import React, {CSSProperties, useEffect, useRef} from 'react'
+import {type CSSProperties, useEffect, useRef} from 'react'
 
 export interface StaticCanvasProps {
     width: number;

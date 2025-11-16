@@ -1,6 +1,6 @@
-import {ReactElement, useState} from "react";
-import {StreamComponent, StreamComponentProps} from "../../content/types";
-import {NonEmptyArray} from "../util/NonEmptyArray";
+import {type ReactElement, useState} from "react";
+import {type StreamComponent, type StreamComponentProps} from "../../content/types";
+import {type NonEmptyArray} from "../util/NonEmptyArray";
 
 export interface SequenceProps extends StreamComponentProps {
   steps: NonEmptyArray<StreamComponent>;

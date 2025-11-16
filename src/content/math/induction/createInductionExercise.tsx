@@ -1,4 +1,4 @@
-import {ExerciseInstance} from "../../types";
+import {type ExerciseInstance} from "../../types";
 import {randomElement} from "../../../framework/util/random/randomElement";
 import {sumExerciseInstances} from "./divisibility/sum";
 

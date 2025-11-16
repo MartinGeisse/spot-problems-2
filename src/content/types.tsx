@@ -1,5 +1,5 @@
-import {ReactElement, ReactNode} from "react";
-import {NonEmptyArray} from "../framework/util/NonEmptyArray";
+import {type ReactElement, type ReactNode} from "react";
+import {type NonEmptyArray} from "../framework/util/NonEmptyArray";
 import {createSequence} from "../framework/exercise-components/Sequence";
 import {Button} from "@mui/material";
 

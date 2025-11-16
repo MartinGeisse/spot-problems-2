@@ -1,5 +1,5 @@
-import {ExerciseInstance} from "../../../../content/types";
-import {ReactElement} from "react";
+import {type ExerciseInstance} from "../../../../content/types";
+import {type ReactElement} from "react";
 import {Button} from "@mui/material";
 
 // TODO we need a concept how streams and stream selection should interact with the browser back button
