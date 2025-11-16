@@ -1,6 +1,6 @@
-import styles from "./NavigationList.module.scss";
+import styles from "./NavigationList.module.css";
 import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
-import {ReactNode} from "react";
+import {type ReactNode} from "react";
 
 export interface NavigationListElement {
     label: string;

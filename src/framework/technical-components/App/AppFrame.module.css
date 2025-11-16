@@ -1,8 +1,4 @@
 :root {
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -13,7 +9,7 @@ html {
   overflow: hidden;
   overscroll-behavior: none;
 
-  // must be here, so it affects "rem" units
+  /* must be here, so it affects "rem" units */
   font-size: min(3.0vw, 3.0vh);
 }
 
@@ -28,12 +24,12 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-// this app is intended to be used in portrait orientation, so if in landscape, reduce the screen to at most
-// square size.
+/*
+this app is intended to be used in portrait orientation, so if in landscape, reduce the screen to at most square size.
+ */
 .AppFrame {
   position: fixed;
   top: 0;
@@ -45,12 +41,14 @@ code {
   background-color: white;
   max-width: 100vh;
 
-  // Hide scrollbars. The inner content will usually have a sticky footer and its own scrollbars within the content
-  // section above that.
+  /*
+  Hide scrollbars. The inner content will usually have a sticky footer and its own scrollbars within the content
+  section above that.
+   */
   overflow: hidden;
 }
 
-// I'm sorry if anybody wants to copy'n'paste text out, but this interferes with the UI too much.
+/* I'm sorry if anybody wants to copy'n'paste text out, but this interferes with the UI too much. */
 * {
   user-select: none;
 }

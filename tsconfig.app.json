@@ -25,6 +25,6 @@
     "noUncheckedSideEffectImports": true
   },
   "include": [
-    "vite/spot-problems-2/src"
+    "src"
   ]
 }

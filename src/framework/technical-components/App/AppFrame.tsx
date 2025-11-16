@@ -1,4 +1,4 @@
-import styles from "./AppFrame.module.scss";
+import styles from "./AppFrame.module.css";
 import {ReactElement, ReactNode} from "react";
 
 export interface AppFrameProps {
