@@ -1,7 +1,14 @@
 {
-  "name": "edu2",
-  "version": "0.1.0",
+  "name": "spot-problems-2",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node_modules/.bin/vite",
+    "build": "PUBLIC_URL='/spot-problems-2' node_modules/.bin/tsc -b && vite build",
+    "lint": "node_modules/.bin/eslint .",
+    "preview": "node_modules/.bin/vite preview"
+  },
   "dependencies": {
     "@dnd-kit/sortable": "^10.0.0",
     "@emotion/react": "^11.11.1",
@@ -9,45 +16,27 @@
     "@mui/icons-material": "^5.14.18",
     "@mui/lab": "^5.0.0-alpha.153",
     "@mui/material": "^5.14.18",
-    "@types/jquery": "^3.5.29",
     "@types/katex": "^0.16.7",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "install": "^0.13.0",
-    "jquery": "^3.7.1",
     "katex": "^0.16.9",
-    "npm": "^10.9.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-router-dom": "^6.20.0",
-    "react-scripts": "5.0.1",
-    "sass": "^1.69.5",
-    "typescript": "^4.4.2"
-  },
-  "scripts": {
-    "dev": "react-scripts start",
-    "build": "rm -rf build docs; PUBLIC_URL='/edu2' react-scripts build; mv build docs; mv docs/index.html docs/404.html",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "typescript": "~5.9.3"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react-swc": "^4.2.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "typescript-eslint": "^8.46.3",
+    "vite": "^7.2.2"
   }
 }
