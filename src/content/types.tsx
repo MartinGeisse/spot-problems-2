@@ -49,10 +49,10 @@ export interface ExerciseInstance {
 // helper functions
 // --------------------------------------------------------------------------------------------------------------------
 
-export function createStream(name: string, ...steps: NonEmptyArray<StreamComponent>): Stream {
+export function createStream(name: string, steps: NonEmptyArray<StreamComponent>, finalStep?: ReactNode | undefined | null): Stream {
   return {
     name,
-    component: steps.length === 1 ? steps[0] : createSequence(steps),
+    component: steps.length === 1 ? steps[0] : createSequence(steps, finalStep),
   };
 }
 
