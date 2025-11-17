@@ -1,5 +1,5 @@
 import {type ContentNode} from "./types";
-import {createInductionExercise} from "./math/induction/createInductionExercise";
+import {inductionSubtree} from "./math/induction/inductionSubtree.tsx";
 
 export const contentTree: ContentNode = {
     id: "root",
@@ -11,12 +11,7 @@ export const contentTree: ContentNode = {
         name: "Math",
         type: "folder",
         children: [
-          {
-            id: "induction",
-            name: "Induction",
-            type: "exercise",
-            instantiate: createInductionExercise,
-          }
+          inductionSubtree,
         ],
       },
       {
