@@ -1,13 +1,40 @@
-import {mathDiv, mathSpan} from "../../../framework/technical-components/Math/Math.tsx";
-import {defaultExtraExerciseOptions, type ExtraExerciseOptions} from "./util/framework.tsx";
-import {type ContentNode, createStream, type ExerciseInstance} from "../../types.tsx";
+import {mathSpan} from "../../../framework/technical-components/Math/Math.tsx";
+import {type ContentNode, createReadStep, createStream, type ExerciseInstance} from "../../types.tsx";
 import {randomElement} from "../../../framework/util/random/randomElement.ts";
-import type {ReactNode} from "react";
-import {applyDetailLevel, type DetailLevelApplicable, threeDetailLevels} from "./util/detail.ts";
-import {isNatPlus} from "../../../framework/exercise-components/math/math-atoms.tsx";
-import {createShowProblemRevealSolution} from "../../../framework/exercise-components/ShowProblemRevealSolution.tsx";
+
+const sumNatExerciseInstance: ExerciseInstance = {
+  streams: [createStream("default",
+      [
+        createReadStep(<>
+          Prove that the sum of the first {mathSpan("n")} natural numbers is equal to {mathSpan("#frac{n(n+1)}2")}
+          for all {mathSpan("n #in #mathbb{N}^+=\\{1, 2, 3, ...\\}")}.
+        </>),
+        createReadStep(<>
+          middle step
+        </>),
+      ],
+      <>
+        Solution.
+      </>
+  )],
+};
 
 /*
+  natInductionExercise(
+      <>{mathSpan("1+2+3+...+n = #sum_{i=1}^ni = #frac{n(n+1)}2")}</>,
+      mathDiv("#sum_{i=1}^ni = #sum_{i=1}^1i = 1 = #frac{1(1+1)}2"),
+      <>{mathSpan("#sum_{i=1}^{n+1}i = #frac{(n+1)((n+1)+1)}2")}</>,
+      _detailLevel => <>
+        {mathDiv("#sum_{i=1}^{n+1}i")}
+        {mathDiv("= (n+1) + #sum_{i=1}^ni")}
+        <div>using the induction hypothesis:</div>
+        {mathDiv("= (n+1) + #frac{n(n+1)}2")}
+        {mathDiv("= #frac{2(n+1)}2 + #frac{n(n+1)}2")}
+        {mathDiv("= #frac{2(n+1) + n(n+1)}2")}
+        {mathDiv("= #frac{(n+1)(n+2)}2")}
+      </>
+  ),
+
 export function natInductionExercise(
     proveWhat: ReactNode,
     baseCaseProof: DetailLevelApplicable,
@@ -56,22 +83,7 @@ export function natInductionExercise(
 
 // nothing is randomized in the instances, only the choice of instance is
 export const basicInductionExerciseInstances: ExerciseInstance[] = [
-
-  natInductionExercise(
-      <>{mathSpan("1+2+3+...+n = #sum_{i=1}^ni = #frac{n(n+1)}2")}</>,
-      mathDiv("#sum_{i=1}^ni = #sum_{i=1}^1i = 1 = #frac{1(1+1)}2"),
-      <>{mathSpan("#sum_{i=1}^{n+1}i = #frac{(n+1)((n+1)+1)}2")}</>,
-      _detailLevel => <>
-        {mathDiv("#sum_{i=1}^{n+1}i")}
-        {mathDiv("= (n+1) + #sum_{i=1}^ni")}
-        <div>using the induction hypothesis:</div>
-        {mathDiv("= (n+1) + #frac{n(n+1)}2")}
-        {mathDiv("= #frac{2(n+1)}2 + #frac{n(n+1)}2")}
-        {mathDiv("= #frac{2(n+1) + n(n+1)}2")}
-        {mathDiv("= #frac{(n+1)(n+2)}2")}
-      </>
-  ),
-
+  sumNatExerciseInstance,
 ];
 
 export const basicInductionSubtree: ContentNode = {

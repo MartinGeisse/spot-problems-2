@@ -12,11 +12,15 @@ export function Sequence(props: SequenceProps): ReactElement {
   return <>
     {props.steps.map((StepComponent, index) => {
       const nextIndex = index + 1;
+      const stepDisabled = props.disabled || index < finishedSteps;
+      function onFinishStep(): void {
+        setFinishedSteps(nextIndex);
+        if (nextIndex === props.steps.length) {
+          props.onFinish();
+        } 
+      }
       return <div key={index} style={{ display: index <= finishedSteps ? "block" : "none"}}>
-        <StepComponent
-            disabled={props.disabled || index < finishedSteps}
-            onFinish={() => nextIndex === props.steps.length ? props.onFinish() : setFinishedSteps(nextIndex)}
-        />
+        <StepComponent disabled={stepDisabled} onFinish={onFinishStep} />
       </div>;
     })}
     <div style={{ display: finishedSteps === props.steps.length ? "block" : "none"}}>
