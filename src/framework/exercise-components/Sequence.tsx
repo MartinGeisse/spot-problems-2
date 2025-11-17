@@ -12,7 +12,7 @@ export function Sequence(props: SequenceProps): ReactElement {
   return <>
     {props.steps.map((StepComponent, index) => {
       const nextIndex = index + 1;
-      return <div style={{ display: index <= finishedSteps ? "block" : "none"}}>
+      return <div key={index} style={{ display: index <= finishedSteps ? "block" : "none"}}>
         <StepComponent
             disabled={props.disabled || index < finishedSteps}
             onFinish={() => nextIndex === props.steps.length ? props.onFinish() : setFinishedSteps(nextIndex)}
