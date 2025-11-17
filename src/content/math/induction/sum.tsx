@@ -282,7 +282,6 @@ export const sumExerciseInstances: ExerciseInstance[] = [
   // ),
 
   // komplizierter -- summe auf beiden seiten!
-    TODO rechenfehler
   natInductionExercise(
       <>{mathSpan("#sum_{i=1}^{n}(#frac{1}{2i-1} - #frac{1}{2i}) = #sum_{i=n+1}^{2n}#frac{1}{i}")}</>,
       <>
@@ -299,13 +298,10 @@ export const sumExerciseInstances: ExerciseInstance[] = [
         {mathDiv("#sum_{i=1}^{n+1}(#frac{1}{2i-1} - #frac{1}{2i})")}
         {mathDiv("= (#frac{1}{2(n+1)-1} - #frac{1}{2(n+1)}) + #sum_{i=1}^n(#frac{1}{2i-1} - #frac{1}{2i})")}
         <div>using the induction hypothesis:</div>
-        {mathDiv("= (#frac{1}{2n+1} - #frac{1}{2n+1}) + #sum_{i=n+1}^{2n}#frac{1}{i}")}
-        {mathDiv("= (#frac{1}{2n+1} - #frac{1}{2n+1}) + (#frac{1}{n+1} - #frac{1}{2n+1} - #frac{1}{2n+2}) + #sum_{i=n+2}^{2n+2}#frac{1}{i}")}
-        {mathDiv("= (#frac{1}{2n+1} - #frac{1}{2n+1} + #frac{1}{n+1} - #frac{1}{2n+1} - #frac{1}{2n+1}) + #sum_{i=(n+1)+1}^{2(n+1)}#frac{1}{i}")}
-        
-        
-        
-        
+        {mathDiv("= (#frac{1}{2n+1} - #frac{1}{2n+2}) + #sum_{i=n+1}^{2n}#frac{1}{i}")}
+        {mathDiv("= (#frac{1}{2n+1} - #frac{1}{2n+2}) + (#frac{1}{n+1} - #frac{1}{2n+1} - #frac{1}{2n+2}) + #sum_{i=n+2}^{2n+2}#frac{1}{i}")}
+        {mathDiv("= (#frac{1}{2n+1} - #frac{1}{2n+1} + #frac{1}{n+1} - #frac{1}{2n+2} - #frac{1}{2n+2}) + #sum_{i=n+2}^{2n+2}#frac{1}{i}")}
+        {mathDiv("= (#frac{2}{2n+2} - #frac{1}{2n+2} - #frac{1}{2n+2}) + #sum_{i=n+2}^{2n+2}#frac{1}{i}")}
         {mathDiv("= #sum_{i=(n+1)+1}^{2(n+1)}#frac{1}{i}")}
       </>,
       {
