@@ -53,7 +53,7 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
             />
           </div>
           {props.exerciseInstance.streams.map((stream, index) =>
-            <div style={{ marginTop: "0.2em", display: (selectedStreamIndex === index && !streamSelectionOpen) ? "block" : "none" }}>
+            <div key={index} style={{ marginTop: "0.2em", display: (selectedStreamIndex === index && !streamSelectionOpen) ? "block" : "none" }}>
               <StreamWrapper stream={stream} switchToNewInstance={props.switchToNewInstance} leaveExercise={props.leaveExercise} />
             </div>
           )}

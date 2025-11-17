@@ -11,6 +11,10 @@ export interface StreamWrapperProps {
 export function StreamWrapper(props: StreamWrapperProps): ReactElement {
   const [finished, setFinished] = useState(false);
   const StreamComponent = props.stream.component;
+  if (typeof StreamComponent !== "function") {
+    console.error("invalid stream component", props.stream);
+    throw new Error("invalid stream component (see console error for details)");
+  }
 
   return <>
     <StreamComponent disabled={finished} onFinish={() => setFinished(true)} />
