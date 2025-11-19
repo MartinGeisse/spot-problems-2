@@ -1,9 +1,8 @@
-import {mathDiv, mathSpan} from "../../../framework/technical-components/Math/Math.tsx";
+import {mathSpan} from "../../../framework/technical-components/Math/Math.tsx";
 import {type ContentNode, createStream, type ExerciseInstance} from "../../../framework/types.tsx";
 import {randomElement} from "../../../framework/util/random/randomElement.ts";
 import {createSequence} from "../../../framework/exercise-components/Sequence.tsx";
-import {createReadStep} from "../../../framework/exercise-components/ReadStep.tsx";
-import {createOrderedSelectOneStep} from "../../../framework/exercise-components/OrderedSelectOneStep.tsx";
+import {createSelectOneStep} from "../../../framework/exercise-components/SelectOneStep.tsx";
 import type {ReactNode} from "react";
 
 interface MyExerciseInstanceParameters {
@@ -16,7 +15,7 @@ function instantiateFormula(formula: string, n: number | string) {
 }
 
 function createInstatiationStep(prelude: ReactNode, parameters: MyExerciseInstanceParameters, n: number) {
-  return createOrderedSelectOneStep(
+  return createSelectOneStep(
       <>
         {prelude}
         <p>
@@ -32,7 +31,8 @@ function createInstatiationStep(prelude: ReactNode, parameters: MyExerciseInstan
         mathSpan(instantiateFormula(parameters.rightSideFormula, n)),
         mathSpan(instantiateFormula(parameters.leftSideFormula, n) + " = " + instantiateFormula(parameters.rightSideFormula, n)),
       ],
-      6
+      6,
+      true
   );
 }
 

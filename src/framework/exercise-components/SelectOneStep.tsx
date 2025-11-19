@@ -2,14 +2,16 @@ import {type ReactNode, useState} from "react";
 import {Button} from "@mui/material";
 import type {StreamComponent, StreamComponentProps} from "../types.tsx";
 import {showInternalError} from "./InternalError.tsx";
+import {createIndexArray} from "../util/createIndexArray.ts";
+import {shuffleInPlace} from "../util/random/shuffleInPlace.ts";
 
-export interface OrderedSelectOneStepProps extends StreamComponentProps {
-  readContent: ReactNode
+export interface SelectOneStepProps extends StreamComponentProps {
+  readContent: ReactNode;
   choices: ReactNode[];
   correctChoiceIndex: number;
 }
 
-export function OrderedSelectOneStep(props: OrderedSelectOneStepProps) {
+export function SelectOneStep(props: SelectOneStepProps) {
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   if (props.correctChoiceIndex < 0 || props.correctChoiceIndex >= props.choices.length) {
     return showInternalError(props, "correctChoiceIndex is out of bounds");
@@ -61,12 +63,25 @@ export function OrderedSelectOneStep(props: OrderedSelectOneStepProps) {
   </>;
 }
 
-export function createOrderedSelectOneStep(
+export function createSelectOneStep(
   readContent: ReactNode,
   choices: ReactNode[],
   correctChoiceIndex: number,
+  shuffle: boolean,
 ): StreamComponent {
-  return props => <OrderedSelectOneStep
+  if (shuffle) {
+    const originalIndexToShufflesIndex = createIndexArray(choices.length);
+    shuffleInPlace(originalIndexToShufflesIndex);
+    
+    const originalChoices = choices;
+    choices = [...choices];
+    for (let originalIndex = 0; originalIndex < choices.length; originalIndex++) {
+      choices[originalIndexToShufflesIndex[originalIndex]] = originalChoices[originalIndex];
+    }
+    
+    correctChoiceIndex = originalIndexToShufflesIndex[correctChoiceIndex];
+  }
+  return props => <SelectOneStep
       readContent={readContent}
       choices={choices}
       correctChoiceIndex={correctChoiceIndex}
