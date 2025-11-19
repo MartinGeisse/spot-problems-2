@@ -1,4 +1,4 @@
-import {type FolderNode} from "../../../../content/types";
+import {type FolderNode} from "../../../types.tsx";
 import {FolderPageBreadcrumbs} from "./FolderPageBreadcrumbs";
 import {NavigationList} from "../../../technical-components/navigation/NavigationList/NavigationList";
 import {

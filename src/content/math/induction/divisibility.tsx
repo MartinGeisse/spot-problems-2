@@ -4,7 +4,7 @@ import {mathDiv, mathSpan} from "../../../framework/technical-components/Math/Ma
 import {universalOrFixedHint} from "./util/blocks.tsx";
 import {isNatPlusWithoutDefinition} from "../../../framework/exercise-components/math/math-atoms.tsx";
 import {Alert} from "@mui/material";
-import {type ContentNode, type ExerciseInstance} from "../../types.tsx";
+import {type ContentNode, type ExerciseInstance} from "../../../framework/types.tsx";
 import {randomElement} from "../../../framework/util/random/randomElement.ts";
 
 // nothing is randomized in the instances, only the choice of instance is

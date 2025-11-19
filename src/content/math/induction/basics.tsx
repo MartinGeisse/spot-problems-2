@@ -1,14 +1,17 @@
 import {mathSpan} from "../../../framework/technical-components/Math/Math.tsx";
-import {type ContentNode, createReadStep, createStream, type ExerciseInstance} from "../../types.tsx";
+import {type ContentNode, createStream, type ExerciseInstance} from "../../../framework/types.tsx";
 import {randomElement} from "../../../framework/util/random/randomElement.ts";
+import {createSequence} from "../../../framework/exercise-components/Sequence.tsx";
+import {createReadStep} from "../../../framework/exercise-components/ReadStep.tsx";
+import {createOrderedSelectOneStep} from "../../../framework/exercise-components/OrderedSelectOneStep.tsx";
 
 const sumNatExerciseInstance: ExerciseInstance = {
-  streams: [createStream("default",
+  streams: [createStream("default", createSequence(
       [
-        createReadStep(<>
+        createOrderedSelectOneStep(<>
           Prove that the sum of the first {mathSpan("n")} natural numbers is equal to {mathSpan("#frac{n(n+1)}2")}
           for all {mathSpan("n #in #mathbb{N}^+=\\{1, 2, 3, ...\\}")}.
-        </>),
+        </>, ["foo", "bar", "baz"], 0),
         createReadStep(<>
           middle step
         </>),
@@ -16,7 +19,7 @@ const sumNatExerciseInstance: ExerciseInstance = {
       <>
         Solution.
       </>
-  )],
+  ))],
 };
 
 /*

@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {buildUrlPathForContentPath} from "../../../../content/paths";
+import {buildUrlPathForContentPath} from "../../../paths.tsx";
 
 export interface ContentNodeLinkProps {
     label: string;

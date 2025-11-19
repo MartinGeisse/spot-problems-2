@@ -1,5 +1,5 @@
 import {type ReactNode} from "react";
-import {type ExerciseInstance} from "../../../types";
+import {type ExerciseInstance} from "../../../../framework/types.tsx";
 import {isNatPlus} from "../../../../framework/exercise-components/math/math-atoms";
 import {mathSpan} from "../../../../framework/technical-components/Math/Math";
 import {applyDetailLevel, type DetailLevelApplicable, threeDetailLevels} from "./detail";

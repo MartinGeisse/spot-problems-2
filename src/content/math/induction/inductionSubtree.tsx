@@ -1,4 +1,4 @@
-import type {ContentNode} from "../../types.tsx";
+import type {ContentNode} from "../../../framework/types.tsx";
 import {sumSubtree} from "./sum.tsx";
 import {divisibilitySubtree} from "./divisibility.tsx";
 import {basicInductionSubtree} from "./basics.tsx";

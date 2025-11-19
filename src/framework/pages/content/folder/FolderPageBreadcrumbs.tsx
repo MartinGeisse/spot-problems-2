@@ -1,6 +1,6 @@
-import {type ContentNode} from "../../../../content/types";
+import {type ContentNode} from "../../../types.tsx";
 import {Breadcrumbs, type BreadcrumbsElement} from "../../../technical-components/navigation/Breadcrumbs/Breadcrumbs";
-import {buildUrlPathForContentPath, getContentNodeChildById} from "../../../../content/paths";
+import {buildUrlPathForContentPath, getContentNodeChildById} from "../../../paths.tsx";
 import {contentTree} from "../../../../content/contentTree";
 
 export interface FolderPageBreadcrumbsProps {

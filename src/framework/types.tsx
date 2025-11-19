@@ -1,7 +1,5 @@
-import {type ReactElement, type ReactNode} from "react";
-import {type NonEmptyArray} from "../framework/util/NonEmptyArray";
-import {createSequence} from "../framework/exercise-components/Sequence";
-import {Button} from "@mui/material";
+import {type ReactElement} from "react";
+import {type NonEmptyArray} from "./util/NonEmptyArray.ts";
 
 // --------------------------------------------------------------------------------------------------------------------
 // content nodes
@@ -49,16 +47,6 @@ export interface ExerciseInstance {
 // helper functions
 // --------------------------------------------------------------------------------------------------------------------
 
-export function createStream(name: string, steps: NonEmptyArray<StreamComponent>, finalStep?: ReactNode | undefined | null): Stream {
-  return {
-    name,
-    component: steps.length === 1 ? steps[0] : createSequence(steps, finalStep),
-  };
-}
-
-export function createReadStep(content: ReactNode): StreamComponent {
-  return props => <>
-    <div>{content}</div>
-    <div><Button disabled={props.disabled} onClick={props.onFinish}>Weiter</Button></div>
-  </>;
+export function createStream(name: string, component: StreamComponent): Stream {
+  return { name, component };
 }

@@ -1,4 +1,4 @@
-import {type StreamComponent, type StreamComponentProps} from "../../content/types";
+import {type StreamComponent, type StreamComponentProps} from "../types.tsx";
 import {type ReactElement, type ReactNode, useState} from "react";
 import {Button} from "@mui/material";
 

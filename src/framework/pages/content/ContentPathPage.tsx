@@ -1,5 +1,5 @@
 import {ContentNodePage} from "./ContentNodePage";
-import {getContentNodeByPath} from "../../../content/paths";
+import {getContentNodeByPath} from "../../paths.tsx";
 
 export interface ContentPathPageProps {
     contentPath: string[];

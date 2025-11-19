@@ -1,4 +1,4 @@
-import {type ExerciseNode, type Stream, type StreamComponentProps} from "../../content/types";
+import {createStream, type ExerciseNode, type Stream, type StreamComponentProps} from "../types.tsx";
 import {type ReactElement} from "react";
 import {Button} from "@mui/material";
 
@@ -9,10 +9,7 @@ export function DummyStreamComponent(props: StreamComponentProps): ReactElement 
 }
 
 export function createDummyStream(name: string = "---"): Stream {
-  return {
-    name,
-    component: DummyStreamComponent,
-  };
+  return createStream(name, DummyStreamComponent);
 }
 
 export function createDummyExerciseNode(name: string): ExerciseNode {

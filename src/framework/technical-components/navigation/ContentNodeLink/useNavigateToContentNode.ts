@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import {buildUrlPathForContentPath} from "../../../../content/paths";
+import {buildUrlPathForContentPath} from "../../../paths.tsx";
 
 export type NavigateToContentNode = (path: string[]) => void;
 

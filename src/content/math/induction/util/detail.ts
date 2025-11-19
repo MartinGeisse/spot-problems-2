@@ -1,5 +1,5 @@
 import {type ReactNode} from "react";
-import {createStream, type ExerciseInstance} from "../../../types";
+import {createStream, type ExerciseInstance} from "../../../../framework/types.tsx";
 import {createShowProblemRevealSolution} from "../../../../framework/exercise-components/ShowProblemRevealSolution";
 
 export type DetailLevel = 0 | 1 | 2;

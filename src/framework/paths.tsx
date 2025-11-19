@@ -1,5 +1,5 @@
-import {type ContentNode, type FolderNode} from "./types";
-import {contentTree} from "./contentTree";
+import {type ContentNode, type FolderNode} from "./types.tsx";
+import {contentTree} from "../content/contentTree.tsx";
 
 export function getContentNodeChildById(node: ContentNode, id: string): ContentNode | null {
     if (node.type === "folder") {

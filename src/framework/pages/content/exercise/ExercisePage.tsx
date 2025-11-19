@@ -1,4 +1,4 @@
-import {type ExerciseNode} from "../../../../content/types";
+import {type ExerciseNode} from "../../../types.tsx";
 import {useState} from "react";
 import {ExerciseInstancePage} from "./ExerciseInstancePage";
 import {

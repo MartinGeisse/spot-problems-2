@@ -1,5 +1,5 @@
 import {type ReactElement, type ReactNode, useState} from "react";
-import {type StreamComponent, type StreamComponentProps} from "../../content/types";
+import {type StreamComponent, type StreamComponentProps} from "../types.tsx";
 import {type NonEmptyArray} from "../util/NonEmptyArray";
 
 export interface SequenceProps extends StreamComponentProps {
@@ -19,7 +19,7 @@ export function Sequence(props: SequenceProps): ReactElement {
           props.onFinish();
         } 
       }
-      return <div key={index} style={{ display: index <= finishedSteps ? "block" : "none"}}>
+      return <div key={index} style={{ display: index <= finishedSteps ? "block" : "none", marginTop: index === 0 ? "0.2em" : "1em"}}>
         <StepComponent disabled={stepDisabled} onFinish={onFinishStep} />
       </div>;
     })}

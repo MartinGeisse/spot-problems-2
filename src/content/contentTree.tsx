@@ -1,4 +1,4 @@
-import {type ContentNode} from "./types";
+import {type ContentNode} from "../framework/types.tsx";
 import {inductionSubtree} from "./math/induction/inductionSubtree.tsx";
 
 export const contentTree: ContentNode = {

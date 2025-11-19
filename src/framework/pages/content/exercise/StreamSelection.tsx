@@ -1,4 +1,4 @@
-import {type ExerciseInstance} from "../../../../content/types";
+import {type ExerciseInstance} from "../../../types.tsx";
 import {type ReactElement} from "react";
 import {Button} from "@mui/material";
 
