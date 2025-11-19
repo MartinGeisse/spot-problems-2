@@ -50,6 +50,7 @@ export function OrderedSelectOneStep(props: OrderedSelectOneStepProps) {
             },
             background: "#ddf",
             marginTop: "0.5em",
+            textTransform: "none",
           }}
           fullWidth={true}
           onClick={() => onClickChoice(index)}
