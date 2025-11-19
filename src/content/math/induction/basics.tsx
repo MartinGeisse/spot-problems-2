@@ -4,6 +4,7 @@ import {randomElement} from "../../../framework/util/random/randomElement.ts";
 import {createSequence} from "../../../framework/exercise-components/Sequence.tsx";
 import {createSelectOneStep} from "../../../framework/exercise-components/SelectOneStep.tsx";
 import type {ReactNode} from "react";
+import {randomInt} from "../../../framework/util/random/randomInt.ts";
 
 interface MyExerciseInstanceParameters {
   leftSideFormula: string;
@@ -37,33 +38,18 @@ function createInstatiationStep(prelude: ReactNode, parameters: MyExerciseInstan
 }
 
 function createMyExerciseInstance(parameters: MyExerciseInstanceParameters): ExerciseInstance {
+  const problem = <>
+    Problem: Prove that {mathSpan(parameters.leftSideFormula + " = " + parameters.rightSideFormula)} for all
+    {mathSpan("n #in #mathbb{N}^+=\\{1, 2, 3, ...\\}")}.
+  </>;
+  const n2 = 2 + randomInt(3);
+  const n3 = n2 + 1 + randomInt(3);
   return {
     streams: [createStream("default", createSequence(
         [
-          createInstatiationStep(
-            <>
-              Problem: Prove that {mathSpan(parameters.leftSideFormula + " = " + parameters.rightSideFormula)} for all
-              {mathSpan("n #in #mathbb{N}^+=\\{1, 2, 3, ...\\}")}.
-            </>,
-            parameters,
-            1
-          ),
-          createInstatiationStep(
-            <>
-              Problem: Prove that {mathSpan(parameters.leftSideFormula + " = " + parameters.rightSideFormula)} for all
-              {mathSpan("n #in #mathbb{N}^+=\\{1, 2, 3, ...\\}")}.
-            </>,
-            parameters,
-            2
-          ),
-          createInstatiationStep(
-            <>
-              Problem: Prove that {mathSpan(parameters.leftSideFormula + " = " + parameters.rightSideFormula)} for all
-              {mathSpan("n #in #mathbb{N}^+=\\{1, 2, 3, ...\\}")}.
-            </>,
-            parameters,
-            3
-          ),
+          createInstatiationStep(problem, parameters, 1),
+          createInstatiationStep(null, parameters, n2),
+          createInstatiationStep(null, parameters, n3),
         ],
         <>
           Solution.
