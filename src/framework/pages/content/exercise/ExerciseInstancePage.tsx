@@ -25,25 +25,20 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
         }
     }
     
-    var helpBoxDisplay = (streamSelectionOpen || props.exerciseInstance.streams.length === 1) ? "none" : "block";
-
     return <>
         <PageWithHeader
-            header={
-                <h1 style={{margin: 0}}>
-                    <IconButton onClick={onClickCancel} sx={{marginRight: "1em"}}>
-                        <CancelIcon fontSize={"large"} />
-                    </IconButton>
-                    {props.exerciseName}
-                </h1>
-            }
+            header={<>
+              {props.exerciseInstance.streams.length > 1 && <div style={{float: "right", marginTop: "0.25em", marginRight: "0.25em"}}>
+                <Button variant={"contained"} color={"warning"} onClick={() => setStreamSelectionOpen(true)}>Hint</Button>
+              </div>}
+              <h1 style={{margin: 0}}>
+                  <IconButton onClick={onClickCancel} sx={{marginRight: "1em"}}>
+                      <CancelIcon fontSize={"large"} />
+                  </IconButton>
+                  {props.exerciseName}
+              </h1>
+            </>}
         >
-          <div style={{ marginTop: "0.2em", display: helpBoxDisplay }}>
-            {selectedStreamIndex === 0 && <>If you get stuck, click here: &nbsp;&nbsp;</>}
-            {selectedStreamIndex !== 0 && <>Select hints: &nbsp;&nbsp;</>}
-            <Button variant={"contained"} color={"warning"} onClick={() => setStreamSelectionOpen(true)}>Help</Button>
-            <hr />
-          </div>
           <div style={{ display: streamSelectionOpen ? "block" : "none" }}>
             <StreamSelection
                 exerciseInstance={props.exerciseInstance}
