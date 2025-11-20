@@ -1,5 +1,4 @@
 import {type ReactElement} from "react";
-import {type NonEmptyArray} from "./util/NonEmptyArray.ts";
 
 // --------------------------------------------------------------------------------------------------------------------
 // content nodes
@@ -27,26 +26,16 @@ export type ContentNode = FolderNode | ExerciseNode;
 // exercise instances
 // --------------------------------------------------------------------------------------------------------------------
 
-export interface StreamComponentProps {
-  disabled: boolean;
+export type HintLevel = 0 | 1 | 2;
+
+export interface ExerciseComponentProps {
+  hintLevel: HintLevel;
   onFinish: () => void;
 }
 
-export type StreamComponent = (props: StreamComponentProps) => ReactElement;
-
-export interface Stream {
-  name: string;
-  component: StreamComponent;
-}
+export type ExerciseComponent = (props: ExerciseComponentProps) => ReactElement;
 
 export interface ExerciseInstance {
-  streams: NonEmptyArray<Stream>;
-}
-
-// --------------------------------------------------------------------------------------------------------------------
-// helper functions
-// --------------------------------------------------------------------------------------------------------------------
-
-export function createStream(name: string, component: StreamComponent): Stream {
-  return { name, component };
+  component: ExerciseComponent;
+  maxHintLevel: HintLevel;
 }

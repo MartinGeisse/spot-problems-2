@@ -1,9 +1,9 @@
-import type {StreamComponentProps} from "../types.tsx";
+import type {ExerciseComponentProps} from "../types.tsx";
 import type {ReactNode} from "react";
 import {ReadStep} from "./ReadStep.tsx";
 import {Alert} from "@mui/material";
 
-export interface InternalErrorProps extends StreamComponentProps {
+export interface InternalErrorProps extends ExerciseComponentProps {
   details: ReactNode;
 }
 
@@ -16,6 +16,6 @@ export function InternalError(props: InternalErrorProps) {
   return <ReadStep content={content} disabled={props.disabled} onFinish={props.onFinish} />;
 }
 
-export function showInternalError(props: StreamComponentProps, details: ReactNode): ReactNode {
+export function showInternalError(props: ExerciseComponentProps, details: ReactNode): ReactNode {
   return <InternalError details={details} disabled={props.disabled} onFinish={props.onFinish} />;
 }

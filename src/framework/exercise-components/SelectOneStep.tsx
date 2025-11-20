@@ -1,11 +1,11 @@
 import {type ReactNode, useState} from "react";
 import {Button} from "@mui/material";
-import type {StreamComponent, StreamComponentProps} from "../types.tsx";
+import type {ExerciseComponent, ExerciseComponentProps} from "../types.tsx";
 import {showInternalError} from "./InternalError.tsx";
 import {createIndexArray} from "../util/createIndexArray.ts";
 import {shuffleInPlace} from "../util/random/shuffleInPlace.ts";
 
-export interface SelectOneStepProps extends StreamComponentProps {
+export interface SelectOneStepProps extends ExerciseComponentProps {
   readContent: ReactNode;
   choices: ReactNode[];
   correctChoiceIndex: number;
@@ -68,7 +68,7 @@ export function createSelectOneStep(
   choices: ReactNode[],
   correctChoiceIndex: number,
   shuffle: boolean,
-): StreamComponent {
+): ExerciseComponent {
   if (shuffle) {
     const originalIndexToShufflesIndex = createIndexArray(choices.length);
     shuffleInPlace(originalIndexToShufflesIndex);

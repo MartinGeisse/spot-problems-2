@@ -1,8 +1,8 @@
-import {createStream, type ExerciseNode, type Stream, type StreamComponentProps} from "../types.tsx";
+import {createStream, type ExerciseNode, type Stream, type ExerciseComponentProps} from "../types.tsx";
 import {type ReactElement} from "react";
 import {Button} from "@mui/material";
 
-export function DummyStreamComponent(props: StreamComponentProps): ReactElement {
+export function DummyStreamComponent(props: ExerciseComponentProps): ReactElement {
   return <>
     Drücke den Button, um die Aufgabe zu lösen: <Button onClick={() => props.onFinish()}>BUTTON</Button>
   </>;

@@ -1,8 +1,8 @@
 import type {ReactNode} from "react";
 import {Button} from "@mui/material";
-import type {StreamComponent, StreamComponentProps} from "../types.tsx";
+import type {ExerciseComponent, ExerciseComponentProps} from "../types.tsx";
 
-export interface ReadStepProps extends StreamComponentProps {
+export interface ReadStepProps extends ExerciseComponentProps {
   content: ReactNode
 }
 
@@ -13,6 +13,6 @@ export function ReadStep(props: ReadStepProps) {
   </>;
 }
 
-export function createReadStep(content: ReactNode): StreamComponent {
+export function createReadStep(content: ReactNode): ExerciseComponent {
   return props => <ReadStep content={content} disabled={props.disabled} onFinish={props.onFinish} />;
 }

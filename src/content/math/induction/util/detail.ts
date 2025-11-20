@@ -2,11 +2,10 @@ import {type ReactNode} from "react";
 import {createStream, type ExerciseInstance} from "../../../../framework/types.tsx";
 import {createShowProblemRevealSolution} from "../../../../framework/exercise-components/ShowProblemRevealSolution";
 
-export type DetailLevel = 0 | 1 | 2;
 
-export type DetailLevelApplicable = ReactNode | ((detailLevel: DetailLevel) => ReactNode);
+export type DetailLevelApplicable = ReactNode | ((detailLevel: HintLevel) => ReactNode);
 
-export function applyDetailLevel(detailLevel: DetailLevel, applicable: DetailLevelApplicable): ReactNode {
+export function applyDetailLevel(detailLevel: HintLevel, applicable: DetailLevelApplicable): ReactNode {
   return typeof applicable === "function" ? applicable(detailLevel) : applicable;
 }
 

@@ -1,11 +1,11 @@
-import {type StreamComponent, type StreamComponentProps} from "../types.tsx";
+import {type ExerciseComponent, type ExerciseComponentProps} from "../types.tsx";
 import {type ReactElement, type ReactNode, useState} from "react";
 import {Button} from "@mui/material";
 
 // Implements a very simple kind of exercise that shows a problem to the user, then reveals the solution after clicking
 // a button. This is a way to at least show problems when no better kind of exercise implementation is available.
 
-export interface ShowProblemRevealSolutionProps extends StreamComponentProps {
+export interface ShowProblemRevealSolutionProps extends ExerciseComponentProps {
   problem: ReactNode;
   solution: ReactNode;
 }
@@ -27,6 +27,6 @@ export function ShowProblemRevealSolution(props: ShowProblemRevealSolutionProps)
   );
 }
 
-export function createShowProblemRevealSolution(problem: ReactNode, solution: ReactNode): StreamComponent {
+export function createShowProblemRevealSolution(problem: ReactNode, solution: ReactNode): ExerciseComponent {
   return props => <ShowProblemRevealSolution problem={problem} solution={solution} disabled={props.disabled} onFinish={props.onFinish} />;
 }

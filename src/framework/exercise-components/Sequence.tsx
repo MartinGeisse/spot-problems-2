@@ -1,9 +1,9 @@
 import {type ReactElement, type ReactNode, useState} from "react";
-import {type StreamComponent, type StreamComponentProps} from "../types.tsx";
+import {type ExerciseComponent, type ExerciseComponentProps} from "../types.tsx";
 import {type NonEmptyArray} from "../util/NonEmptyArray";
 
-export interface SequenceProps extends StreamComponentProps {
-  steps: NonEmptyArray<StreamComponent>;
+export interface SequenceProps extends ExerciseComponentProps {
+  steps: NonEmptyArray<ExerciseComponent>;
   finalStep?: ReactNode | undefined | null;
 }
 
@@ -29,8 +29,8 @@ export function Sequence(props: SequenceProps): ReactElement {
   </>;
 }
 
-export function createSequence(steps: NonEmptyArray<StreamComponent>, finalStep?: ReactNode | undefined | null): StreamComponent {
-  return (props: StreamComponentProps) => {
+export function createSequence(steps: NonEmptyArray<ExerciseComponent>, finalStep?: ReactNode | undefined | null): ExerciseComponent {
+  return (props: ExerciseComponentProps) => {
     return <Sequence disabled={props.disabled} onFinish={props.onFinish} steps={steps} finalStep={finalStep} />;
   };
 }
