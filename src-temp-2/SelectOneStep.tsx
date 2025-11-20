@@ -1,9 +1,9 @@
 import {type ReactNode, useState} from "react";
 import {Button} from "@mui/material";
-import type {ExerciseComponent, ExerciseComponentProps} from "../types.tsx";
+import type {ExerciseComponent, ExerciseComponentProps} from "../src/framework/types.tsx";
 import {showInternalError} from "./InternalError.tsx";
-import {createIndexArray} from "../util/createIndexArray.ts";
-import {shuffleInPlace} from "../util/random/shuffleInPlace.ts";
+import {createIndexArray} from "../src/framework/util/createIndexArray.ts";
+import {shuffleInPlace} from "../src/framework/util/random/shuffleInPlace.ts";
 
 export interface SelectOneStepProps extends ExerciseComponentProps {
   readContent: ReactNode;

@@ -1,4 +1,4 @@
-import type {ExerciseComponentProps} from "../types.tsx";
+import type {ExerciseComponentProps} from "../src/framework/types.tsx";
 import type {ReactNode} from "react";
 import {ReadStep} from "./ReadStep.tsx";
 import {Alert} from "@mui/material";

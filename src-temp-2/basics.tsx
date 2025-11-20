@@ -1,10 +1,10 @@
-import {mathSpan} from "../../../framework/technical-components/Math/Math.tsx";
-import {type ContentNode, createStream, type ExerciseInstance} from "../../../framework/types.tsx";
-import {randomElement} from "../../../framework/util/random/randomElement.ts";
-import {createSequence} from "../../../framework/exercise-components/Sequence.tsx";
-import {createSelectOneStep} from "../../../framework/exercise-components/SelectOneStep.tsx";
+import {mathSpan} from "../src/framework/technical-components/Math/Math.tsx";
+import {type ContentNode, createStream, type ExerciseInstance} from "../src/framework/types.tsx";
+import {randomElement} from "../src/framework/util/random/randomElement.ts";
+import {createSequence} from "./Sequence.tsx";
+import {createSelectOneStep} from "./SelectOneStep.tsx";
 import type {ReactNode} from "react";
-import {randomInt} from "../../../framework/util/random/randomInt.ts";
+import {randomInt} from "../src/framework/util/random/randomInt.ts";
 
 interface MyExerciseInstanceParameters {
   leftSideFormula: string;

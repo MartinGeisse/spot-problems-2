@@ -1,6 +1,6 @@
 import {type ReactElement, type ReactNode, useState} from "react";
-import {type ExerciseComponent, type ExerciseComponentProps} from "../types.tsx";
-import {type NonEmptyArray} from "../util/NonEmptyArray";
+import {type ExerciseComponent, type ExerciseComponentProps} from "../src/framework/types.tsx";
+import {type NonEmptyArray} from "../src/framework/util/NonEmptyArray";
 
 export interface SequenceProps extends ExerciseComponentProps {
   steps: NonEmptyArray<ExerciseComponent>;

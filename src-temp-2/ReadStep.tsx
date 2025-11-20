@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import {Button} from "@mui/material";
-import type {ExerciseComponent, ExerciseComponentProps} from "../types.tsx";
+import type {ExerciseComponent, ExerciseComponentProps} from "../src/framework/types.tsx";
 
 export interface ReadStepProps extends ExerciseComponentProps {
   content: ReactNode

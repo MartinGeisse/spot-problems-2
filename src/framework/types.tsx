@@ -1,4 +1,4 @@
-import {type ReactElement} from "react";
+import {type ReactElement, type ReactNode} from "react";
 
 // --------------------------------------------------------------------------------------------------------------------
 // content nodes
@@ -38,4 +38,14 @@ export type ExerciseComponent = (props: ExerciseComponentProps) => ReactElement;
 export interface ExerciseInstance {
   component: ExerciseComponent;
   maxHintLevel: HintLevel;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// hint level-aware content
+// --------------------------------------------------------------------------------------------------------------------
+
+export type HintLevelApplicable = ReactNode | ((detailLevel: HintLevel) => ReactNode);
+
+export function applyHintLevel(hintLevel: HintLevel, applicable: HintLevelApplicable): ReactNode {
+  return typeof applicable === "function" ? applicable(hintLevel) : applicable;
 }

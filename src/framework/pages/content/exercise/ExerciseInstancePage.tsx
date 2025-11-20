@@ -47,7 +47,9 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
               close={() => sethintLevelSelectionOpen(false)}
           />
         </div>
-        <ExerciseComponent hintLevel={selectedHintLevel} onFinish={props.switchToNewInstance} />
+        <div style={{ display: hintLevelSelectionOpen ? "none" : "block"}}>
+          <ExerciseComponent hintLevel={selectedHintLevel} onFinish={props.switchToNewInstance} />
+        </div>
       </PageWithHeader>
   </>;
 }

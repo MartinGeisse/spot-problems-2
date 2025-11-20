@@ -17,10 +17,12 @@ const texts = ["No Hints", "Show Hints", "Show Extra Hints"];
 export function HintLevelSelection(props: StreamSelectionProps): ReactElement {
   return <>
     {texts.map((text, index) => <div>
-      <div style={{ display: "inlineBlock", width: "2em" }}>
-        {props.selectedHintLevel === index && "👉"}
-      </div>
-      <Button disabled={index > props.maxHintLevel} onClick={() => props.selectHintLevel(index as HintLevel)}>{text}</Button>
+      <Button disabled={index > props.maxHintLevel} onClick={() => props.selectHintLevel(index as HintLevel)}>
+        <div style={{ display: "inlineBlock", width: "2em" }}>
+          {props.selectedHintLevel === index && "👉"}
+        </div>
+        {text}
+      </Button>
     </div>)}
   </>;
 }
