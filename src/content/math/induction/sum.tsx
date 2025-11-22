@@ -342,5 +342,5 @@ export const sumSubtree: ContentNode = {
   id: "sum",
   name: "Sums",
   type: "exercise",
-  instantiate: () => randomElement(sumExerciseInstances),
+  exercise: () => randomElement(sumExerciseInstances),
 };

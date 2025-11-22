@@ -1,10 +1,11 @@
 import {type ReactNode, useState} from "react";
 import {Button} from "@mui/material";
-import type {ExerciseComponent, ExerciseComponentProps} from "../src/framework/types.tsx";
-import {showInternalError} from "./InternalError.tsx";
-import {createIndexArray} from "../src/framework/util/createIndexArray.ts";
-import {shuffleInPlace} from "../src/framework/util/random/shuffleInPlace.ts";
+import type {ExerciseComponent, ExerciseComponentProps} from "../types.tsx";
+import {showInternalError} from "../../../src-temp-2/InternalError.tsx";
+import {createIndexArray} from "../util/createIndexArray.ts";
+import {shuffleInPlace} from "../util/random/shuffleInPlace.ts";
 
+// TODO possibly extend ExerciseComponentProps by disabled flag to support usage in ScrollingSequence
 export interface SelectOneStepProps extends ExerciseComponentProps {
   readContent: ReactNode;
   choices: ReactNode[];
@@ -19,7 +20,7 @@ export function SelectOneStep(props: SelectOneStepProps) {
   
   function onClickChoice(index: number) {
     setSelectedChoice(index);
-    props.onFinish();
+    setTimeout(() => props.onFinish(), 500);
   }
   
   // gets applied only to disabled buttons, i.e. after clicking a choice
@@ -44,7 +45,7 @@ export function SelectOneStep(props: SelectOneStepProps) {
     {props.choices.map((choice, index) => <div>
       <Button
           variant="outlined"
-          disabled={props.disabled}
+          disabled={selectedChoice !== null}
           sx={{
             "&.Mui-disabled": {
               background: getGradingColor(index),
@@ -85,7 +86,7 @@ export function createSelectOneStep(
       readContent={readContent}
       choices={choices}
       correctChoiceIndex={correctChoiceIndex}
-      disabled={props.disabled}
+      hintLevel={props.hintLevel}
       onFinish={props.onFinish}
   />;
 }

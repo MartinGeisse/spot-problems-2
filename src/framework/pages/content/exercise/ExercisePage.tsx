@@ -14,11 +14,11 @@ export function ExercisePage(props: ExercisePageProps) {
     const navigateToContentNode = useNavigateToContentNode();
     
     const [instanceCounter, setInstanceCounter] = useState(0);
-    const [unitInstance, setUnitInstance] = useState(() => props.exerciseNode.instantiate());
+    const [unitInstance, setUnitInstance] = useState(() => props.exerciseNode.exercise());
     
     function switchToNewInstance() {
         setInstanceCounter(instanceCounter + 1);
-        setUnitInstance(() => props.exerciseNode.instantiate());
+        setUnitInstance(() => props.exerciseNode.exercise());
     }
     
     function leaveExercise() {

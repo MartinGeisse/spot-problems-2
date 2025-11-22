@@ -2,7 +2,7 @@ import {mathSpan} from "../src/framework/technical-components/Math/Math.tsx";
 import {type ContentNode, createStream, type ExerciseInstance} from "../src/framework/types.tsx";
 import {randomElement} from "../src/framework/util/random/randomElement.ts";
 import {createSequence} from "./Sequence.tsx";
-import {createSelectOneStep} from "./SelectOneStep.tsx";
+import {createSelectOneStep} from "../src/framework/exercise-components/SelectOneStep.tsx";
 import type {ReactNode} from "react";
 import {randomInt} from "../src/framework/util/random/randomInt.ts";
 

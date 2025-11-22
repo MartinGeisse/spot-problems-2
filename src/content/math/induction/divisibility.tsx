@@ -401,5 +401,5 @@ export const divisibilitySubtree: ContentNode = {
   id: "divisibility",
   name: "Divisibility",
   type: "exercise",
-  instantiate: () => randomElement(divisibilityExerciseInstances),
+  exercise: () => randomElement(divisibilityExerciseInstances),
 };

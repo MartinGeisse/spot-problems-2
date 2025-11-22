@@ -16,8 +16,10 @@ export interface FolderNode extends ContentNodeBase {
     children: ContentNode[];
 }
 
+export type Exercise = () => ExerciseInstance;
+
 export interface ExerciseNode extends ContentNodeBase {
-    instantiate(): ExerciseInstance;
+  exercise: Exercise;
 }
 
 export type ContentNode = FolderNode | ExerciseNode;
