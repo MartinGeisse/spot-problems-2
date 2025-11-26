@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {sounds} from "../../sounds";
+import {sounds} from "../../sounds.ts";
 import {isFastMode} from "../App/developer";
 
 export interface ExerciseSingletonFeedback {
