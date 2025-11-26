@@ -21,17 +21,17 @@ export interface SortExerciseProps extends ExerciseComponentProps {
 
 export function SortExercise(props: SortExerciseProps) {
     const [itemIds, setitemIds] = useState(getShuffled(createIndexArray(props.items.length)));
-    const [result, setResult] = useState<string | null>(null);
+    const [finished, setFinished] = useState(false);
 
     function onClickCheckButton() {
-        if (result) {
+        if (finished) {
             return;
         }
       console.log("***2");
         const correct = itemIds.every((itemId, index) => itemId === index);
-        setResult(correct ? "correct" : "wrong");
         if (correct) {
             sounds.correct.play();
+            setFinished(true);
             props.onFinish();
         } else {
             sounds.wrong.play();
@@ -66,7 +66,7 @@ export function SortExercise(props: SortExerciseProps) {
             </SortableContext>
         </DndContext>
         <p style={{textAlign: "center"}}>
-            <Button variant="contained" onClick={onClickCheckButton}>{"check"}</Button>
+            <Button variant="contained" onClick={onClickCheckButton} disabled={finished}>{"check"}</Button>
             <div></div>
         </p>
     </>;

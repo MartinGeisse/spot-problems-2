@@ -4,7 +4,7 @@ export interface Sound {
 }
 
 function load(name: string): Sound {
-    const audio = new Audio((window as any).applicationBaseUrl + `/sounds/${name}`);
+    const audio = new Audio(import.meta.env.BASE_URL + `/sounds/${name}`);
     return {
         play: () => audio.play().then(() => {}),
     };
