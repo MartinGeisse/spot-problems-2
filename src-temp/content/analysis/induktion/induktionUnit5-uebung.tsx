@@ -6,7 +6,7 @@ import {EquationTransformationArrowExercise} from "./EquationTransformationArrow
 import {createReadStep} from "../../../framework/exercise-components/read/createReadStep";
 import {createChoiceStep} from "../../../framework/exercise-components/choice/createChoiceStep";
 import {CenterInline} from "../../../framework/technical-components/layout/CenterInline";
-import {SortEquationTransformationExercise} from "./SortEquationTransformationExercise";
+import {SortEquationTransformationExercise} from "../../../../src/framework/exercise-components/math/SortEquationTransformationExercise";
 
 export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", () => [
     createReadStep({

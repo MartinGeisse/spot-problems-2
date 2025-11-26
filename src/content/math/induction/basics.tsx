@@ -5,6 +5,9 @@ import {createSelectOneStep} from "../../../framework/exercise-components/Select
 import {createRandomVariantExercise} from "../../../framework/exercise-components/util/createRandomVariantExercise.ts";
 import {randomInt} from "../../../framework/util/random/randomInt.ts";
 import {createReplacingSequence} from "../../../framework/exercise-components/ReplacingSequence.tsx";
+import {
+  createSortEquationTransformationExercise
+} from "../../../framework/exercise-components/math/SortEquationTransformationExercise.tsx";
 
 interface MyExerciseInstanceParameters {
   leftSideFormula: string;
@@ -47,9 +50,25 @@ function createMyExerciseInstance(parameters: MyExerciseInstanceParameters): Exe
 
   return () => ({
     component: createReplacingSequence([
-      createNumberCaseStep(problem, parameters, 1),
-      createNumberCaseStep(problem, parameters, n2),
-      createNumberCaseStep(problem, parameters, n3),
+      // createNumberCaseStep(problem, parameters, 1),
+      // createNumberCaseStep(problem, parameters, n2),
+      // createNumberCaseStep(problem, parameters, n3),
+      createSortEquationTransformationExercise({
+        description: <>
+          <p>In the induction step, we can assume that {mathSpan("#sum_{i=1}^ni = #frac{n(n+1)}2")}
+            (induction hypothesis), and we have to prove that {mathSpan("#sum_{i=1}^{n+1}i = #frac{(n+1)((n+1)+1)}2")}.</p>
+          <p>Prove this by putting the equations in the correct order.</p>
+        </>,
+        equations: [
+          "#sum_{i=1}^{n+1}i",
+          "= (n+1) + #sum_{i=1}^ni",
+          "= (n+1) + #frac{n(n+1)}2",
+          "= #frac{2(n+1)}2 + #frac{n(n+1)}2",
+          "= #frac{2(n+1) + n(n+1)}2",
+          "= #frac{(n+1)(n+2)}2",
+        ],
+        equationSize: 0.8,
+      }),
     ]),
     maxHintLevel: 0, // TODO add hints
   });
