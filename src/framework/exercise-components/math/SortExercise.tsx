@@ -1,43 +1,40 @@
-import {StepInstanceProps} from "../../../framework/exercise-components/step/createSteppedUnit";
-import React, {ReactNode, useState} from "react";
+import {type ReactNode, useState} from "react";
 import {closestCenter, DndContext, KeyboardSensor, PointerSensor, useSensor, useSensors,} from '@dnd-kit/core';
 import {
-    arrayMove,
-    SortableContext,
-    sortableKeyboardCoordinates,
-    useSortable,
-    verticalListSortingStrategy,
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
-import {useFlashExerciseBackgroundCorrectOrWrong} from "../../../framework/technical-components/effects/useFlashExerciseBackground";
-import {sounds} from "../../../framework/sounds";
+import {sounds} from "../../sounds.ts";
 import {Button} from "@mui/material";
-import {createIndexArray} from "../../../framework/util/createIndexArray";
-import {getShuffled} from "../../../framework/util/random/getShuffled";
+import {createIndexArray} from "../../util/createIndexArray.ts";
+import {getShuffled} from "../../util/random/getShuffled.ts";
+import type {ExerciseComponentProps} from "../../types.tsx";
 
-export interface SortExerciseProps extends StepInstanceProps {
+export interface SortExerciseProps extends ExerciseComponentProps {
     description: ReactNode;
     items: ReactNode[];
 }
 
 export function SortExercise(props: SortExerciseProps) {
-    const flashExerciseBackgroundCorrectOrWrong = useFlashExerciseBackgroundCorrectOrWrong();
-    const [enabled, setEnabled] = useState(true);
     const [itemIds, setitemIds] = useState(getShuffled(createIndexArray(props.items.length)));
+    const [result, setResult] = useState<string | null>(null);
 
     function onClickCheckButton() {
-        if (!enabled) {
+        if (result) {
             return;
         }
-        setEnabled(false);
-        if (itemIds.every((itemId, index) => itemId === index)) {
+      console.log("***2");
+        const correct = itemIds.every((itemId, index) => itemId === index);
+        setResult(correct ? "correct" : "wrong");
+        if (correct) {
             sounds.correct.play();
-            flashExerciseBackgroundCorrectOrWrong(true, 1000, props.onFinishStep);
-            props.onProgress();
+            props.onFinish();
         } else {
             sounds.wrong.play();
-            flashExerciseBackgroundCorrectOrWrong(false, 500, () => setEnabled(true));
-            props.onMistake();
         }
     }
 
@@ -69,7 +66,8 @@ export function SortExercise(props: SortExerciseProps) {
             </SortableContext>
         </DndContext>
         <p style={{textAlign: "center"}}>
-            <Button variant="contained" onClick={onClickCheckButton}>{"prüfen"}</Button>
+            <Button variant="contained" onClick={onClickCheckButton}>{"check"}</Button>
+            <div></div>
         </p>
     </>;
 }
