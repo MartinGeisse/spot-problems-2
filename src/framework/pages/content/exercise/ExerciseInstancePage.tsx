@@ -4,6 +4,8 @@ import {Button, IconButton} from "@mui/material";
 import {useState} from "react";
 import {PageWithHeader} from "../../../technical-components/layout/PageWithHeader";
 import {HintLevelSelection} from "./HintLevelSelection.tsx";
+import {type ExerciseFeedback, exerciseFeedbackContext} from "../../../exercise-components/useExerciseFeedback.tsx";
+import {sounds} from "../../../sounds.ts";
 
 export interface UnitInstancePageProps {
   exerciseName: string;
@@ -17,6 +19,7 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
     
   const [selectedHintLevel, setselectedHintLevel] = useState<HintLevel>(0);
   const [hintLevelSelectionOpen, sethintLevelSelectionOpen] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState("white");
   
   function onClickCancel() {
       // eslint-disable-next-line no-restricted-globals
@@ -24,6 +27,21 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
         props.leaveExercise();
       }
   }
+  
+  const exerciseFeedback: ExerciseFeedback = {
+    flashBackground(correct: boolean, callback?: () => void) {
+      setBackgroundColor(correct ? "#0f0" : "#f00");
+      setTimeout(() => {
+        setBackgroundColor("white");
+        if (callback) {
+          callback();
+        }
+      }, 500);
+    },
+    playSound(correct: boolean) {
+      (correct ? sounds.correct : sounds.wrong).play();
+    },
+  };
   
   return <>
       <PageWithHeader
@@ -47,8 +65,13 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
               close={() => sethintLevelSelectionOpen(false)}
           />
         </div>
-        <div style={{ display: hintLevelSelectionOpen ? "none" : "block"}}>
-          <ExerciseComponent hintLevel={selectedHintLevel} onFinish={props.switchToNewInstance} />
+        <div style={{
+          display: hintLevelSelectionOpen ? "none" : "block",
+          backgroundColor,
+        }}>
+          <exerciseFeedbackContext.Provider value={exerciseFeedback}>
+            <ExerciseComponent hintLevel={selectedHintLevel} onFinish={props.switchToNewInstance} />
+          </exerciseFeedbackContext.Provider>
         </div>
       </PageWithHeader>
   </>;

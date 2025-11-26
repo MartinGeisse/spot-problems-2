@@ -13,6 +13,7 @@ import {Button} from "@mui/material";
 import {createIndexArray} from "../../util/createIndexArray.ts";
 import {getShuffled} from "../../util/random/getShuffled.ts";
 import type {ExerciseComponentProps} from "../../types.tsx";
+import {useExerciseFeedback} from "../useExerciseFeedback.tsx";
 
 export interface SortExerciseProps extends ExerciseComponentProps {
     description: ReactNode;
@@ -20,6 +21,8 @@ export interface SortExerciseProps extends ExerciseComponentProps {
 }
 
 export function SortExercise(props: SortExerciseProps) {
+    const feedback = useExerciseFeedback();
+    
     const [itemIds, setitemIds] = useState(getShuffled(createIndexArray(props.items.length)));
     const [finished, setFinished] = useState(false);
 
@@ -27,15 +30,16 @@ export function SortExercise(props: SortExerciseProps) {
         if (finished) {
             return;
         }
-      console.log("***2");
         const correct = itemIds.every((itemId, index) => itemId === index);
         if (correct) {
-            sounds.correct.play();
-            setFinished(true);
-            props.onFinish();
-        } else {
-            sounds.wrong.play();
+          setFinished(true);
         }
+        feedback.playSound(correct);
+        feedback.flashBackground(correct, () => {
+          if (correct) {
+              props.onFinish();
+          }
+        });
     }
 
     function handleDragEnd(event: any) {
