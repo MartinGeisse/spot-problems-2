@@ -1,7 +1,7 @@
 import {type ReactNode, useState} from "react";
 import {Button} from "@mui/material";
 import type {ExerciseComponent, ExerciseComponentProps} from "../types.tsx";
-import {showInternalError} from "../../../src-temp-2/InternalError.tsx";
+import {showInternalError} from "./InternalError.tsx";
 import {createIndexArray} from "../util/createIndexArray.ts";
 import {shuffleInPlace} from "../util/random/shuffleInPlace.ts";
 
@@ -80,7 +80,7 @@ export function createSelectOneStep(
       choices[originalIndexToShufflesIndex[originalIndex]] = originalChoices[originalIndex];
     }
     
-    correctChoiceIndex = originalIndexToShufflesIndex[correctChoiceIndex];
+    correctChoiceIndex = originalIndexToShufflesIndex[correctChoiceIndex] ?? -1;
   }
   return props => <SelectOneStep
       readContent={readContent}

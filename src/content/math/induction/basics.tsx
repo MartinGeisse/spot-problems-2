@@ -50,9 +50,9 @@ function createMyExerciseInstance(parameters: MyExerciseInstanceParameters): Exe
 
   return () => ({
     component: createReplacingSequence([
-      // createNumberCaseStep(problem, parameters, 1),
-      // createNumberCaseStep(problem, parameters, n2),
-      // createNumberCaseStep(problem, parameters, n3),
+      createNumberCaseStep(problem, parameters, 1),
+      createNumberCaseStep(problem, parameters, n2),
+      createNumberCaseStep(problem, parameters, n3),
       createSortEquationTransformationExercise({
         description: <>
           <p>In the induction step, we can assume that {mathSpan("#sum_{i=1}^ni = #frac{n(n+1)}2")}
