@@ -1,6 +1,6 @@
 import type {ExerciseComponentProps} from "../src/framework/types.tsx";
 import type {ReactNode} from "react";
-import {ReadStep} from "./ReadStep.tsx";
+import {ReadStep} from "../src/framework/exercise-components/ReadStep.tsx";
 import {Alert} from "@mui/material";
 
 export interface InternalErrorProps extends ExerciseComponentProps {

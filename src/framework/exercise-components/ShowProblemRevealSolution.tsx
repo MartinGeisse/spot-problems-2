@@ -23,11 +23,11 @@ export function ShowProblemRevealSolution(props: ShowProblemRevealSolutionProps)
       <div style={{marginBottom: "1em"}}>{applyHintLevel(props.hintLevel, props.problem)}</div>
       {!revealed && <Button onClick={() => setRevealed(true)} disabled={revealed}>Show solution</Button>}
       {revealed && <div style={{marginBottom: "1em"}}>{applyHintLevel(props.hintLevel, props.solution)}</div>}
-      {revealed && <Button onClick={props.onFinish}>Next Problem</Button>}
+      {revealed && <Button onClick={props.onFinish} disabled={props.finished}>Next Problem</Button>}
     </div>
   );
 }
 
 export function createShowProblemRevealSolution(problem: HintLevelApplicable, solution: HintLevelApplicable): ExerciseComponent {
-  return props => <ShowProblemRevealSolution problem={problem} solution={solution} hintLevel={props.hintLevel} onFinish={props.onFinish} />;
+  return props => <ShowProblemRevealSolution {...props} problem={problem} solution={solution} />;
 }

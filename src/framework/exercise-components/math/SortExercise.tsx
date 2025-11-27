@@ -8,7 +8,6 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
-import {sounds} from "../../sounds.ts";
 import {Button} from "@mui/material";
 import {createIndexArray} from "../../util/createIndexArray.ts";
 import {getShuffled} from "../../util/random/getShuffled.ts";
@@ -22,22 +21,18 @@ export interface SortExerciseProps extends ExerciseComponentProps {
 
 export function SortExercise(props: SortExerciseProps) {
     const feedback = useExerciseFeedback();
-    
+    const disabled = props.finished || feedback.disabled;
+   
     const [itemIds, setitemIds] = useState(getShuffled(createIndexArray(props.items.length)));
-    const [finished, setFinished] = useState(false);
 
     function onClickCheckButton() {
-        if (finished) {
+        if (disabled) {
             return;
         }
         const correct = itemIds.every((itemId, index) => itemId === index);
-        if (correct) {
-          setFinished(true);
-        }
-        feedback.playSound(correct);
-        feedback.flashBackground(correct, () => {
+        feedback.show(correct, () => {
           if (correct) {
-              props.onFinish();
+            props.onFinish();
           }
         });
     }
@@ -65,13 +60,12 @@ export function SortExercise(props: SortExerciseProps) {
     return <>
         <p>{props.description}</p>
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-            <SortableContext items={itemIds} strategy={verticalListSortingStrategy}>
+            <SortableContext items={itemIds} strategy={verticalListSortingStrategy} disabled={disabled}>
                 {itemIds.map(id => <Item key={id} id={id} content={props.items[id]} />)}
             </SortableContext>
         </DndContext>
         <p style={{textAlign: "center"}}>
-            <Button variant="contained" onClick={onClickCheckButton} disabled={finished}>{"check"}</Button>
-            <div></div>
+            <Button variant="contained" onClick={onClickCheckButton} disabled={disabled}>{"check"}</Button>
         </p>
     </>;
 }

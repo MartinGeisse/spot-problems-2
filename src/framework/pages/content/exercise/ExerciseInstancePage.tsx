@@ -19,7 +19,7 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
     
   const [selectedHintLevel, setselectedHintLevel] = useState<HintLevel>(0);
   const [hintLevelSelectionOpen, sethintLevelSelectionOpen] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState("white");
+  const [feedbackState, setFeedbackState] = useState<boolean | null>(null);
   
   function onClickCancel() {
       // eslint-disable-next-line no-restricted-globals
@@ -29,18 +29,17 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
   }
   
   const exerciseFeedback: ExerciseFeedback = {
-    flashBackground(correct: boolean, callback?: () => void) {
-      setBackgroundColor(correct ? "#0f0" : "#f00");
+    show(correct: boolean, callback?: () => void) {
+      (correct ? sounds.correct : sounds.wrong).play();
+      setFeedbackState(correct);
       setTimeout(() => {
-        setBackgroundColor("white");
+        setFeedbackState(null);
         if (callback) {
           callback();
         }
       }, 500);
     },
-    playSound(correct: boolean) {
-      (correct ? sounds.correct : sounds.wrong).play();
-    },
+    disabled: feedbackState !== null,
   };
   
   return <>
@@ -67,10 +66,10 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
         </div>
         <div style={{
           display: hintLevelSelectionOpen ? "none" : "block",
-          backgroundColor,
+          backgroundColor: feedbackState === null ? "white" : feedbackState ? "#0f0" : "#f00",
         }}>
           <exerciseFeedbackContext.Provider value={exerciseFeedback}>
-            <ExerciseComponent hintLevel={selectedHintLevel} onFinish={props.switchToNewInstance} />
+            <ExerciseComponent hintLevel={selectedHintLevel} finished={false} onFinish={props.switchToNewInstance} />
           </exerciseFeedbackContext.Provider>
         </div>
       </PageWithHeader>

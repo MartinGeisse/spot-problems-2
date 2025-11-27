@@ -1,17 +1,15 @@
 import {createContext, useContext} from "react";
 
 export interface ExerciseFeedback {
-  flashBackground(correct: boolean, callback?: () => void): void;
-  playSound(correct: boolean): void;
+  show(correct: boolean, callback?: () => void): void;
+  disabled: boolean;
 }
 
 export const exerciseFeedbackContext = createContext<ExerciseFeedback>({
-  flashBackground() {
+  show() {
     alert("no context");
   },
-  playSound(_correct: boolean) {
-    alert("no context");
-  }
+  disabled: false,
 });
 
 export function useExerciseFeedback() {

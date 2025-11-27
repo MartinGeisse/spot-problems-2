@@ -45,7 +45,7 @@ export function SelectOneStep(props: SelectOneStepProps) {
     {props.choices.map((choice, index) => <div>
       <Button
           variant="outlined"
-          disabled={selectedChoice !== null}
+          disabled={props.finished || (selectedChoice !== null)}
           sx={{
             "&.Mui-disabled": {
               background: getGradingColor(index),
@@ -86,6 +86,7 @@ export function createSelectOneStep(
       readContent={readContent}
       choices={choices}
       correctChoiceIndex={correctChoiceIndex}
+      finished={props.finished}
       hintLevel={props.hintLevel}
       onFinish={props.onFinish}
   />;

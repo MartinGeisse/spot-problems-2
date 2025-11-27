@@ -33,6 +33,7 @@ export type HintLevel = 0 | 1 | 2;
 export interface ExerciseComponentProps {
   hintLevel: HintLevel;
   onFinish: () => void;
+  finished: boolean;
 }
 
 export type ExerciseComponent = (props: ExerciseComponentProps) => ReactElement;

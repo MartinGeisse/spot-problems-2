@@ -20,6 +20,7 @@ export function SortEquationTransformationExercise(props: SortEquationTransforma
             items={props.equations.map(mathDiv)}
             hintLevel={props.hintLevel}
             onFinish={props.onFinish}
+            finished={props.finished}
         />
     </div>;
 }

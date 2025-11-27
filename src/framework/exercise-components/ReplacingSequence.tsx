@@ -23,7 +23,11 @@ export function ReplacingSequence(props: ReplacingSequenceProps): ReactElement {
         } 
       }
       return <div key={index} style={{ display: index === finishedSteps ? "block" : "none"}}>
-        <StepComponent hintLevel={props.hintLevel} onFinish={onFinishStep} />
+        <StepComponent
+            hintLevel={props.hintLevel}
+            onFinish={onFinishStep}
+            finished={props.finished || index < finishedSteps}
+        />
       </div>;
     })}
   </>;
@@ -31,6 +35,11 @@ export function ReplacingSequence(props: ReplacingSequenceProps): ReactElement {
 
 export function createReplacingSequence(steps: NonEmptyArray<ExerciseComponent>): ExerciseComponent {
   return (props: ExerciseComponentProps) => {
-    return <ReplacingSequence hintLevel={props.hintLevel} onFinish={props.onFinish} steps={steps} />;
+    return <ReplacingSequence
+        hintLevel={props.hintLevel}
+        onFinish={props.onFinish}
+        finished={props.finished}
+        steps={steps}
+    />;
   };
 }
