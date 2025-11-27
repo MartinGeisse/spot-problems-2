@@ -1,4 +1,4 @@
-import {type ExerciseInstance, type HintLevel} from "../../../types.tsx";
+import {type ExerciseComponentProps, type ExerciseInstance, type HintLevel} from "../../../types.tsx";
 import CancelIcon from '@mui/icons-material/Cancel';
 import {Button, IconButton} from "@mui/material";
 import {useState} from "react";
@@ -38,6 +38,17 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
           callback();
         }
       }, 500);
+    },
+    finish(props: ExerciseComponentProps, correct: boolean, onWrong?: () => void) {
+      if (feedbackState === null && !props.finished) {
+        this.show(correct, () => {
+          if (correct) {
+            props.onFinish();
+          } else if (onWrong) {
+            onWrong();
+          }
+        });
+      }
     },
     disabled: feedbackState !== null,
   };

@@ -2,7 +2,7 @@ import {createSteppedUnit, StepInstanceProps} from "../../../framework/exercise-
 import {mathInlineBlock, mathSpan} from "../../../framework/technical-components/Math/Math";
 import {TextSize} from "../../../framework/technical-components/layout/TextSize";
 import {CenteredContent} from "../../../framework/technical-components/layout/CenteredContent";
-import {EquationTransformationArrowExercise} from "./EquationTransformationArrowExercise";
+import {EquationTransformationArrowExercise} from "../../../../src/framework/exercise-components/math/EquationTransformationArrowExercise";
 import {createReadStep} from "../../../framework/exercise-components/read/createReadStep";
 import {createChoiceStep} from "../../../framework/exercise-components/choice/createChoiceStep";
 import {CenterInline} from "../../../framework/technical-components/layout/CenterInline";

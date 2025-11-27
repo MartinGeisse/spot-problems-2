@@ -6,7 +6,7 @@ import {withTextSize} from "../../../framework/exercise-components/step/withText
 import {CenteredContent} from "../../../framework/technical-components/layout/CenteredContent";
 import {TextSize} from "../../../framework/technical-components/layout/TextSize";
 import {SortEquationTransformationExercise} from "../../../../src/framework/exercise-components/math/SortEquationTransformationExercise";
-import {EquationTransformationArrowExercise} from "./EquationTransformationArrowExercise";
+import {EquationTransformationArrowExercise} from "../../../../src/framework/exercise-components/math/EquationTransformationArrowExercise";
 
 export const induktionUnit7 = createSteppedUnit("summeUngeradeBeweis", "Beweis", () => [
     createReadStep({

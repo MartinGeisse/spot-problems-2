@@ -26,15 +26,7 @@ export function SortExercise(props: SortExerciseProps) {
     const [itemIds, setitemIds] = useState(getShuffled(createIndexArray(props.items.length)));
 
     function onClickCheckButton() {
-        if (disabled) {
-            return;
-        }
-        const correct = itemIds.every((itemId, index) => itemId === index);
-        feedback.show(correct, () => {
-          if (correct) {
-            props.onFinish();
-          }
-        });
+        feedback.finish(props, itemIds.every((itemId, index) => itemId === index));
     }
 
     function handleDragEnd(event: any) {

@@ -8,6 +8,9 @@ import {createReplacingSequence} from "../../../framework/exercise-components/Re
 import {
   createSortEquationTransformationExercise
 } from "../../../framework/exercise-components/math/SortEquationTransformationExercise.tsx";
+import {
+  createEquationTransformationArrowExercise
+} from "../../../framework/exercise-components/math/EquationTransformationArrowExercise.tsx";
 
 interface MyExerciseInstanceParameters {
   leftSideFormula: string;
@@ -48,6 +51,15 @@ function createMyExerciseInstance(parameters: MyExerciseInstanceParameters): Exe
   const n2 = 2 + randomInt(3);
   const n3 = n2 + 1 + randomInt(3);
 
+  const equations = [
+    "#sum_{i=1}^{n+1}i",
+    "= (n+1) + #sum_{i=1}^ni",
+    "= (n+1) + #frac{n(n+1)}2",
+    "= #frac{2(n+1)}2 + #frac{n(n+1)}2",
+    "= #frac{2(n+1) + n(n+1)}2",
+    "= #frac{(n+1)(n+2)}2",
+  ];
+
   return () => ({
     component: createReplacingSequence([
       createNumberCaseStep(problem, parameters, 1),
@@ -59,37 +71,13 @@ function createMyExerciseInstance(parameters: MyExerciseInstanceParameters): Exe
             (induction hypothesis), and we have to prove that {mathSpan("#sum_{i=1}^{n+1}i = #frac{(n+1)((n+1)+1)}2")}.</p>
           <p>Prove this by putting the equations in the correct order.</p>
         </>,
-        equations: [
-          "#sum_{i=1}^{n+1}i",
-          "= (n+1) + #sum_{i=1}^ni",
-          "= (n+1) + #frac{n(n+1)}2",
-          "= #frac{2(n+1)}2 + #frac{n(n+1)}2",
-          "= #frac{2(n+1) + n(n+1)}2",
-          "= #frac{(n+1)(n+2)}2",
-        ],
+        equations,
         equationSize: 0.8,
       }),
+      createEquationTransformationArrowExercise(<>In which step has the induction hypothesis been used?</>, equations, 1),
     ]),
     maxHintLevel: 0, // TODO add hints
   });
-  
-  /*
-  TODO ScrollingSequence
-   
-  return {
-    streams: [createStream("default", createSequence(
-        [
-          createInstatiationStep(problem, parameters, 1),
-          createInstatiationStep(null, parameters, n2),
-          createInstatiationStep(null, parameters, n3),
-        ],
-        <>
-          Solution.
-        </>
-    ))],
-  };
-  
-   */
 }
 
 // nothing is randomized in the instances, only the choice of instance is
