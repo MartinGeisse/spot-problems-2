@@ -20,6 +20,7 @@ export type Exercise = () => ExerciseInstance;
 
 export interface ExerciseNode extends ContentNodeBase {
   exercise: Exercise;
+  repeat: boolean;
 }
 
 export type ContentNode = FolderNode | ExerciseNode;

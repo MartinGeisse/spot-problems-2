@@ -16,9 +16,13 @@ export function ExercisePage(props: ExercisePageProps) {
     const [instanceCounter, setInstanceCounter] = useState(0);
     const [unitInstance, setUnitInstance] = useState(() => props.exerciseNode.exercise());
     
-    function switchToNewInstance() {
+    function onFinishExerciseInstance() {
+      if (props.exerciseNode.repeat) {
         setInstanceCounter(instanceCounter + 1);
         setUnitInstance(() => props.exerciseNode.exercise());
+      } else {
+        leaveExercise();
+      }
     }
     
     function leaveExercise() {
@@ -31,7 +35,7 @@ export function ExercisePage(props: ExercisePageProps) {
         key={instanceCounter}
         exerciseName={props.exerciseNode.name}
         exerciseInstance={unitInstance}
-        switchToNewInstance={switchToNewInstance}
+        onFinishExerciseInstance={onFinishExerciseInstance}
         leaveExercise={leaveExercise}
     />;
 }

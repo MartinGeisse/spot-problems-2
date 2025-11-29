@@ -10,7 +10,7 @@ import {sounds} from "../../../sounds.ts";
 export interface UnitInstancePageProps {
   exerciseName: string;
   exerciseInstance: ExerciseInstance;
-  switchToNewInstance: () => void;
+  onFinishExerciseInstance: () => void;
   leaveExercise: () => void;
 }
 
@@ -80,7 +80,7 @@ export function ExerciseInstancePage(props: UnitInstancePageProps) {
           backgroundColor: feedbackState === null ? "white" : feedbackState ? "#0f0" : "#f00",
         }}>
           <exerciseFeedbackContext.Provider value={exerciseFeedback}>
-            <ExerciseComponent hintLevel={selectedHintLevel} finished={false} onFinish={props.switchToNewInstance} />
+            <ExerciseComponent hintLevel={selectedHintLevel} finished={false} onFinish={props.onFinishExerciseInstance} />
           </exerciseFeedbackContext.Provider>
         </div>
       </PageWithHeader>

@@ -343,4 +343,5 @@ export const sumSubtree: ContentNode = {
   name: "Sums",
   type: "exercise",
   exercise: () => randomElement(sumExerciseInstances),
+  repeat: true,
 };

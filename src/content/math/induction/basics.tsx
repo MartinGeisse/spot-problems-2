@@ -2,7 +2,6 @@ import type {ReactNode} from "react";
 import type {ContentNode, Exercise} from "../../../framework/types.tsx";
 import {mathSpan} from "../../../framework/technical-components/Math/Math.tsx";
 import {createSelectOneStep} from "../../../framework/exercise-components/SelectOneStep.tsx";
-import {createRandomVariantExercise} from "../../../framework/exercise-components/util/createRandomVariantExercise.ts";
 import {randomInt} from "../../../framework/util/random/randomInt.ts";
 import {createReplacingSequence} from "../../../framework/exercise-components/ReplacingSequence.tsx";
 import {
@@ -11,6 +10,10 @@ import {
 import {
   createEquationTransformationArrowExercise
 } from "../../../framework/exercise-components/math/EquationTransformationArrowExercise.tsx";
+
+// --------------------------------------------------------------------------------------------------------------------
+// mini-framework for basic exercises
+// --------------------------------------------------------------------------------------------------------------------
 
 interface MyExerciseInstanceParameters {
   leftSideFormula: string;
@@ -43,7 +46,11 @@ function createNumberCaseStep(prelude: ReactNode, parameters: MyExerciseInstance
   );
 }
 
-function createMyExerciseInstance(parameters: MyExerciseInstanceParameters): Exercise {
+// --------------------------------------------------------------------------------------------------------------------
+// actual exercises
+// --------------------------------------------------------------------------------------------------------------------
+
+function createMyExercise(parameters: MyExerciseInstanceParameters): Exercise {
   const problem = <>
     Problem: Prove that {mathSpan(parameters.leftSideFormula + " = " + parameters.rightSideFormula)} for all
     {mathSpan("n #in #mathbb{N}^+=\\{1, 2, 3, ...\\}")}.
@@ -80,14 +87,17 @@ function createMyExerciseInstance(parameters: MyExerciseInstanceParameters): Exe
   });
 }
 
-// nothing is randomized in the instances, only the choice of instance is
-export const basicInductionExercises: Exercise[] = [
-  createMyExerciseInstance({ leftSideFormula: "#sum_{i=1}^{n}i", rightSideFormula: "#frac{n(n+1)}2"}),
-];
-
 export const basicInductionSubtree: ContentNode = {
   id: "basics",
+  type: "folder",
   name: "Basics",
-  type: "exercise",
-  exercise: createRandomVariantExercise(basicInductionExercises),
+  children: [
+    {
+      id: "sumNat",
+      name: "sum of the first n numbers",
+      type: "exercise",
+      exercise: createMyExercise({ leftSideFormula: "#sum_{i=1}^{n}i", rightSideFormula: "#frac{n(n+1)}2"}),
+      repeat: false,
+    },
+  ],
 };
