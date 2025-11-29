@@ -18,6 +18,8 @@ import {
 interface MyExerciseInstanceParameters {
   leftSideFormula: string;
   rightSideFormula: string;
+  inductionStepEquations: string[];
+  inductionHypothesisUsageStepIndex: number;
 }
 
 function instantiateFormula(formula: string, n: number | string) {
@@ -46,10 +48,6 @@ function createNumberCaseStep(prelude: ReactNode, parameters: MyExerciseInstance
   );
 }
 
-// --------------------------------------------------------------------------------------------------------------------
-// actual exercises
-// --------------------------------------------------------------------------------------------------------------------
-
 function createMyExercise(parameters: MyExerciseInstanceParameters): Exercise {
   const problem = <>
     Problem: Prove that {mathSpan(parameters.leftSideFormula + " = " + parameters.rightSideFormula)} for all
@@ -57,16 +55,7 @@ function createMyExercise(parameters: MyExerciseInstanceParameters): Exercise {
   </>;
   const n2 = 2 + randomInt(3);
   const n3 = n2 + 1 + randomInt(3);
-
-  const equations = [
-    "#sum_{i=1}^{n+1}i",
-    "= (n+1) + #sum_{i=1}^ni",
-    "= (n+1) + #frac{n(n+1)}2",
-    "= #frac{2(n+1)}2 + #frac{n(n+1)}2",
-    "= #frac{2(n+1) + n(n+1)}2",
-    "= #frac{(n+1)(n+2)}2",
-  ];
-
+  
   return () => ({
     component: createReplacingSequence([
       createNumberCaseStep(problem, parameters, 1),
@@ -78,14 +67,22 @@ function createMyExercise(parameters: MyExerciseInstanceParameters): Exercise {
             (induction hypothesis), and we have to prove that {mathSpan("#sum_{i=1}^{n+1}i = #frac{(n+1)((n+1)+1)}2")}.</p>
           <p>Prove this by putting the equations in the correct order.</p>
         </>,
-        equations,
+        equations: parameters.inductionStepEquations,
         equationSize: 0.8,
       }),
-      createEquationTransformationArrowExercise(<>In which step has the induction hypothesis been used?</>, equations, 1),
+      createEquationTransformationArrowExercise(
+          <>In which step has the induction hypothesis been used?</>,
+          parameters.inductionStepEquations,
+          parameters.inductionHypothesisUsageStepIndex,
+        ),
     ]),
     maxHintLevel: 0, // TODO add hints
   });
 }
+
+// --------------------------------------------------------------------------------------------------------------------
+// actual exercises
+// --------------------------------------------------------------------------------------------------------------------
 
 export const basicInductionSubtree: ContentNode = {
   id: "basics",
@@ -96,7 +93,19 @@ export const basicInductionSubtree: ContentNode = {
       id: "sumNat",
       name: "sum of the first n numbers",
       type: "exercise",
-      exercise: createMyExercise({ leftSideFormula: "#sum_{i=1}^{n}i", rightSideFormula: "#frac{n(n+1)}2"}),
+      exercise: createMyExercise({
+        leftSideFormula: "#sum_{i=1}^{n}i",
+        rightSideFormula: "#frac{n(n+1)}2",
+        inductionStepEquations: [
+          "#sum_{i=1}^{n+1}i",
+          "= (n+1) + #sum_{i=1}^ni",
+          "= (n+1) + #frac{n(n+1)}2",
+          "= #frac{2(n+1)}2 + #frac{n(n+1)}2",
+          "= #frac{2(n+1) + n(n+1)}2",
+          "= #frac{(n+1)(n+2)}2",
+        ],
+        inductionHypothesisUsageStepIndex: 1,
+      }),
       repeat: false,
     },
   ],
