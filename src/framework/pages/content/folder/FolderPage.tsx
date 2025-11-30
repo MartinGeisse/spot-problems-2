@@ -1,4 +1,4 @@
-import {type FolderNode} from "../../../types.tsx";
+import {checkForDuplicateChildIds, type FolderNode} from "../../../types.tsx";
 import {FolderPageBreadcrumbs} from "./FolderPageBreadcrumbs";
 import {NavigationList} from "../../../technical-components/navigation/NavigationList/NavigationList";
 import {
@@ -13,6 +13,7 @@ export interface FolderPageProps {
 }
 
 export function FolderPage(props: FolderPageProps) {
+  checkForDuplicateChildIds(props.folder);
     const navigateToContentNode = useNavigateToContentNode();
     const navigationElements = props.folder.children.map(child => {
         return {

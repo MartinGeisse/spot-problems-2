@@ -8,6 +8,7 @@ export interface BreadcrumbsElement {
 
 export interface BreadcrumbsProps {
     elements: BreadcrumbsElement[];
+    trailingSeparator: boolean;
 }
 
 export function Breadcrumbs(props: BreadcrumbsProps) {
@@ -16,6 +17,7 @@ export function Breadcrumbs(props: BreadcrumbsProps) {
             {index > 0 ? " > " : ""}
             <Link to={element.to}>{element.text}</Link>
         </Fragment>)}
+        {props.trailingSeparator && " > "}
         &nbsp;
     </div>
 }

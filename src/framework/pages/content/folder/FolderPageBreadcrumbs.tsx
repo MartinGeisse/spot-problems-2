@@ -12,8 +12,7 @@ export function FolderPageBreadcrumbs(props: FolderPageBreadcrumbsProps) {
     if (!elements) {
         return <div>ERROR</div>;
     }
-    return <Breadcrumbs elements={elements} />;
-    
+    return <Breadcrumbs elements={elements} trailingSeparator={elements.length > 0} />;
 }
 
 function buildElements(props: FolderPageBreadcrumbsProps): BreadcrumbsElement[] | null {

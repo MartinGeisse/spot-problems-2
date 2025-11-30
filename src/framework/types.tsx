@@ -45,6 +45,22 @@ export interface ExerciseInstance {
 }
 
 // --------------------------------------------------------------------------------------------------------------------
+// content tree helper functions
+// --------------------------------------------------------------------------------------------------------------------
+
+export function checkForDuplicateChildIds(folderNode: FolderNode) {
+  const ids = new Set<string>();
+  for (const child of folderNode.children) {
+    if (ids.has(child.id)) {
+      const message = `Duplicate child id '${child.id}' in folder '${folderNode.id}'`;
+      alert(message);
+      throw new Error(message);
+    }
+    ids.add(child.id);
+  }
+}
+
+// --------------------------------------------------------------------------------------------------------------------
 // hint level-aware content
 // --------------------------------------------------------------------------------------------------------------------
 
