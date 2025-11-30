@@ -9,7 +9,7 @@ import {randomElement} from "../../../framework/util/random/randomElement.ts";
 // TODO hieraus ergeben sich aufgaben zur summenschreibweise an sich: "schreibe (informelle beschreibung) mit dem summenzeichen"
 // nothing is randomized in the instances, only the choice of instance is
 export const sumExerciseInstances: ExerciseInstance[] = [
-
+    
   natInductionExercise(
       <>{mathSpan("1+2+3+...+n = #sum_{i=1}^ni = #frac{n(n+1)}2")}</>,
       mathDiv("#sum_{i=1}^ni = #sum_{i=1}^1i = 1 = #frac{1(1+1)}2"),
@@ -283,6 +283,7 @@ export const sumExerciseInstances: ExerciseInstance[] = [
       </>
   ),
 
+
   // komplizierter -- summe auf beiden seiten!
   natInductionExercise(
       <>{mathSpan("#sum_{i=1}^{n}(#frac{1}{2i-1} - #frac{1}{2i}) = #sum_{i=n+1}^{2n}#frac{1}{i}")}</>,
@@ -314,9 +315,42 @@ export const sumExerciseInstances: ExerciseInstance[] = [
       },
   ),
 
+  natInductionExercise(
+      <>{mathSpan("1 + #frac{1}{2} + #frac{1}{4} + ... + #frac{1}{2^{n-1}} = #sum_{i=0}^{n-1}#frac{1}{2^i} = 2#cdot (1 - #frac{1}{2^n})")}</>,
+      <>{mathDiv("#sum_{i=0}^{n-1}#frac{1}{2^i} = #sum_{i=0}^{1-1}#frac{1}{2^i} = #frac{1}{2^0} = 1 = 2#cdot #frac{1}{2} = 2#cdot (1 - #frac{1}{2}) = 2#cdot (1 - #frac{1}{2^n})")}</>,
+      mathSpan("#sum_{i=0}^{(n+1)-1}#frac{1}{2^i} = 2#cdot (1 - #frac{1}{2^{n+1}})"),
+      _detailLevel => <>
+        {mathDiv("#sum_{i=0}^{(n+1)-1}#frac{1}{2^i}")}
+        {mathDiv("= #sum_{i=0}^n#frac{1}{2^i}")}
+        {mathDiv("= #frac{1}{2^n} + #sum_{i=0}^{n-1}#frac{1}{2^i}")}
+        <div>using the induction hypothesis:</div>
+        {mathDiv("= #frac{1}{2^n} + 2#cdot (1 - #frac{1}{2^n})")}
+        {mathDiv("= 2#cdot #frac{1}{2^{n+1}} + 2#cdot (1 - #frac{1}{2^n})")}
+        {mathDiv("= 2#cdot (#frac{1}{2^{n+1}} + 1 - #frac{1}{2^n})")}
+        {mathDiv("= 2#cdot (1 - #frac{1}{2^n} + #frac{1}{2^{n+1}})")}
+        {mathDiv("= 2#cdot (1 - (#frac{2}{2^{n+1}} - #frac{1}{2^{n+1}}))")}
+        {mathDiv("= 2#cdot (1 - #frac{1}{2^{n+1}})")}
+      </>
+  ),
 
-
-
+  natInductionExercise(
+      <>{mathSpan("#frac{1}{1#cdot 2} + #frac{1}{2#cdot 3} + #frac{1}{3#cdot 4} + ... + #frac{1}{n(n+1)} = #sum_{i=1}^{n}#frac{1}{i(i+1)} = #frac{n}{n+1}")}</>,
+      <>{mathDiv("#sum_{i=1}^{n}#frac{1}{i(i+1)} = #sum_{i=1}^{1}#frac{1}{i(i+1)} = #frac{1}{1(1+1)} = #frac{1}{2} = #frac{1}{1#cdot 2} = #frac{n}{n+1}")}</>,
+      mathSpan("#sum_{i=1}^{n+1}#frac{1}{i(i+1)} = #frac{n+1}{n+2}"),
+      _detailLevel => <>
+        {mathDiv("#sum_{i=1}^{n+1}#frac{1}{i(i+1)}")}
+        {mathDiv("= #frac{1}{(n+1)(n+2)} + #sum_{i=1}^{n}#frac{1}{i(i+1)}")}
+        <div>using the induction hypothesis:</div>
+        {mathDiv("= #frac{1}{(n+1)(n+2)} + #frac{n}{n+1}")}
+        {mathDiv("= #frac{1}{(n+1)(n+2)} + #frac{n(n+2)}{(n+1)(n+2)}")}
+        {mathDiv("= #frac{1 + n(n+2)}{(n+1)(n+2)}")}
+        {mathDiv("= #frac{n^2 + 2n + 1}{(n+1)(n+2)}")}
+        {mathDiv("= #frac{(n+1)^2}{(n+1)(n+2)}")}
+        {mathDiv("= #frac{n+1}{n+2}")}
+      </>
+  ),
+    
+    // (next 19)
 
 
 
